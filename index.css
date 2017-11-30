@@ -8,6 +8,7 @@
     white-space: nowrap;
     perspective: 800px;
     transform-style: preserve-3d;
+    perspective-origin: right center;
     font-size: 0;
 
     transition: transform .3s ease;
@@ -15,8 +16,7 @@
 
 .canvas:hover
 {
-    perspective-origin: 150% 50%;
-    transform: rotateX(-20deg);
+    transform: rotateX(-20deg) rotateY(-10deg);
 }
 
 .box
@@ -61,26 +61,11 @@
     height: 380px;
 
     background: linear-gradient(skyblue, darkslateblue);
-    background-size: 300%;
+    background-size: 200%;
     box-shadow: 0 -400px 300px -300px steelblue inset;
 
     animation: sky-transform 30s infinite;
 }
-
-/*TODO
-Цвета неба задаются следующими свойствами:
-    День:
-        background: skyblue;
-        box-shadow: 0 -400px 300px -300px steelblue inset;
-    Вечер:
-        background: darkslateblue;
-        box-shadow: 0 -400px 300px -300px orangered inset;
-    Ночь:
-        background: darkslateblue;
-        box-shadow: 0 -400px 300px -300px transparent inset;
-
-Нужно реализовать плавный переход между ними и зациклить его.
-*/
 
 .ship::after
 {
@@ -315,8 +300,7 @@
 .cloud-1
 {
     top: 10px;
-    transform: scale(.5);
-
+    transform: scale(-.45, .45);
     animation: cloud-move 20s linear infinite 5s;
 }
 
@@ -331,9 +315,9 @@
 .cloud-3
 {
     top: 100px;
-    transform: scale(.9);
+    transform: scale(-.9, .9);
 
-    animation: cloud-move 12s linear infinite 9s;
+    animation: cloud-move 12s linear infinite 7s;
 }
 
 .cloud-4
@@ -414,12 +398,12 @@
 
 @keyframes sun-rotation
 {
-    to
+    from
     {
         transform: rotate(0turn);
     }
 
-    from
+    to
     {
         transform: rotate(1turn);
     }
