@@ -13,26 +13,34 @@
 
 .canvas
 {
-    transform: translateX(60px);
     perspective-origin: right top;
+    transform: translateX(60px);
     transform-style: preserve-3d;
     backface-visibility: hidden;
 }
 
 .canvas:hover
 {
-    transform: translateX(60px) rotate3d(1, .5, -.1, -30deg);
+    transform: translateX(60px) rotateX(-15deg) rotateY(-30deg);
 }
 
-.box_top,
-.box_right
+.canvas::before,
+.canvas::after
+{
+    content: '';
+    display: block;
+}
+
+.canvas::before,
+.canvas::after
 {
     position: absolute;
     background: skyblue;
     backface-visibility: hidden;
 }
 
-.box_top
+.canvas::before,
+.canvas::after
 {
     width: 100%;
     height: 70px;
@@ -41,7 +49,7 @@
     transform: rotateX(90deg);
 }
 
-.box_right
+.canvas::after
 {
     width: 70px;
     height: 380px;
@@ -49,6 +57,8 @@
     right: 0;
     transform-origin: right;
     transform: rotateY(90deg);
+    box-shadow: 0 -400px 0 -360px rgba(42, 148, 214, .8) inset
+        , 0 -400px 0 -390px #1d7fbb inset;
 }
 
 .box_front
@@ -69,15 +79,19 @@
     box-shadow: 0 -400px 300px -300px steelblue inset;
 }
 
-.box_right,
 .box_front
 {
     animation: sky 100s linear 0s infinite;
 }
 
-.box_top
+.canvas::before
 {
     animation: sky-color 100s linear 0s infinite;
+}
+
+.canvas::after
+{
+    animation: sky-right 100s linear 0s infinite;
 }
 
 @keyframes sky-color
@@ -123,6 +137,45 @@
     {
         background: skyblue;
         box-shadow: 0 -400px 300px -300px steelblue inset;
+    }
+}
+
+@keyframes sky-right
+{
+    from
+    {
+        background: skyblue;
+        box-shadow: 0 -400px 0 -390px rgba(29, 127, 187, .8) inset
+            , 0 -400px 0 -390px steelblue inset
+            , 0 -100px 0 -60px rgba(42, 148, 214, .8) inset
+            , 0 -400px 300px -300px steelblue inset;
+    }
+
+    25%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 0 -390px rgba(29, 127, 187, .8) inset
+            , 0 -400px 0 -390px orangered inset
+            , 0 -100px 0 -60px rgba(42, 148, 214, .8) inset
+            , 0 -400px 300px -300px orangered inset;
+    }
+
+    50%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 0 -390px rgba(29, 127, 187, .8) inset
+            , 0 -400px 0 -390px darkslateblue inset
+            , 0 -100px 0 -60px rgba(42, 148, 214, .8) inset
+            , 0 -400px 300px -300px transparent inset;
+    }
+
+    to
+    {
+        background: skyblue;
+        box-shadow: 0 -400px 0 -390px rgba(29, 127, 187, .8) inset
+            , 0 -400px 0 -390px steelblue inset
+            , 0 -100px 0 -60px rgba(42, 148, 214, .8) inset
+            , 0 -400px 300px -300px steelblue inset;
     }
 }
 
@@ -492,7 +545,6 @@
     left: 0;
 
     height: 40px;
-    transform-style: preserve-3d;
 
     opacity: .8;
     background: #2a94d6;
