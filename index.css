@@ -1,14 +1,84 @@
+@keyframes swim {
+    to {
+        right: 110%;
+    }
+}
+
+@keyframes flow {
+    to {
+        left: 110%;
+    }
+}
+
+@keyframes smoke {
+    from {
+        opacity: 1;
+    }
+    to {
+        top: -40px;
+        right: 30px;
+        opacity: 0;
+
+        transform: scale(2);
+    }
+}
+
+@keyframes rise {
+    from {
+        transform: rotate(0);
+    }
+    to   {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes dayNightChanging {
+    25% {
+        background: skyblue;
+        box-shadow: 0 -400px 300px -300px steelblue inset;
+    }
+    50% {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px orangered inset;
+    }
+    75% {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px transparent inset;
+    }
+}
+
+@keyframes dayNightWithoutShining {
+    25% {
+        background: skyblue;
+    }
+    50% {
+        background: darkslateblue;
+    }
+    75% {
+        background: darkslateblue;
+    }
+}
+
+html {
+    --animation-speed: 5s;
+}
+
 .canvas
 {
     position: relative;
 
     width: 500px;
     height: 380px;
-    margin: 80px 0 0;
+    margin: 80px auto 0;
 
     transition: .3s ease;
+    perspective: 1600px;
 
-    perspective: 800px;
+    transform-style: preserve-3d;
+}
+
+.canvas:hover {
+    transform: rotateX(-20deg) rotateY(-30deg);
 }
 
 .box_front
@@ -21,6 +91,41 @@
     height: 380px;
 
     background: skyblue;
+    box-shadow: 0 -400px 300px -300px steelblue inset;
+
+    animation: dayNightChanging linear infinite;
+    animation-duration: calc(var(--animation-speed) * 4);
+}
+
+.box_top,
+.box_right {
+    position: absolute;
+
+    background: skyblue;
+
+    animation: dayNightChanging linear infinite;
+    animation-duration: calc(var(--animation-speed) * 4);
+}
+
+.box_top {
+    top: 0;
+    width: 500px;
+    height: 150px;
+
+    transform: rotateX(-90deg);
+    transform-origin: top center;
+
+    animation-name: dayNightWithoutShining;
+}
+
+.box_right {
+    right: 0;
+    top: 0;
+    height: 380px;
+    width: 150px;
+
+    transform: rotateY(270deg);
+    transform-origin: right center;
     box-shadow: 0 -400px 300px -300px steelblue inset;
 }
 
@@ -72,11 +177,13 @@
 .ship
 {
     position: absolute;
-    right: 0;
+    right: -100px;
     bottom: 30px;
 
     width: 100px;
     height: 36px;
+
+    animation: swim calc(var(--animation-speed) * 2.25) linear infinite;
 }
 
 .ship_smokestack
@@ -120,25 +227,34 @@
 {
     top: -25px;
     right: 44px;
+    animation: smoke calc(var(--animation-speed) * .1) ease-out infinite;
 }
 
 .smoke-2
 {
     top: -25px;
     right: 42px;
+    opacity: 0;
+
+    animation: smoke calc(var(--animation-speed) * .1) ease-out infinite;
+    animation-delay: calc(var(--animation-speed) / 30);
 }
 
 .smoke-3
 {
     top: -25px;
     right: 49px;
+    opacity: 0;
+
+    animation: smoke calc(var(--animation-speed) * .1) ease-out infinite;
+    animation-delay: calc(var(--animation-speed) / 15);
 }
 
 .sun
 {
     position: absolute;
-    top: 30px;
-    right: 50%;
+    bottom: -50px;
+    left: -110px;
 
     width: 80px;
     height: 80px;
@@ -146,6 +262,8 @@
     border-radius: 50%;
     background: #ffcf11;
     box-shadow: 0 0 100px #ffdf05;
+
+    animation: rise var(--animation-speed) linear infinite;
 }
 
 .sun-wrapper
@@ -156,6 +274,8 @@
     height: 100%;
 
     transform-origin: bottom center;
+
+    animation: rise calc(var(--animation-speed) * 4) linear infinite;
 }
 
 .sun div
@@ -220,7 +340,7 @@
 .cloud
 {
     position: absolute;
-    left: -180px;
+    left: -200px;
 
     width: 200px;
     height: 60px;
@@ -228,6 +348,8 @@
     opacity: .8;
     border-radius: 200px;
     background: #fff;
+
+    animation: flow var(--animation-speed) linear infinite;
 }
 
 .cloud:before,
@@ -259,21 +381,34 @@
 .cloud-1
 {
     top: 10px;
+
+    animation-duration: calc(var(--animation-speed) * 2.5);
+    transform: scale(.3, .3);
 }
 
 .cloud-2
 {
     top: 50px;
+
+    animation-duration: calc(var(--animation-speed) * 2);
+    animation-delay: calc(var(--animation-speed) * 1.33);
+    transform: scale(-.4, .4);
 }
 
 .cloud-3
 {
     top: 100px;
+
+    animation-duration: calc(var(--animation-speed) * 1.5);
+    transform: scale(.5, .5);
 }
 
 .cloud-4
 {
     top: 170px;
+
+    animation-delay: calc(var(--animation-speed) * .5);
+    transform: scale(-.6, .6);
 }
 
 .sea
