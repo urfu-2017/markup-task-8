@@ -59,11 +59,11 @@
 {
     from
     {
-        right: -100px;
+        transform: translate(100px);
     }
     to
     {
-        right: 700px;
+        transform: translate(-800px);
     }
 }
 
@@ -71,16 +71,12 @@
 {
     from
     {
-        right: 45px;
         opacity: 1;
-        bottom: 0;
     }
     to
     {
         opacity: 0;
-        top: -35px;
-        right: 42px;
-        transform: scale(1.3);
+        transform: translate(2px, -5px) scale(1.3);
     }
 }
 
@@ -89,14 +85,11 @@
     from
     {
         opacity: 1;
-        bottom: 0;
     }
     to
     {
         opacity: 0;
-        top: -35px;
-        right: 50px;
-        transform: scale(1.4);
+        transform: translate(-1px, -5px) scale(1.3);
     }
 }
 
@@ -114,7 +107,7 @@
 
 .smoke-2
 {
-    animation-delay: .7s;
+    animation-delay: .9s;
 }
 
 .smoke-3
@@ -215,37 +208,57 @@
 
 @keyframes cloudAnimation
 {
+
     from
     {
-        right: -150px;
+        transform: translate(-300px);
     }
     to
     {
-        left: 600px;
+        transform: translateX(600px);
     }
+}
+
+.cloud-1-wrapper
+{
+    margin-top: 20px;
+    transform: scale(.3);
 }
 
 .cloud-1
 {
     animation: cloudAnimation 35s linear infinite -5s;
-    transform: scale(.3);
+}
+
+.cloud-2-wrapper
+{
+    margin-top: -30px;
+    animation: cloudAnimation 30s linear infinite -10s;
 }
 
 .cloud-2
 {
-    animation: cloudAnimation 30s linear infinite -10s;
     transform: scale(.4) scaleX(-1);
+}
+
+.cloud-3-wrapper
+{
+    animation: cloudAnimation 20s linear infinite 5s;
+    margin-top: -40px;
 }
 
 .cloud-3
 {
-    animation: cloudAnimation 20s linear infinite 5s;
     transform: scale(.5);
+}
+
+.cloud-4-wrapper
+{
+    animation: cloudAnimation 25s linear infinite 8s;
 }
 
 .cloud-4
 {
-    animation: cloudAnimation 25s linear infinite 8s;
     transform: scale(.6) scaleX(-1);
 }
 
