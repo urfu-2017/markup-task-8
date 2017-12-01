@@ -22,22 +22,43 @@
 
     background: skyblue;
     box-shadow: 0 -400px 300px -300px steelblue inset;
+
+    animation: sky 42s linear infinite 6s;
 }
 
-/*TODO
-Цвета неба задаются следующими свойствами:
-    День:
+@keyframes sky
+{
+    0%
+    {
         background: skyblue;
         box-shadow: 0 -400px 300px -300px steelblue inset;
-    Вечер:
+    }
+    25%
+    {
+        background: skyblue;
+        box-shadow: 0 -400px 300px -300px steelblue inset;
+    }
+    50%
+    {
         background: darkslateblue;
         box-shadow: 0 -400px 300px -300px orangered inset;
-    Ночь:
+    }
+    65%
+    {
         background: darkslateblue;
         box-shadow: 0 -400px 300px -300px transparent inset;
-
-Нужно реализовать плавный переход между ними и зациклить его.
-*/
+    }
+    80%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px orangered inset;
+    }
+    100%
+    {
+        background: skyblue;
+        box-shadow: 0 -400px 300px -300px steelblue inset;
+    }
+}
 
 .ship::after
 {
@@ -69,14 +90,24 @@
     background: #fff;
 }
 
+@keyframes show
+{
+    100%
+    {
+        right: 100%;
+    }
+}
+
 .ship
 {
     position: absolute;
-    right: 0;
+    right: -100px;
     bottom: 30px;
 
     width: 100px;
     height: 36px;
+
+    animation: show 20s linear infinite;
 }
 
 .ship_smokestack
@@ -116,29 +147,48 @@
     background: #fff;
 }
 
+@keyframes smoke
+{
+    0%
+    {
+        top: -25px;
+        opacity: 1;
+        transform: scale(1);
+    }
+    100%
+    {
+        top: -45px;
+        opacity: 0;
+        transform: scale(2);
+    }
+}
+
 .smoke-1
 {
     top: -25px;
     right: 44px;
+    animation: smoke 2.5s ease-out infinite;
 }
 
 .smoke-2
 {
     top: -25px;
     right: 42px;
+    animation: smoke 2.5s ease-out infinite 1.5s;
 }
 
 .smoke-3
 {
     top: -25px;
     right: 49px;
+    animation: smoke 2.5s ease-out infinite 1s;
 }
 
 .sun
 {
     position: absolute;
-    top: 30px;
-    right: 50%;
+    bottom: 0;
+    left: -105px;
 
     width: 80px;
     height: 80px;
@@ -146,6 +196,18 @@
     border-radius: 50%;
     background: #ffcf11;
     box-shadow: 0 0 100px #ffdf05;
+}
+
+@keyframes sun
+{
+    0%
+    {
+        transform: rotate(0turn);
+    }
+    100%
+    {
+        transform: rotate(1turn);
+    }
 }
 
 .sun-wrapper
@@ -156,6 +218,7 @@
     height: 100%;
 
     transform-origin: bottom center;
+    animation: sun 42s linear infinite 6s;
 }
 
 .sun div
@@ -170,51 +233,67 @@
 
     border: solid #ffcf11;
     border-width: 10px 0;
+    
+    transform-origin: center center;
+}
+
+.sun div:nth-child(1)
+{
+    animation: sun 15s linear infinite 3s;
 }
 
 .sun div:nth-child(2)
 {
     transform: rotate(18deg);
+    animation: sun 15s linear infinite 3.75s;
 }
 
 .sun div:nth-child(3)
 {
     transform: rotate(36deg);
+    animation: sun 15s linear infinite 4.5s;
 }
 
 .sun div:nth-child(4)
 {
     transform: rotate(54deg);
+    animation: sun 15s linear infinite 5.25s;
 }
 
 .sun div:nth-child(5)
 {
     transform: rotate(72deg);
+    animation: sun 15s linear infinite 6s;
 }
 
 .sun div:nth-child(6)
 {
     transform: rotate(90deg);
+    animation: sun 15s linear infinite 6.75s;
 }
 
 .sun div:nth-child(7)
 {
     transform: rotate(-18deg);
+    animation: sun 15s linear infinite 2.25s;
 }
 
 .sun div:nth-child(8)
 {
     transform: rotate(-36deg);
+    animation: sun 15s linear infinite 1.5s;
 }
 
 .sun div:nth-child(9)
 {
     transform: rotate(-54deg);
+    animation: sun 15s linear infinite .75s;
 }
 
 .sun div:nth-child(10)
 {
     transform: rotate(-72deg);
+    animation: sun 15s linear infinite;
 }
 
 .cloud
@@ -256,24 +335,44 @@
     height: 120px;
 }
 
+@keyframes cloud
+{
+    0%
+    {
+        left: -200px;
+    }
+    100%
+    {
+        left: 100%;
+    }
+}
+
 .cloud-1
 {
     top: 10px;
+    transform: scale(.3);
+    animation: cloud 40s linear infinite 20s;
 }
 
 .cloud-2
 {
     top: 50px;
+    transform: scale(-.4, .4);
+    animation: cloud 30s linear infinite 13s;
 }
 
 .cloud-3
 {
     top: 100px;
+    transform: scale(.5);
+    animation: cloud 25s linear infinite;
 }
 
 .cloud-4
 {
     top: 170px;
+    transform: scale(-.6, .6);
+    animation: cloud 20s linear infinite 3s;
 }
 
 .sea
