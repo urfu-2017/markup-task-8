@@ -62,16 +62,23 @@
     transform: skew(-45deg) translate(-25px, -49px);
 }
 
-@keyframes dayTop-3D {
-    0%, 10%, 100%, 70% /* Ночь */
+@keyframes dayTop-3D
+{
+    0%,
+    10%,
+    70%,
+    100% /* Ночь */
     {
         background: darkslateblue;
     }
-    40%, 60% /* День */
+
+    40%,
+    60% /* День */
     {
         background: skyblue;
     }
 }
+
 .canvas::after
 {
     right: 0;
@@ -90,18 +97,24 @@
     transform: translate(49px) skewY(-45deg);
 }
 
-@keyframes dayTime {
-    0%, 10%, 90%, 100% /* Ночь */
+@keyframes dayTime
+{
+    0%,
+    10%,
+    90%,
+    100% /* Ночь */
     {
         background: darkslateblue;
         box-shadow: 0 -400px 300px -300px transparent inset;
     }
-    40%, 60% /* День */
+    40%,
+    60% /* День */
     {
         background: skyblue;
         box-shadow: 0 -400px 300px -300px steelblue inset;
     }
-    70%, 80% /* Вечер */
+    70%,
+    80% /* Вечер */
     {
         background: darkslateblue;
         box-shadow: 0 -400px 300px -300px orangered inset;
@@ -153,12 +166,14 @@
     animation-timing-function: linear;
 }
 
-@keyframes shipsAnimation {
+@keyframes shipsAnimation
+{
     0%
     {
         transform: translateX(100%);
     }
-    90%, 100%
+    90%,
+    100%
     {
         transform: translateX(-500%);
     }
@@ -229,7 +244,8 @@
     right: 49px;
 }
 
-@keyframes smokeAnimation {
+@keyframes smokeAnimation
+{
     from
     {
         opacity: 1;
@@ -258,9 +274,10 @@
     animation: sunAnimation 21s linear infinite;
 }
 
-
-@keyframes sunAnimation {
-    0%, 25%
+@keyframes sunAnimation
+{
+    0%,
+    25%
     {
         transform: translate(-400%, 300%) rotate(0deg);
     }
@@ -300,12 +317,12 @@
     {
         transform: translate(300%, 200%) rotate(900deg);
     }
-    75%, 100%
+    75%,
+    100%
     {
         transform: translate(400%, 300%) rotate(1080deg);
     }
 }
-
 
 .sun-wrapper
 {
@@ -428,7 +445,8 @@
     animation-name: cloudOneAnimation;
 }
 
-@keyframes cloudOneAnimation {
+@keyframes cloudOneAnimation
+{
     from
     {
         transform: translateX(-50px) scale(.2);
@@ -448,7 +466,8 @@
     animation-delay: 6s;
 }
 
-@keyframes cloudTwoAnimation {
+@keyframes cloudTwoAnimation
+{
     from
     {
         transform: translateX(-50px) scale(-.4, .4);
@@ -465,10 +484,11 @@
 
     animation-duration: 15s;
     animation-name: cloudThreeAnimation;
-    animation-delay: 9s
+    animation-delay: 9s;
 }
 
-@keyframes cloudThreeAnimation {
+@keyframes cloudThreeAnimation
+{
     from
     {
         transform: translateX(-50px) scale(.6);
@@ -483,12 +503,12 @@
 {
     top: 170px;
 
-
     animation-name: cloudFourAnimation;
     animation-delay: 3s;
 }
 
-@keyframes cloudFourAnimation {
+@keyframes cloudFourAnimation
+{
     from
     {
         transform: translateX(-50px) scale(-.8, .8);
