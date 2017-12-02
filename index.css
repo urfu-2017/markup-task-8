@@ -22,6 +22,24 @@
 
     background: skyblue;
     box-shadow: 0 -400px 300px -300px steelblue inset;
+
+    animation: gradient 90s linear infinite;
+}
+
+@keyframes gradient
+{
+    0% {
+        background: skyblue;
+        box-shadow: 0 -400px 300px -300px steelblue inset;
+    }
+    25% {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px orangered inset;
+    }
+    50% {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px transparent inset;
+    }
 }
 
 /*TODO
@@ -77,6 +95,18 @@
 
     width: 100px;
     height: 36px;
+
+    animation: shipMove 50s linear infinite;
+}
+
+@keyframes shipMove
+{
+    0% {
+        transform: translateX(100px)
+    }
+    100% {
+        transform: translateX(-1000px)
+    }
 }
 
 .ship_smokestack
@@ -120,18 +150,37 @@
 {
     top: -25px;
     right: 44px;
+    animation: smokeMove 2s ease infinite;
+    animation-delay: 1s;
 }
 
 .smoke-2
 {
     top: -25px;
     right: 42px;
+    animation: smokeMove 2s ease infinite;
+    animation-delay: .5s;
 }
 
 .smoke-3
 {
     top: -25px;
     right: 49px;
+    animation: smokeMove 2s ease infinite;
+}
+
+@keyframes smokeMove
+{
+    0% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-10px);
+        opacity: 0;
+        width: 10px;
+        height: 10px;
+    }
 }
 
 .sun
@@ -146,6 +195,18 @@
     border-radius: 50%;
     background: #ffcf11;
     box-shadow: 0 0 100px #ffdf05;
+
+    animation: sunLight 1s linear infinite;
+}
+
+@keyframes sunLight
+{
+    0% { 
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(18deg);
+    }
 }
 
 .sun-wrapper
@@ -156,6 +217,17 @@
     height: 100%;
 
     transform-origin: bottom center;
+    animation: sunMove 90s linear infinite;
+}
+
+@keyframes sunMove
+{
+    0% { 
+        transform: rotate(0deg) translateX(50px);
+    }
+    100% {
+        transform: rotate(360deg) translateX(50px);
+    }
 }
 
 .sun div
@@ -228,6 +300,8 @@
     opacity: .8;
     border-radius: 200px;
     background: #fff;
+
+    animation: cloudMove linear infinite;
 }
 
 .cloud:before,
@@ -259,21 +333,42 @@
 .cloud-1
 {
     top: 10px;
+    transform: scale(.3, .3);
+    animation-duration: 65s;
+    animation-delay: 1s;
 }
 
 .cloud-2
 {
     top: 50px;
+    transform: scale(-.4, .4);
+    animation-duration: 48s;
+    animation-delay: 13s;
 }
 
 .cloud-3
 {
     top: 100px;
+    transform: scale(.5, .5);
+    animation-duration: 33s;
 }
 
 .cloud-4
 {
     top: 170px;
+    transform: scale(-.8, .8);
+    animation-duration: 35s;
+    animation-delay: 2s;
+}
+
+@keyframes cloudMove
+{
+    0% {
+        left: -300px;
+    }
+    100% {
+        left: 1000px;
+    }
 }
 
 .sea
