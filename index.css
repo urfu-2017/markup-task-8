@@ -22,6 +22,8 @@
 
     background: skyblue;
     box-shadow: 0 -400px 300px -300px steelblue inset;
+
+    animation: sky 40s linear infinite;
 }
 
 /*TODO
@@ -38,6 +40,35 @@
 
 Нужно реализовать плавный переход между ними и зациклить его.
 */
+
+@keyframes sky
+{
+    0%
+    {
+        background: skyblue;
+        box-shadow: 0 -400px 300px -300px steelblue inset;
+    }
+    20%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px orangered inset;
+    }
+    40%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px transparent inset;
+    }
+    60%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px transparent inset;
+    }
+    80%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px orangered inset;
+    }
+}
 
 .ship::after
 {
@@ -77,6 +108,24 @@
 
     width: 100px;
     height: 36px;
+
+    animation: nadar 10s infinite linear;
+}
+
+@keyframes nadar
+{
+    0%
+    {
+        right: -100px;
+    }
+    70%
+    {
+        right: 500px;
+    }
+    100%
+    {
+        right: 500px;
+    }
 }
 
 .ship_smokestack
@@ -116,22 +165,172 @@
     background: #fff;
 }
 
+@keyframes fumasa-1
+{
+    0%
+    {
+        top: -25px;
+        opacity: 1;
+    }
+    45%
+    {
+        top: -40px;
+        width: 15px;
+        height: 15px;
+        opacity: 0.7;
+    }
+    50%
+    {
+        top: -40px;
+    }
+    95%
+    {
+        top: -65px;
+        width: 20px;
+        height: 20px;
+        opacity: 0;
+    }
+    100%
+    {
+        top: -65px;
+        opacity: 0;
+    }
+}
+
 .smoke-1
 {
     top: -25px;
     right: 44px;
+
+    animation: fumasa-1 ease 4.5s infinite;
 }
 
 .smoke-2
 {
     top: -25px;
     right: 42px;
+    opacity: 0;
+
+    animation: fumasa-1 ease 4.5s infinite;
+    animation-delay: 1.5s;
 }
 
 .smoke-3
 {
     top: -25px;
     right: 49px;
+    opacity: 0;
+
+    animation: fumasa-1 ease 4.5s infinite;
+    animation-delay: 3s;
+}
+
+@keyframes sol
+{
+    0%
+    {
+        transform: translate(0px, 30px) rotate(0deg);
+    }
+    3%
+    {
+        transform: translate(40px, 30px) rotate(90deg);
+    }
+    6%
+    {
+        transform: translate(80px, 41px) rotate(180deg);
+    }
+    9%
+    {
+        transform: translate(120px, 58px) rotate(270deg);
+    }
+    12%
+    {
+        transform: translate(160px, 82px) rotate(360deg);
+    }
+    15%
+    {
+        transform: translate(200px, 111px) rotate(450deg);
+    }
+    18%
+    {
+        transform: translate(240px, 145px) rotate(540deg);
+    }
+    21%
+    {
+        transform: translate(280px, 184px) rotate(630deg);
+    }
+    24%
+    {
+        transform: translate(320px, 226px) rotate(720deg);
+    }
+    27%
+    {
+        transform: translate(360px, 277px) rotate(810deg);
+    }
+    30%
+    {
+        transform: translate(400px, 331px) rotate(900deg);
+    }
+    33%
+    {
+        opacity: 1;
+        transform: translate(440px, 390px) rotate(990deg);
+    }
+    34%
+    {
+        opacity: 0;
+        transform: translate(440px, 390px) rotate(0deg);
+    }
+    68%
+    {
+        opacity: 0;
+        transform: translate(-400px, 390px) rotate(0deg);
+    }
+    70%
+    {
+        opacity: 1;
+        transform: translate(-400px, 390px) rotate(0deg);
+    }
+    73%
+    {
+        transform: translate(-360px, 331px) rotate(-810deg);
+    }
+    76%
+    {
+        transform: translate(-320px, 277px) rotate(-720deg);
+    }
+    79%
+    {
+        transform: translate(-280px, 228px) rotate(-630deg);
+    }
+    82%
+    {
+        transform: translate(-240px, 184px) rotate(-540deg);
+    }
+    85%
+    {
+        transform: translate(-200px, 145px) rotate(-450deg);
+    }
+    88%
+    {
+        transform: translate(-160px, 111px) rotate(-360deg);
+    }
+    91%
+    {
+        transform: translate(-120px, 82px) rotate(-270deg);
+    }
+    94%
+    {
+        transform: translate(-80px, 58px) rotate(-180deg);
+    }
+    97%
+    {
+        transform: translate(-40px, 41px) rotate(-90deg);
+    }
+    100%
+    {
+        transform: translate(0px, 30px) rotate(0deg);
+    }
 }
 
 .sun
@@ -146,6 +345,8 @@
     border-radius: 50%;
     background: #ffcf11;
     box-shadow: 0 0 100px #ffdf05;
+
+    animation: sol linear 40s infinite;
 }
 
 .sun-wrapper
@@ -256,24 +457,51 @@
     height: 120px;
 }
 
+@keyframes nuvem
+{
+    0%
+    {
+        left: -180px;
+    }
+    100%
+    {
+        left: 540px;
+    }
+}
+
 .cloud-1
 {
     top: 10px;
+    transform: scale(0.3);
+
+    animation: nuvem linear 18s infinite;
+    animation-delay: 0.4s;
 }
 
 .cloud-2
 {
     top: 50px;
+    transform: scale(-0.5, 0.5);
+
+    animation: nuvem linear 14s infinite;
+    animation-delay: 1.8s;
 }
 
 .cloud-3
 {
     top: 100px;
+    transform: scale(-0.7, 0.7);
+
+    animation: nuvem linear 10s infinite;
+    animation-delay: 4s;
 }
 
 .cloud-4
 {
     top: 170px;
+    transform: scale(0.9);
+
+    animation: nuvem linear 7s infinite;
 }
 
 .sea
