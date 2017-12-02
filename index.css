@@ -11,6 +11,27 @@
     perspective: 800px;
 }
 
+@keyframes daytime
+{
+    0%
+    {
+        background: skyblue;
+        box-shadow: 0 -400px 300px -300px steelblue inset;
+    }
+
+    40%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px orangered inset;
+    }
+
+    50%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px transparent inset;
+    }
+}
+
 .box_front
 {
     position: relative;
@@ -22,22 +43,8 @@
 
     background: skyblue;
     box-shadow: 0 -400px 300px -300px steelblue inset;
+    animation: daytime 90s linear infinite -65s;
 }
-
-/*TODO
-Цвета неба задаются следующими свойствами:
-    День:
-        background: skyblue;
-        box-shadow: 0 -400px 300px -300px steelblue inset;
-    Вечер:
-        background: darkslateblue;
-        box-shadow: 0 -400px 300px -300px orangered inset;
-    Ночь:
-        background: darkslateblue;
-        box-shadow: 0 -400px 300px -300px transparent inset;
-
-Нужно реализовать плавный переход между ними и зациклить его.
-*/
 
 .ship::after
 {
@@ -84,6 +91,7 @@
 
 .ship
 {
+    z-index: 2;
     position: absolute;
     right: 0;
     bottom: 30px;
@@ -168,11 +176,27 @@
     animation: rising-smoke 3s ease-out infinite 1s;
 }
 
+@keyframes rising-sun
+{
+    from
+    {
+        transform: rotate(0turn) translateY(-300px) rotate(1turn);
+    }
+
+    to
+    {
+        transform: rotate(1turn) translateY(-300px) rotate(6turn);
+    }
+}
+
 .sun
 {
+    z-index: 1;
     position: absolute;
-    top: 30px;
-    right: 50%;
+    margin: 0 auto;
+    bottom: 0;
+    right: 0;
+    left: 0;
 
     width: 80px;
     height: 80px;
@@ -180,6 +204,7 @@
     border-radius: 50%;
     background: #ffcf11;
     box-shadow: 0 0 100px #ffdf05;
+    animation: rising-sun 90s linear infinite -65s;
 }
 
 .sun-wrapper
@@ -261,6 +286,7 @@
 
 .cloud
 {
+    z-index: 2;
     position: absolute;
     left: -180px;
 
@@ -334,6 +360,7 @@
 
 .sea
 {
+    z-index: 2;
     position: absolute;
     right: 0;
     bottom: 0;
