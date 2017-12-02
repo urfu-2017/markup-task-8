@@ -28,34 +28,22 @@
 
 @keyframes gradient
 {
-    0% {
+    0%
+    {
         background: skyblue;
         box-shadow: 0 -400px 300px -300px steelblue inset;
     }
-    25% {
+    25%
+    {
         background: darkslateblue;
         box-shadow: 0 -400px 300px -300px orangered inset;
     }
-    50% {
+    50%
+    {
         background: darkslateblue;
         box-shadow: 0 -400px 300px -300px transparent inset;
     }
 }
-
-/*TODO
-Цвета неба задаются следующими свойствами:
-    День:
-        background: skyblue;
-        box-shadow: 0 -400px 300px -300px steelblue inset;
-    Вечер:
-        background: darkslateblue;
-        box-shadow: 0 -400px 300px -300px orangered inset;
-    Ночь:
-        background: darkslateblue;
-        box-shadow: 0 -400px 300px -300px transparent inset;
-
-Нужно реализовать плавный переход между ними и зациклить его.
-*/
 
 .ship::after
 {
@@ -101,10 +89,12 @@
 
 @keyframes shipMove
 {
-    0% {
+    0%
+    {
         transform: translateX(100px)
     }
-    100% {
+    100%
+    {
         transform: translateX(-1000px)
     }
 }
@@ -171,11 +161,13 @@
 
 @keyframes smokeMove
 {
-    0% {
+    0%
+    {
         transform: translateY(0px);
         opacity: 1;
     }
-    100% {
+    100%
+    {
         transform: translateY(-10px);
         opacity: 0;
         width: 10px;
@@ -201,10 +193,12 @@
 
 @keyframes sunLight
 {
-    0% { 
+    0%
+    { 
         transform: rotate(0deg);
     }
-    100% {
+    100%
+    {
         transform: rotate(18deg);
     }
 }
@@ -222,10 +216,12 @@
 
 @keyframes sunMove
 {
-    0% { 
+    0%
+    { 
         transform: rotate(0deg) translateX(50px);
     }
-    100% {
+    100%
+    {
         transform: rotate(360deg) translateX(50px);
     }
 }
@@ -363,10 +359,12 @@
 
 @keyframes cloudMove
 {
-    0% {
+    0%
+    {
         left: -300px;
     }
-    100% {
+    100%
+    {
         left: 1000px;
     }
 }
