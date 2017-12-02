@@ -12,7 +12,8 @@
     transform-style: preserve-3d;
 }
 
-.canvas:hover {
+.canvas:hover
+{
     transform: rotateX(-25deg) rotateY(-35deg);
 }
 
@@ -81,7 +82,8 @@
 }
 
 .box_top,
-.box_right {
+.box_right
+{
     position: absolute;
 
     background: skyblue;
@@ -89,7 +91,8 @@
     animation: sky 24s linear infinite 3s;
 }
 
-.box_top {
+.box_top
+{
     top: 0;
     width: 500px;
     height: 150px;
@@ -100,7 +103,8 @@
     animation: topsky 24s infinite 3s;
 }
 
-.box_right {
+.box_right
+{
     right: 0;
     top: 0;
     height: 380px;
@@ -203,7 +207,7 @@
     0%
     {
         top: -25px;
-        opacity: 0.7;
+        opacity: .7;
         transform: scale(1);
     }
     to
@@ -241,7 +245,7 @@
 .sun
 {
     position: absolute;
-    bottom: 0px;
+    bottom: 0;
     left: -105px;
 
     width: 80px;
@@ -421,7 +425,7 @@
     top: 100px;
     animation: soar 18s linear infinite;
     transform: scale(.3);
-    opacity: 0.5;
+    opacity: .5;
 }
 
 .cloud-4
@@ -429,7 +433,7 @@
     top: 170px;
     animation: soar 21s linear infinite 3s;
     transform: scale(.2);
-    opacity: 0.6;
+    opacity: .6;
 }
 
 .sea
