@@ -31,7 +31,7 @@
     transform: rotateX(-90deg);
     transform-origin: top;
 
-    animation: skyColorAnimation 20s linear infinite;
+    animation: skyColor 20s linear infinite;
     animation-direction: alternate;
 }
 
@@ -40,8 +40,7 @@
 {
     height: 380px;
 
-    animation: skyGradientAnimation 20s linear infinite,
-        skyColorAnimation 20s linear infinite;
+    animation: skyGradient 20s linear infinite, skyColor 20s linear infinite;
     animation-direction: alternate;
 }
 
@@ -68,7 +67,7 @@
     box-shadow: 0 -400px 300px -300px transparent inset;
 }
 
-@keyframes skyColorAnimation
+@keyframes skyColor
 {
     15%
     {
@@ -81,7 +80,7 @@
     }
 }
 
-@keyframes skyGradientAnimation
+@keyframes skyGradient
 {
     15%
     {
