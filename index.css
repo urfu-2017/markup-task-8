@@ -177,7 +177,7 @@
         top: -40px;
         width: 15px;
         height: 15px;
-        opacity: 0.7;
+        opacity: .7;
     }
     50%
     {
@@ -229,7 +229,7 @@
 {
     0%
     {
-        transform: translate(0px, 30px) rotate(0deg);
+        transform: translate(0, 30px) rotate(0deg);
     }
     3%
     {
@@ -329,7 +329,7 @@
     }
     100%
     {
-        transform: translate(0px, 30px) rotate(0deg);
+        transform: translate(0, 30px) rotate(0deg);
     }
 }
 
@@ -472,16 +472,16 @@
 .cloud-1
 {
     top: 10px;
-    transform: scale(0.3);
+    transform: scale(.3);
 
     animation: nuvem linear 18s infinite;
-    animation-delay: 0.4s;
+    animation-delay: .4s;
 }
 
 .cloud-2
 {
     top: 50px;
-    transform: scale(-0.5, 0.5);
+    transform: scale(-.5, .5);
 
     animation: nuvem linear 14s infinite;
     animation-delay: 1.8s;
@@ -490,7 +490,7 @@
 .cloud-3
 {
     top: 100px;
-    transform: scale(-0.7, 0.7);
+    transform: scale(-.7, .7);
 
     animation: nuvem linear 10s infinite;
     animation-delay: 4s;
@@ -499,7 +499,7 @@
 .cloud-4
 {
     top: 170px;
-    transform: scale(0.9);
+    transform: scale(.9);
 
     animation: nuvem linear 7s infinite;
 }
