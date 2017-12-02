@@ -8,7 +8,66 @@
 
     transition: .3s ease;
 
-    perspective: 800px;
+    perspective: 1600px;
+    transform-style: preserve-3d;
+}
+
+.canvas:hover
+{
+    transform: rotateX(-15deg) rotateY(-30deg);
+}
+
+.box_top
+{
+    position: absolute;
+    bottom: 100%;
+    width: 500px;
+    height: 150px;
+    background: skyblue;
+    transform: rotateX(90deg);
+    transform-origin: bottom;
+    animation: sky_top 42s linear infinite 6s;
+}
+
+@keyframes sky_top
+{
+    0%
+    {
+        background: skyblue;
+    }
+    25%
+    {
+        background: skyblue;
+    }
+    50%
+    {
+        background: darkslateblue;
+    }
+    65%
+    {
+        background: darkslateblue;
+    }
+    80%
+    {
+        background: darkslateblue;
+    }
+    100%
+    {
+        background: skyblue;
+    }
+}
+
+.box_right
+{
+    position: absolute;
+    left: 100%;
+    width: 150px;
+    height: 380px;
+    background: skyblue;
+    box-shadow: 0 -400px 300px -300px steelblue inset;
+    transform: rotateY(90deg);
+    transform-origin: left;
+    animation: sky 42s linear infinite 6s;
 }
 
 .box_front
