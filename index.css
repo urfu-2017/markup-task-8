@@ -40,7 +40,8 @@
 {
     height: 380px;
 
-    animation: skyGradient 20s linear infinite, skyColor 20s linear infinite;
+    animation: skyGradient 20s linear infinite
+        , skyColor 20s linear infinite;
     animation-direction: alternate;
 }
 
