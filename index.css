@@ -82,6 +82,10 @@
     background: skyblue;
     box-shadow: 0 -400px 300px -300px steelblue inset;
 
+    perspective: 500px;
+    perspective-origin: 250px 50px;
+    transform-style: preserve-3d;
+
     animation: sky 42s linear infinite 6s;
 }
 
@@ -149,11 +153,11 @@
     background: #fff;
 }
 
-@keyframes show
+@keyframes ship
 {
     100%
     {
-        right: 100%;
+        transform: translateX(-600px);
     }
 }
 
@@ -166,7 +170,7 @@
     width: 100px;
     height: 36px;
 
-    animation: show 20s linear infinite;
+    animation: ship 20s linear infinite;
 }
 
 .ship_smokestack
@@ -210,37 +214,41 @@
 {
     0%
     {
-        top: -25px;
         opacity: 1;
-        transform: scale(1);
+        transform: scale(1) translateY(0);
     }
     100%
     {
-        top: -45px;
         opacity: 0;
-        transform: scale(2);
+        transform: scale(2) translateY(-15px);
     }
+}
+
+.smoke-1,
+.smoke-2,
+.smoke-3
+{
+    animation: smoke 2.5s ease-out infinite;
 }
 
 .smoke-1
 {
     top: -25px;
     right: 44px;
-    animation: smoke 2.5s ease-out infinite;
 }
 
 .smoke-2
 {
     top: -25px;
     right: 42px;
-    animation: smoke 2.5s ease-out infinite 1.5s;
+    animation-delay: 1.5s;
 }
 
 .smoke-3
 {
     top: -25px;
     right: 49px;
-    animation: smoke 2.5s ease-out infinite 1s;
+    animation-delay: 1s;
 }
 
 .sun
@@ -294,71 +302,71 @@
     border-width: 10px 0;
     
     transform-origin: center center;
+    animation: sun 15s linear infinite;
 }
 
 .sun div:nth-child(1)
 {
-    animation: sun 15s linear infinite 3s;
+    animation-delay: 3s;
 }
 
 .sun div:nth-child(2)
 {
     transform: rotate(18deg);
-    animation: sun 15s linear infinite 3.75s;
+    animation-delay: 3.75s;
 }
 
 .sun div:nth-child(3)
 {
     transform: rotate(36deg);
-    animation: sun 15s linear infinite 4.5s;
+    animation-delay: 4.5s;
 }
 
 .sun div:nth-child(4)
 {
     transform: rotate(54deg);
-    animation: sun 15s linear infinite 5.25s;
+    animation-delay: 5.25s;
 }
 
 .sun div:nth-child(5)
 {
     transform: rotate(72deg);
-    animation: sun 15s linear infinite 6s;
+    animation-delay: 6s;
 }
 
 .sun div:nth-child(6)
 {
     transform: rotate(90deg);
-    animation: sun 15s linear infinite 6.75s;
+    animation-delay: 6.75s;
 }
 
 .sun div:nth-child(7)
 {
     transform: rotate(-18deg);
-    animation: sun 15s linear infinite 2.25s;
+    animation-delay: 2.25s;
 }
 
 .sun div:nth-child(8)
 {
     transform: rotate(-36deg);
-    animation: sun 15s linear infinite 1.5s;
+    animation-delay: 1.5s;
 }
 
 .sun div:nth-child(9)
 {
     transform: rotate(-54deg);
-    animation: sun 15s linear infinite .75s;
+    animation-delay: .75s;
 }
 
 .sun div:nth-child(10)
 {
     transform: rotate(-72deg);
-    animation: sun 15s linear infinite;
 }
 
 .cloud
 {
     position: absolute;
-    left: -180px;
+    left: -200px;
 
     width: 200px;
     height: 60px;
@@ -394,44 +402,76 @@
     height: 120px;
 }
 
-@keyframes cloud
+@keyframes cloud1
 {
     0%
     {
-        left: -200px;
+        transform: translateX(-750px) translateZ(-800px);
     }
     100%
     {
-        left: 100%;
+        transform: translateX(1250px) translateZ(-800px);
     }
 }
 
 .cloud-1
 {
     top: 10px;
-    transform: scale(.3);
-    animation: cloud 40s linear infinite 20s;
+    animation: cloud1 25s linear infinite 13s;
+}
+
+@keyframes cloud2
+{
+    0%
+    {
+        transform: translateX(-750px) translateZ(-550px) scale(-1, 1);
+    }
+    100%
+    {
+        transform: translateX(1250px) translateZ(-550px) scale(-1, 1);
+    }
 }
 
 .cloud-2
 {
     top: 50px;
-    transform: scale(-.4, .4);
-    animation: cloud 30s linear infinite 13s;
+    animation: cloud2 25s linear infinite 22s;
+}
+
+@keyframes cloud3
+{
+    0%
+    {
+        transform: translateX(-750px) translateZ(-300px);
+    }
+    100%
+    {
+        transform: translateX(1250px) translateZ(-300px);
+    }
 }
 
 .cloud-3
 {
     top: 100px;
-    transform: scale(.5);
-    animation: cloud 25s linear infinite;
+    animation: cloud3 25s linear infinite -5s;
+}
+
+@keyframes cloud4
+{
+    0%
+    {
+        transform: translateX(-750px) translateZ(-50px) scale(-1, 1);
+    }
+    100%
+    {
+        transform: translateX(1250px) translateZ(-50px) scale(-1, 1);
+    }
 }
 
 .cloud-4
 {
     top: 170px;
-    transform: scale(-.6, .6);
-    animation: cloud 20s linear infinite 3s;
+    animation: cloud4 25s linear infinite;
 }
 
 .sea
