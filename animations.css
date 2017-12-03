@@ -18,6 +18,26 @@
     }
 }
 
+@keyframes sky-top
+{
+    0%
+    {
+        background: skyblue;
+    }
+    33%
+    {
+        background: darkslateblue;
+    }
+    66%
+    {
+        background: darkslateblue;
+    }
+    100%
+    {
+        background: skyblue;
+    }
+}
+
 @keyframes sky
 {
     0%

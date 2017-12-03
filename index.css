@@ -3,6 +3,7 @@
 .canvas_wrap
 {
     perspective: 800px;
+    width: 500px;
 }
 
 .canvas
@@ -18,14 +19,11 @@
     perspective: 800px;
 
     transform-style: preserve-3d;
-    /*animation-name: canvas;
-    animation-duration: 10s;
-    animation-iteration-count: infinite;*/
 }
 
 .canvas_wrap:hover
 {
-    perspective-origin: right -300px;
+    perspective-origin: 1000px -300px;
 }
 
 .canvas_wrap:hover > .canvas
@@ -46,7 +44,7 @@
     box-shadow: 0 -400px 300px -300px steelblue inset;
 
     animation-name: sky;
-    animation-duration: 10s;
+    animation-duration: 60s;
     animation-iteration-count: infinite;
 
     z-index: 2;
@@ -56,7 +54,7 @@
 {
     position: relative;
 
-    width: 100px;
+    width: 50px;
     height: 380px;
     top: -380px;
     margin-bottom: -380px;
@@ -65,7 +63,7 @@
     box-shadow: 0 -400px 300px -300px steelblue inset;
 
     animation-name: sky;
-    animation-duration: 10s;
+    animation-duration: 60s;
     animation-iteration-count: infinite;
 
     transform-origin: left top;
@@ -77,19 +75,19 @@
     position: relative;
 
     width: 500px;
-    height: 100px;
+    height: 50px;
     top: -380px;
     margin-bottom: -380px;
 
     background: green;
     box-shadow: 0 -400px 300px -300px steelblue inset;
 
-    animation-name: sky;
+    animation-name: sky-top;
     animation-duration: 60s;
     animation-iteration-count: infinite;
 
     transform-origin: left bottom;
-    transform: translateY(-100px) rotateX(90deg);
+    transform: translateY(-50px) rotateX(90deg);
 }
 
 /*TODO
@@ -236,7 +234,7 @@
 
     transform-origin: center 400px;
     animation-name: sun;
-    animation-duration: 10s;
+    animation-duration: 60s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
