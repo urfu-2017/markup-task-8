@@ -1,12 +1,48 @@
-@keyframes cloud-move
+@keyframes cloud-1-move
 {
     from
     {
-        left: -200px;
+        transform: translateZ(-1000px) translateX(-300px);
     }
     to
     {
-        left: 500px;
+        transform: translateZ(-1000px) translateX(1200px);
+    }
+}
+
+@keyframes cloud-2-move
+{
+    from
+    {
+        transform: translateZ(-700px) translateX(-300px) scale(-1, 1);
+    }
+    to
+    {
+        transform: translateZ(-700px) translateX(1200px) scale(-1, 1);
+    }
+}
+
+@keyframes cloud-3-move
+{
+    from
+    {
+        transform: translateZ(-500px) translateX(-300px);
+    }
+    to
+    {
+        transform: translateZ(-500px) translateX(1200px);
+    }
+}
+
+@keyframes cloud-4-move
+{
+    from
+    {
+        transform: translateX(-300px) scale(-1, 1);
+    }
+    to
+    {
+        transform: translateZ(-300px) translateX(1200px) scale(-1, 1);
     }
 }
 
@@ -297,13 +333,13 @@
 .cloud
 {
     position: absolute;
-    left: -180px;
+    left: -300px;
     width: 200px;
     height: 60px;
     opacity: .8;
     border-radius: 200px;
     background: #fff;
-    animation: cloud-move linear infinite;
+    animation: 20s linear infinite;
 }
 
 .cloud:before,
@@ -330,33 +366,29 @@
 
 .cloud-1
 {
-    animation-duration: 50s;
-    transform: scale(.4);
     top: 10px;
+    animation-name: cloud-1-move;
+    animation-delay: 5s;
 }
 
 .cloud-2
 {
-    animation-delay: 30s;
-    animation-duration: 40s;
-    transform: scale(-.5, .5);
     top: 50px;
+    animation-name: cloud-2-move;
+    animation-delay: 30s;
 }
 
 .cloud-3
 {
-    animation-delay: 10s;
-    animation-duration: 30s;
-    transform: scale(.7);
     top: 100px;
+    animation-name: cloud-3-move;
 }
 
 .cloud-4
 {
-    animation-delay: 20s;
-    animation-duration: 20s;
-    transform: scale(-.8, .8);
     top: 170px;
+    animation-name: cloud-4-move;
+    animation-delay: 20s;
 }
 
 .sea
