@@ -166,27 +166,28 @@
 
 .smoke-1
 {
+    animation: movingSmoke 2s ease-out infinite;
     top: -25px;
     right: 44px;
-    animation: movingSmoke 2s ease-out infinite;
 }
 
 .smoke-2
 {
+    animation: movingSmoke 3s ease-out infinite -1.5s;
     top: -25px;
     right: 42px;
-    animation: movingSmoke 3s ease-out infinite -1.5s;
 }
 
 .smoke-3
 {
+    animation: movingSmoke 2s ease-out infinite -1s;
     top: -25px;
     right: 49px;
-    animation: movingSmoke 2s ease-out infinite -1s;
 }
 
 .sun
 {
+    animation: runningSun 100s linear infinite -8s;
     position: absolute;
     top: 340px;
     right: 210px;
@@ -195,7 +196,6 @@
     border-radius: 50%;
     background: #ffcf11;
     box-shadow: 0 0 100px #ffdf05;
-    animation: runningSun 100s linear infinite -8s;
 }
 
 .sun-wrapper
@@ -299,35 +299,34 @@
 
 .cloud-1
 {
-    top: 10px;
-    transform: scale(.3);
     animation-duration: 60s;
     animation-delay: -2s;
+    top: 10px;
+    transform: scale(.3);
 }
 
 .cloud-2
 {
-    top: 50px;
-    transform: scale(-.4, .4);
     animation-duration: 40s;
     animation-delay: 10s;
-    
+    top: 50px;
+    transform: scale(-.4, .4);
 }
 
 .cloud-3
 {
-    top: 100px;
-    transform: scale(.5);
     animation-delay: -5s;
     animation-duration: 30s;
+    top: 100px;
+    transform: scale(.5);
 }
 
 .cloud-4
 {
-    top: 170px;
-    transform: scale(-.6, .6);
     animation-delay: 6s;
     animation-duration: 20s;
+    top: 170px;
+    transform: scale(-.6, .6);
 }
 
 .sea
