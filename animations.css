@@ -1,0 +1,86 @@
+@keyframes sun
+{
+    0%
+    {
+        transform: rotateZ(0deg);
+    }
+    49%
+    {
+        transform: rotateZ(90deg);
+    }
+    51%
+    {
+        transform: rotateZ(270deg);
+    }
+    100%
+    {
+        transform: rotateZ(360deg);
+    }
+}
+
+@keyframes sky
+{
+    0%
+    {
+        background: skyblue;
+        box-shadow: 0 -400px 300px -300px steelblue inset;
+    }
+    33%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px orangered inset;
+    }
+    66%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px transparent inset;
+    }
+    100%
+    {
+        background: skyblue;
+        box-shadow: 0 -400px 300px -300px steelblue inset;
+    }
+}
+
+@keyframes ship
+{
+    0%
+    {
+        right: -100px;
+    }
+    100%
+    {
+        right: 600px;
+    }
+}
+
+@keyframes smoke
+{
+    0%
+    {
+        opacity: 1;
+    }
+    49%,
+    50%
+    {
+        transform: scale(1.5) translateY(-5px);
+        opacity: .3;
+    }
+    100%
+    {
+        transform: scale(2) translateY(-10px);
+        opacity: 0;
+    }
+}
+
+@keyframes cloud
+{
+    0%
+    {
+        left: -180px;
+    }
+    100%
+    {
+        left: 600px;
+    }
+}
