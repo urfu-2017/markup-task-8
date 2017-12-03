@@ -22,6 +22,27 @@
 
     background: skyblue;
     box-shadow: 0 -400px 300px -300px steelblue inset;
+
+    animation: time-change 50s linear infinite;
+}
+
+@keyframes time-change
+{
+    0%
+    {
+        background: skyblue;
+        box-shadow: 0 -400px 300px -300px steelblue inset;
+    }
+    20%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px orangered inset;
+    }
+    55%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px transparent inset;
+    }
 }
 
 /*TODO
@@ -72,11 +93,25 @@
 .ship
 {
     position: absolute;
-    right: 0;
+    right: -100px;
     bottom: 30px;
 
     width: 100px;
     height: 36px;
+
+    animation: ship-move 50s infinite;
+}
+
+@keyframes ship-move
+{
+    from
+    {
+        transform: translateX(0);
+    }
+    to
+    {
+        transform: translateX(-700px);
+    }
 }
 
 .ship_smokestack
@@ -120,18 +155,37 @@
 {
     top: -25px;
     right: 44px;
+    animation: smoke-animation 5s infinite 3s;
 }
 
 .smoke-2
 {
     top: -25px;
     right: 42px;
+    animation: smoke-animation 3s infinite;
 }
 
 .smoke-3
 {
     top: -25px;
     right: 49px;
+    animation: smoke-animation 4s infinite 2s;
+}
+
+@keyframes smoke-animation
+{
+    from
+    {
+        top: -25px;
+        transform: scale(1);
+        opacity: 1;
+    }
+    to
+    {
+        top: -50px;
+        transform: scale(1.5);
+        opacity: 0;
+    }
 }
 
 .sun
@@ -146,6 +200,20 @@
     border-radius: 50%;
     background: #ffcf11;
     box-shadow: 0 0 100px #ffdf05;
+
+    animation: sun-rotate 20s linear infinite;
+}
+
+@keyframes sun-rotate
+{
+    from
+    {
+        transform: rotate(0deg);
+    }
+    to
+    {
+        transform: rotate(359deg);
+    }
 }
 
 .sun-wrapper
@@ -156,6 +224,7 @@
     height: 100%;
 
     transform-origin: bottom center;
+    animation: sun-rotate 50s linear infinite;
 }
 
 .sun div
@@ -220,7 +289,7 @@
 .cloud
 {
     position: absolute;
-    left: -180px;
+    left: -200px;
 
     width: 200px;
     height: 60px;
@@ -259,21 +328,41 @@
 .cloud-1
 {
     top: 10px;
+    transform: scale(.25);
+    animation: cloud-move 30s linear infinite 3s;
 }
 
 .cloud-2
 {
     top: 50px;
+    transform: scale(-.4, .4);
+    animation: cloud-move 35s linear infinite 9s;
 }
 
 .cloud-3
 {
     top: 100px;
+    transform: scale(.5);
+    animation: cloud-move 40s linear infinite;
 }
 
 .cloud-4
 {
     top: 170px;
+    transform: scale(-.65, .65);
+    animation: cloud-move 45s linear infinite 6s;
+}
+
+@keyframes cloud-move
+{
+    from
+    {
+        left: -250px;
+    }
+    to
+    {
+        left: 600px;
+    }
 }
 
 .sea
