@@ -4,14 +4,21 @@
 
     width: 500px;
     height: 380px;
-    margin: 80px auto 0;
+    margin: 200px auto 0;
 
+    transform-style: preserve-3d;
     transition: .3s ease;
 
     perspective: 800px;
+    perspective-origin: top right;
 }
 
-@keyframes daytime
+.canvas:hover
+{
+    transform: rotateY(-20deg) rotateX(-10deg) rotateZ(20deg);
+}
+
+@keyframes daytime-water
 {
     0%
     {
@@ -32,18 +39,80 @@
     }
 }
 
-.box_front
+@keyframes daytime-sky
 {
-    position: relative;
+    0%
+    {
+        background: skyblue;
+        box-shadow: 0 -400px 300px -300px steelblue inset;
+    }
 
-    overflow: hidden;
+    40%
+    {
+        background: darkslateblue;
+    }
 
-    width: 500px;
-    height: 380px;
+    50%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px transparent inset;
+    }
+}
 
+.box-facet
+{
+    position: absolute;
     background: skyblue;
     box-shadow: 0 -400px 300px -300px steelblue inset;
-    animation: daytime 90s linear infinite -65s;
+}
+
+.box-facet_front
+{
+    width: 500px;
+    height: 380px;
+    overflow: hidden;
+    animation: daytime-water 90s linear infinite -65s;
+}
+
+.box-facet_back
+{
+    width: 500px;
+    height: 380px;
+    transform: translateZ(-100px);
+}
+
+.box-facet_top
+{
+    width: 500px;
+    height: 100px;
+    transform: rotateX(90deg) translateY(-100px);
+    transform-origin: top center;
+    animation: daytime-sky 90s linear infinite -65s;
+}
+
+.box-facet_bottom
+{
+    width: 500px;
+    height: 100px;
+    transform: rotateX(90deg) translateY(-100px) translateZ(-380px);
+    transform-origin: top center;
+}
+
+.box-facet_left
+{
+    width: 100px;
+    height: 380px;
+    transform: rotateY(-90deg) translateX(-100px);
+    transform-origin: left center;
+}
+
+.box-facet_right
+{
+    width: 100px;
+    height: 380px;
+    transform: rotateY(270deg) translateX(-100px) translateZ(-500px);
+    transform-origin: left center;
+    animation: daytime-water 90s linear infinite -65s;
 }
 
 .ship::after
