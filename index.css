@@ -149,7 +149,7 @@
 {
     to
     {
-        right: 100%;
+        transform: translate(-600px);
     }
 }
 
@@ -206,15 +206,13 @@
 {
     0%
     {
-        top: -25px;
         opacity: .7;
         transform: scale(1);
     }
     to
     {
-        top: -50px;
         opacity: 0;
-        transform: scale(2.5);
+        transform: translateY(-25px) scale(2.5);
     }
 }
 
@@ -398,11 +396,11 @@
 {
     0%
     {
-        left: -300px;
+        transform: translate(-400px) scale(.5);
     }
     to
     {
-        left: 100%;
+        transform: translate(800px) scale(.5);
     }
 }
 
