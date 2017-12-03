@@ -38,7 +38,7 @@
 {
     from
     {
-        transform: translateX(-300px) scale(-1, 1);
+        transform: translateZ(-300px) translateX(-300px) scale(-1, 1);
     }
     to
     {
@@ -50,11 +50,11 @@
 {
     from
     {
-        left: 600px;
+        transform: translateX(150px);
     }
     to
     {
-        left: -200px;
+        transform: translateX(-500px);
     }
 }
 
@@ -62,15 +62,13 @@
 {
     from
     {
-        top: -25px;
-        transform: scale(.5);
+        transform: scale(.5) translateY(0);
         opacity: 1;
     }
     to
     {
+        transform: scale(2) translateY(-20px);
         opacity: 0;
-        transform: scale(2);
-        top: -40px;
     }
 }
 
@@ -142,6 +140,8 @@
     width: 500px;
     height: 380px;
     animation: time-of-day 90s linear infinite;
+    perspective: 800px;
+    transform-style: preserve-3d;
 }
 
 .box_top
@@ -231,6 +231,8 @@
     border-radius: 50%;
     background: #fff;
     animation: smoke-move 1.75s ease infinite;
+    top: -23px;
+    opacity: 0;
 }
 
 .smoke-1
@@ -241,7 +243,6 @@
 
 .smoke-2
 {
-
     right: 42px;
 }
 
