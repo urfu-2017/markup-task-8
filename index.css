@@ -121,7 +121,7 @@ body {
 
     box-shadow: 0 -400px 300px -300px steelblue inset;
 
-    /* stylelint-disable indentation */
+    /* stylelint-disable indentation, value-list-comma-space-after */
     animation: switch-day-to-night--color calc(var(--day-length) / 2) linear infinite,
                switch-day-to-night--gradient calc(var(--day-length) / 2) linear infinite;
     /* stylelint-enable */
