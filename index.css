@@ -12,7 +12,8 @@ body {
     50% {
         background: darkslateblue;
     }
-    70%, 100% {
+    70%,
+    100% {
         background: darkslateblue;
     }
 }
@@ -24,7 +25,8 @@ body {
     50% {
         box-shadow: 0 -400px 300px -300px orangered inset;
     }
-    70%, 100% {
+    70%,
+    100% {
         box-shadow: 0 -400px 300px -300px transparent inset;
     }
 }
@@ -119,8 +121,10 @@ body {
 
     box-shadow: 0 -400px 300px -300px steelblue inset;
 
+    /* stylelint-disable indentation */
     animation: switch-day-to-night--color calc(var(--day-length) / 2) linear infinite,
                switch-day-to-night--gradient calc(var(--day-length) / 2) linear infinite;
+    /* stylelint-enable */
 }
 
 .box_front,
