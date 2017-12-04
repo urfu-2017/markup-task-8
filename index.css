@@ -19,25 +19,10 @@
 
     width: 500px;
     height: 380px;
-
+    animation: skyCycle 24s linear infinite;
     background: skyblue;
     box-shadow: 0 -400px 300px -300px steelblue inset;
 }
-
-/*TODO
-Цвета неба задаются следующими свойствами:
-    День:
-        background: skyblue;
-        box-shadow: 0 -400px 300px -300px steelblue inset;
-    Вечер:
-        background: darkslateblue;
-        box-shadow: 0 -400px 300px -300px orangered inset;
-    Ночь:
-        background: darkslateblue;
-        box-shadow: 0 -400px 300px -300px transparent inset;
-
-Нужно реализовать плавный переход между ними и зациклить его.
-*/
 
 .ship::after
 {
@@ -74,7 +59,7 @@
     position: absolute;
     right: 0;
     bottom: 30px;
-
+    animation: shipCycle 24s linear infinite;
     width: 100px;
     height: 36px;
 }
@@ -120,18 +105,23 @@
 {
     top: -25px;
     right: 44px;
+    animation: smokePop 1s linear infinite;
+    animation-delay: .2s;
 }
 
 .smoke-2
 {
     top: -25px;
     right: 42px;
+    animation: smokePop 1s linear infinite;
+    animation-delay: .5s;
 }
 
 .smoke-3
 {
     top: -25px;
     right: 49px;
+    animation: smokePop 1s linear infinite;
 }
 
 .sun
@@ -139,7 +129,7 @@
     position: absolute;
     top: 30px;
     right: 50%;
-
+    animation: sunCycle2 5s infinite linear;
     width: 80px;
     height: 80px;
 
@@ -151,7 +141,7 @@
 .sun-wrapper
 {
     position: absolute;
-
+    animation: sunCycle 24s infinite linear;
     width: 100%;
     height: 100%;
 
@@ -163,7 +153,7 @@
     position: absolute;
     top: -20px;
     left: 50%;
-
+    animation: sunRays 1s linear infinite;
     width: 2px;
     height: 100px;
     margin-left: -1px;
@@ -220,7 +210,6 @@
 .cloud
 {
     position: absolute;
-    left: -180px;
 
     width: 200px;
     height: 60px;
@@ -259,21 +248,29 @@
 .cloud-1
 {
     top: 10px;
+    transform: scale(.3, .3);
+    animation: cloudCycle1 31s linear infinite;
 }
 
 .cloud-2
 {
     top: 50px;
+    transform: scale(.4, .4);
+    animation: cloudCycle2 23s linear infinite;
 }
 
 .cloud-3
 {
     top: 100px;
+    transform: scale(.5, .5);
+    animation: cloudCycle3 17s linear infinite;
 }
 
 .cloud-4
 {
     top: 170px;
+    transform: scale(.6, .6);
+    animation: cloudCycle4 11s linear infinite;
 }
 
 .sea
@@ -301,4 +298,116 @@
     content: '';
 
     background: #1d7fbb;
+}
+
+@keyframes cloudCycle1
+{
+    0%
+    {
+        right: -1200px;
+    }
+    100%
+    {
+        right: 1200px;
+    }
+}
+
+@keyframes cloudCycle2
+{
+    0%
+    {
+        right: -800px;
+    }
+    100%
+    {
+        right: 1000px;
+    }
+}
+
+@keyframes cloudCycle3
+{
+    0%
+    {
+        right: -500px;
+    }
+    100%
+    {
+        right: 800px;
+    }
+}
+
+@keyframes cloudCycle4
+{
+    0%
+    {
+        right: -200px;
+    }
+    100%
+    {
+        right: 600px;
+    }
+}
+
+@keyframes smokePop
+{
+    100%
+    {
+        opacity: 0;
+        width: 15px;
+        height: 15px;
+        margin-top: -20px;
+    }
+}
+
+@keyframes skyCycle
+{
+    0%
+    {
+        background: skyblue;
+        box-shadow: 0 -400px 300px -300px steelblue inset;
+    }
+    40%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px orangered inset;
+    }
+    70%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px transparent inset;
+    }
+    100%
+    {
+        background: skyblue;
+        box-shadow: 0 -400px 300px -300px steelblue inset;
+    }
+}
+
+@keyframes sunCycle2
+{
+    100%
+    {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes sunCycle
+{
+    100%
+    {
+        transform-origin: 400px 800px;
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes shipCycle
+{
+    0%
+    {
+        right: -100px;
+    }
+    100%
+    {
+        right: 600px;
+    }
 }
