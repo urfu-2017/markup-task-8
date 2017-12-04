@@ -22,22 +22,9 @@
 
     background: skyblue;
     box-shadow: 0 -400px 300px -300px steelblue inset;
+
+    animation: sky-color 60s linear infinite;
 }
-
-/*TODO
-Цвета неба задаются следующими свойствами:
-    День:
-        background: skyblue;
-        box-shadow: 0 -400px 300px -300px steelblue inset;
-    Вечер:
-        background: darkslateblue;
-        box-shadow: 0 -400px 300px -300px orangered inset;
-    Ночь:
-        background: darkslateblue;
-        box-shadow: 0 -400px 300px -300px transparent inset;
-
-Нужно реализовать плавный переход между ними и зациклить его.
-*/
 
 .ship::after
 {
@@ -77,6 +64,8 @@
 
     width: 100px;
     height: 36px;
+
+    animation: ship-movement 40s linear infinite;
 }
 
 .ship_smokestack
@@ -114,24 +103,32 @@
 
     border-radius: 50%;
     background: #fff;
+
+    animation: smoke 3s ease-out infinite;
 }
 
-.smoke-1
+div.smoke-1
 {
     top: -25px;
     right: 44px;
+
+    animation-delay: 0s;
 }
 
-.smoke-2
+div.smoke-2
 {
     top: -25px;
     right: 42px;
+
+    animation-delay: 1s;
 }
 
-.smoke-3
+div.smoke-3
 {
     top: -25px;
     right: 49px;
+
+    animation-delay: 2s;
 }
 
 .sun
@@ -146,6 +143,8 @@
     border-radius: 50%;
     background: #ffcf11;
     box-shadow: 0 0 100px #ffdf05;
+
+    animation: sun-rotate 10s linear infinite;
 }
 
 .sun-wrapper
@@ -156,6 +155,8 @@
     height: 100%;
 
     transform-origin: bottom center;
+
+    animation: day-change 60s linear infinite;
 }
 
 .sun div
@@ -228,6 +229,8 @@
     opacity: .8;
     border-radius: 200px;
     background: #fff;
+
+    animation: cloud-movement 40s linear infinite;
 }
 
 .cloud:before,
@@ -264,16 +267,22 @@
 .cloud-2
 {
     top: 50px;
+    transform: scale(.6);
+    animation-duration: 60s;
 }
 
 .cloud-3
 {
     top: 100px;
+    transform: scale(-.3,.3);
+    animation-duration: 90s;
 }
 
 .cloud-4
 {
     top: 170px;
+    transform: scale(-.7,.7);
+    animation-duration: 50s;
 }
 
 .sea
@@ -301,4 +310,82 @@
     content: '';
 
     background: #1d7fbb;
+}
+
+@keyframes ship-movement
+{
+    0%
+    {
+        transform: translateX(100px);
+    }
+    100%
+    {
+        transform: translateX(-500px);
+    }
+}
+
+@keyframes sun-rotate
+{
+    100%
+    {
+        transform: rotate(1turn);
+    }
+}
+
+@keyframes day-change
+{
+    100%
+    {
+        transform: rotate(1turn);
+    }
+}
+
+@keyframes cloud-movement
+{
+    from
+    {
+        left: -200px;
+    }
+    to
+    {
+        left: 100%;
+    }
+}
+
+@keyframes smoke
+{
+    to
+    {
+        transform: scale(2) translateY(-15px);
+        opacity: 0;
+    }
+}
+
+@keyframes sky-color
+{
+    0%
+    {
+        background: skyblue;
+        box-shadow: 0 -400px 300px -300px steelblue inset;
+    }
+    25%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px orangered inset;
+    }
+    50%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px transparent inset;
+    }
+    75%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px orangered inset;
+    }
+    100%
+    {
+        background: skyblue;
+        box-shadow: 0 -400px 300px -300px steelblue inset;
+    }
 }
