@@ -1,0 +1,157 @@
+@keyframes shipMove
+{
+    from
+    {
+        transform: translateX(90px);
+    }
+    to
+    {
+        transform: translateX(-500px);
+    }
+}
+
+@keyframes smokeMove
+{
+    from
+    {
+        opacity: 1;
+    }
+    to
+    {
+        opacity: 0;
+        transform: translateY(-20px) scale(2);
+    }
+}
+
+@keyframes sunRotate
+{
+    to
+    {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes sunMove
+{
+    from
+    {
+        transform: rotate(0deg) translate(60px);
+    }
+    to
+    {
+        transform: rotate(360deg) translate(60px);
+    }
+}
+
+@keyframes cloud1Move
+{
+    from
+    {
+        transform: translateX(0) scale(.3);
+    }
+    to
+    {
+        transform: translateX(700px) scale(.3);
+    }
+}
+
+@keyframes cloud2Move
+{
+    from
+    {
+        transform: translateX(0) scale(-.4, .4);
+    }
+    to
+    {
+        transform: translateX(700px) scale(-.4, .4);
+    }
+}
+
+@keyframes cloud3Move
+{
+    from
+    {
+        transform: translateX(0) scale(.5);
+    }
+    to
+    {
+        transform: translateX(700px) scale(.5);
+    }
+}
+
+@keyframes cloud4Move
+{
+    from
+    {
+        transform: translateX(0) scale(-.6, .6);
+    }
+    to
+    {
+        transform: translateX(700px) scale(-.6, .6);
+    }
+}
+
+@keyframes colorOfSky
+{
+    0%,
+    20%
+    {
+        background: skyblue;
+        box-shadow: 0 -400px 300px -300px steelblue inset;
+    }
+
+    20%,
+    40%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px orangered inset;
+    }
+    40%,
+    60%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px transparent inset;
+    }
+    80%,
+    95%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px orangered inset;
+    }
+    95%,
+    100%
+    {
+        background: skyblue;
+        box-shadow: 0 -400px 300px -300px steelblue inset;
+    }
+}
+
+@keyframes colorOfSkyTop
+{
+    0%,
+    20%
+    {
+        background: skyblue;
+    }
+
+    20%,
+    40%
+    {
+        background: darkslateblue;
+    }
+    40%,
+    60%
+    {
+        background: darkslateblue;
+    }
+    80%,
+    95%
+    {
+        background: darkslateblue;
+    }
+    95%,
+    100%
+    {
+        background: skyblue;
+    }
+}
