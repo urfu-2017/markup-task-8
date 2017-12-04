@@ -207,7 +207,7 @@
 
     transform-origin: bottom center;
 
-    animation: sun_animation 60s linear 0s infinite;
+    animation: sun_animation 50s linear 0s infinite;
 }
 
 .sun div
@@ -358,7 +358,7 @@
     }
     to
     {
-        transform: translateX(900px) scale(-.6, .6);
+        transform: translateX(700px) scale(-.6, .6);
     }
 }
 
@@ -376,7 +376,7 @@
     }
     to
     {
-        transform: translateX(900px) scale(.7, .7);
+        transform: translateX(700px) scale(.7, .7);
     }
 }
 
