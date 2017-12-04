@@ -274,7 +274,7 @@
     transform: rotate(-72deg);
 }
 
-@keyframes cloud
+@keyframes cloud_movement
 {
     from
     {
@@ -298,7 +298,7 @@
     border-radius: 200px;
     background: #fff;
 
-    animation: cloud linear infinite;
+    animation: cloud_movement linear infinite;
 }
 
 .cloud:before,
