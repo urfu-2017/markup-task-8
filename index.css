@@ -1,3 +1,11 @@
+@import 'animations.css';
+
+.canvas_wrap
+{
+    perspective: 800px;
+    width: 500px;
+}
+
 .canvas
 {
     position: relative;
@@ -9,6 +17,18 @@
     transition: .3s ease;
 
     perspective: 800px;
+
+    transform-style: preserve-3d;
+}
+
+.canvas_wrap:hover
+{
+    perspective-origin: 1000px -300px;
+}
+
+.canvas_wrap:hover > .canvas
+{
+    transform: rotateY(-10deg);
 }
 
 .box_front
@@ -22,6 +42,52 @@
 
     background: skyblue;
     box-shadow: 0 -400px 300px -300px steelblue inset;
+
+    animation-name: sky;
+    animation-duration: 60s;
+    animation-iteration-count: infinite;
+
+    z-index: 2;
+}
+
+.box_right
+{
+    position: relative;
+
+    width: 50px;
+    height: 380px;
+    top: -380px;
+    margin-bottom: -380px;
+
+    background: green;
+    box-shadow: 0 -400px 300px -300px steelblue inset;
+
+    animation-name: sky;
+    animation-duration: 60s;
+    animation-iteration-count: infinite;
+
+    transform-origin: left top;
+    transform: translateX(500px) rotateY(90deg);
+}
+
+.box_top
+{
+    position: relative;
+
+    width: 500px;
+    height: 50px;
+    top: -380px;
+    margin-bottom: -380px;
+
+    background: skyblue;
+    box-shadow: 0 -400px 300px -300px steelblue inset;
+
+    animation-name: sky-top;
+    animation-duration: 60s;
+    animation-iteration-count: infinite;
+
+    transform-origin: left bottom;
+    transform: translateY(-50px) rotateX(90deg);
 }
 
 /*TODO
@@ -77,6 +143,10 @@
 
     width: 100px;
     height: 36px;
+
+    animation-name: ship;
+    animation-iteration-count: infinite;
+    animation-duration: 40s;
 }
 
 .ship_smokestack
@@ -107,6 +177,7 @@
 
 .smoke div
 {
+    opacity: 0;
     position: absolute;
 
     width: 7px;
@@ -120,18 +191,32 @@
 {
     top: -25px;
     right: 44px;
+
+    animation-name: smoke;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
 }
 
 .smoke-2
 {
     top: -25px;
     right: 42px;
+
+    animation-name: smoke;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-delay: 1.1s;
 }
 
 .smoke-3
 {
     top: -25px;
     right: 49px;
+
+    animation-name: smoke;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-delay: .8s;
 }
 
 .sun
@@ -146,6 +231,11 @@
     border-radius: 50%;
     background: #ffcf11;
     box-shadow: 0 0 100px #ffdf05;
+
+    animation-name: sun-rotate;
+    animation-duration: 15s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
 }
 
 .sun-wrapper
@@ -156,6 +246,10 @@
     height: 100%;
 
     transform-origin: bottom center;
+    animation-name: sun;
+    animation-duration: 60s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
 }
 
 .sun div
@@ -259,21 +353,49 @@
 .cloud-1
 {
     top: 10px;
+    transform: scale(.3, .3);
+
+    animation-name: cloud;
+    animation-duration: 70s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-delay: .5s;
 }
 
 .cloud-2
 {
     top: 50px;
+    transform: scale(.4, .4) rotateY(180deg);
+
+    animation-name: cloud;
+    animation-duration: 40s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-delay: 1s;
 }
 
 .cloud-3
 {
     top: 100px;
+    transform: scale(.5, .5);
+
+    animation-name: cloud;
+    animation-duration: 25s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-delay: 3s;
 }
 
 .cloud-4
 {
     top: 170px;
+    transform: scale(.7, .7);
+
+    animation-name: cloud;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-delay: 2s;
 }
 
 .sea
