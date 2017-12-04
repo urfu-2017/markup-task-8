@@ -9,6 +9,13 @@
     transition: .3s ease;
 
     perspective: 800px;
+    perspective-origin: top right;
+    transform-style: preserve-3d;
+}
+
+.canvas:hover
+{
+    transform: rotateX(-20deg) rotateY(-20deg);
 }
 
 .box_front
@@ -22,6 +29,72 @@
 
     background: skyblue;
     box-shadow: 0 -400px 300px -300px steelblue inset;
+
+    animation: box-animation 30s linear infinite;
+}
+
+.box_top
+{
+    position: absolute;
+    bottom: 100%;
+
+    width: 500px;
+    height: 100px;
+
+    background: skyblue;
+    transform: rotateX(90deg);
+    transform-origin: bottom;
+
+    animation: box-top-animation 30s linear infinite;
+}
+
+.box_right
+{
+    position: absolute;
+    left: 100%;
+
+    width: 100px;
+    height: 380px;
+
+    background: skyblue;
+    transform: rotateY(90deg);
+    transform-origin: left;
+
+    animation: box-animation 30s linear infinite;
+}
+
+@keyframes box-animation
+{
+    20%,
+    30%
+    {
+        background: skyblue;
+        box-shadow: 0 -400px 300px -300px steelblue inset;
+    }
+    45%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px orangered inset;
+    }
+    60%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px transparent inset;
+    }
+}
+
+@keyframes box-top-animation
+{
+    20%,
+    30%
+    {
+        background: skyblue;
+    }
+    45%,
+    60%
+    {
+        background: darkslateblue;
+    }
 }
 
 /*TODO
@@ -77,6 +150,20 @@
 
     width: 100px;
     height: 36px;
+
+    animation: shipMove 35s linear infinite;
+}
+
+@keyframes shipMove 
+{
+    from
+    {
+        transform: translateX(0);
+    }
+    to
+    {
+        transform: translateX(-500px);
+    }
 }
 
 .ship_smokestack
@@ -114,24 +201,47 @@
 
     border-radius: 50%;
     background: #fff;
+
+    opacity: 0;
 }
 
 .smoke-1
 {
     top: -25px;
     right: 44px;
+    animation: smokeMove 2s linear infinite .3s;
 }
 
 .smoke-2
 {
     top: -25px;
     right: 42px;
+    animation: smokeMove 2s linear infinite 1s;
 }
 
 .smoke-3
 {
     top: -25px;
     right: 49px;
+    animation: smokeMove 2s linear infinite .6s;
+}
+
+@keyframes smokeMove 
+{
+    from
+    {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    50%
+    {
+        opacity: .5;
+    }
+    to
+    {
+        transform: translateY(-20px) scale(1.5);
+        opacity: .1;
+    }
 }
 
 .sun
@@ -146,6 +256,19 @@
     border-radius: 50%;
     background: #ffcf11;
     box-shadow: 0 0 100px #ffdf05;
+    animation: sunRotate linear 10s infinite;
+}
+
+@keyframes sunRotate 
+{
+    from
+    {
+        transform: rotate(0deg);
+    }
+    to
+    {
+        transform: rotate(360deg);
+    }
 }
 
 .sun-wrapper
@@ -155,7 +278,24 @@
     width: 100%;
     height: 100%;
 
+    top: 300px;
+    left: 8%;
+
     transform-origin: bottom center;
+
+    animation: rot linear 30s infinite;
+}
+
+@keyframes rot 
+{
+    from
+    {
+        transform: rotate(0deg) translate(-310px) rotate(0deg);
+    }
+    to
+    {
+        transform: rotate(360deg) translate(-310px) rotate(-360deg);
+    }
 }
 
 .sun div
@@ -259,21 +399,73 @@
 .cloud-1
 {
     top: 10px;
+    animation: cloud-1-Move 30s linear infinite;
+}
+
+@keyframes cloud-1-Move 
+{
+    from
+    {
+        transform: scale(.3) translateX(-200px);
+    }
+    to
+    {
+        transform: scale(.3) translateX(2500px);
+    }
 }
 
 .cloud-2
 {
     top: 50px;
+    animation: cloud-2-Move 20s linear infinite;
+}
+
+@keyframes cloud-2-Move 
+{
+    from
+    {
+        transform: scale(-.4, .4) translateX(200px);
+    }
+    to
+    {
+        transform: scale(-.4, .4) translateX(-1600px);
+    }
 }
 
 .cloud-3
 {
     top: 100px;
+    animation: cloud-3-Move 15s linear infinite;
+}
+
+@keyframes cloud-3-Move 
+{
+    from
+    {
+        transform: scale(.55) translateX(-200px);
+    }
+    to
+    {
+        transform: scale(.55) translateX(1200px);
+    }
 }
 
 .cloud-4
 {
     top: 170px;
+    animation: cloud-4-Move 10s linear infinite;
+}
+
+@keyframes cloud-4-Move 
+{
+    from
+    {
+        transform: scale(-.7, .7) translateX(200px);
+    }
+    to
+    {
+        transform: scale(-.7, .7) translateX(-1000px);
+    }
 }
 
 .sea
