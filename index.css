@@ -4,26 +4,75 @@
 
     width: 500px;
     height: 380px;
-    margin: 80px 0 0;
-
+    margin: 200px 0 0;
     transition: .3s ease;
+    perspective: 3000px;
+    transform-style: preserve-3d;
+}
 
-    perspective: 800px;
+.canvas:hover
+{
+    transform: rotateX(-30deg) rotateY(-30deg);
 }
 
 .box_front
 {
     position: relative;
-
     overflow: hidden;
-
     width: 500px;
     height: 380px;
-
     background: skyblue;
     box-shadow: 0 -400px 300px -300px steelblue inset;
-    transform-origin: bottom;
     animation: sky_color 10s linear infinite;
+}
+
+.box_right
+{
+    position: absolute;
+    left: 100%;
+    width: 200px;
+    height: 380px;
+    background: skyblue;
+    box-shadow: 0 -400px 300px -300px steelblue inset;
+    transform: rotateY(90deg);
+    transform-origin: left;
+    animation: sky_color 10s linear infinite;
+}
+
+.box_top
+{
+    transform: rotateX(90deg);
+    position: absolute;
+    bottom: 100%;
+    width: 500px;
+    height: 200px;
+    background: skyblue;
+    transform-origin: bottom;
+    animation: top 10s linear infinite;
+}
+
+@keyframes top
+{
+    0%
+    {
+        background: skyblue;
+    }
+    25%
+    {
+        background: darkslateblue;
+    }
+    50%
+    {
+        background: darkslateblue;
+    }
+    75%
+    {
+        background: darkslateblue;
+    }
+    100%
+    {
+        background: skyblue;
+    }
 }
 
 @keyframes sky_color
