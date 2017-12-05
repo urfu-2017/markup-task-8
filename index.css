@@ -23,7 +23,7 @@
     height: 380px;
     background: skyblue;
     box-shadow: 0 -400px 300px -300px steelblue inset;
-    animation: sky_color 10s linear infinite;
+    animation: sky_color 50s linear infinite;
 }
 
 .box_right
@@ -36,7 +36,7 @@
     box-shadow: 0 -400px 300px -300px steelblue inset;
     transform: rotateY(90deg);
     transform-origin: left;
-    animation: sky_color 10s linear infinite;
+    animation: sky_color 50s linear infinite;
 }
 
 .box_top
@@ -48,7 +48,7 @@
     height: 200px;
     background: skyblue;
     transform-origin: bottom;
-    animation: top 10s linear infinite;
+    animation: top 50s linear infinite;
 }
 
 @keyframes top
@@ -148,7 +148,7 @@
 
 .ship
 {
-    animation: go-right-left 10s linear infinite;
+    animation: go-right-left 50s linear infinite;
     position: absolute;
     right: 0;
     bottom: 30px;
@@ -244,7 +244,7 @@
     border-radius: 50%;
     background: #ffcf11;
     box-shadow: 0 0 100px #ffdf05;
-    animation: go-circle 10s linear infinite;
+    animation: go-circle 50s linear infinite;
 }
 
 .sun-wrapper
@@ -253,7 +253,7 @@
     width: 100%;
     height: 100%;
     transform-origin: bottom center;
-    animation: go-circle 10s linear infinite;
+    animation: go-circle 50s linear infinite;
 }
 
 .sun div
