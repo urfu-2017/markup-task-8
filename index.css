@@ -114,14 +114,14 @@
 {
     top: -25px;
     right: 42px;
-    animation: smoke-move 2s linear infinite;
+    animation: smoke-move 3s linear infinite;
 }
 
 .smoke-3
 {
     top: -25px;
     right: 49px;
-    animation: smoke-move 3s linear infinite;
+    animation: smoke-move 2s linear infinite;
 }
 
 .sun
@@ -251,28 +251,24 @@
 .cloud-1
 {
     top: 10px;
-    transform: scale3d(.2, .2, .2);
     animation: cloud-move-1 18s linear infinite;
 }
 
 .cloud-2
 {
     top: 50px;
-    transform: scale3d(.4, .4, .4);
     animation: cloud-move-2 15s linear infinite;
 }
 
 .cloud-3
 {
     top: 100px;
-    transform: scale3d(.6, .6, .6);
     animation: cloud-move-3 12s linear infinite;
 }
 
 .cloud-4
 {
     top: 170px;
-    transform: scale3d(.8, .8, .8);
     animation: cloud-move-4 8s linear infinite;
 }
 
@@ -409,15 +405,15 @@
 
 @keyframes smoke-move
 {
-    to
-    {
-        opacity: 1;
-        transform: translate3d(0, -25px, 0) scale3d(1, 1, 1);
-    }
-
     from
     {
         opacity: 1;
         transform: translate3d(0, 0, 0) scale3d(2, 2, 2);
+    }
+
+    to
+    {
+        opacity: 0;
+        transform: translate3d(0, -20px, 0) scale3d(1, 1, 1);
     }
 }
