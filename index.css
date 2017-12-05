@@ -65,6 +65,11 @@
 
 @keyframes skyWithoutShadow
 {
+    from
+    {
+        background: skyblue;
+    }
+
     33%,
     66%
     {
@@ -74,6 +79,12 @@
 
 @keyframes sky
 {
+    from
+    {
+        background: skyblue;
+        box-shadow: 0 -400px 300px -300px steelblue inset;
+    }
+
     33%
     {
         background: darkslateblue;
@@ -131,6 +142,11 @@
 
 @keyframes swim
 {
+    from
+    {
+        right: -110px;
+    }
+
     to
     {
         right: 500px;
@@ -199,6 +215,12 @@
 
 @keyframes smoking
 {
+    from
+    {
+        opacity: 1;
+        top: -25px;
+    }
+
     to
     {
         opacity: 0;
@@ -377,6 +399,11 @@
 
 @keyframes flying1
 {
+    from
+    {
+        left: -50px;
+    }
+
     80%
     {
         left: 500px;
@@ -395,6 +422,11 @@
 
 @keyframes flying2
 {
+    from
+    {
+        left: -200px;
+    }
+
     to
     {
         left: 500px;
@@ -403,6 +435,11 @@
 
 @keyframes flying3
 {
+    from
+    {
+        left: 100px;
+    }
+
     60%
     {
         left: 500px;
