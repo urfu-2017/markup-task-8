@@ -271,6 +271,7 @@
     /* background: #ffcf11; */
     background: url('suuunmini.png');
     box-shadow: 0 0 100px #ffdf05;
+    animation: sunanimation 30s linear infinite;
 }
 
 @keyframes sunanimation
