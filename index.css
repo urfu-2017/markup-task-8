@@ -6,15 +6,94 @@
     height: 380px;
     margin: 80px 0 0;
 
+    transform-style: preserve-3d;
     transition: .3s ease;
+}
 
-    perspective: 800px;
+@keyframes sky-top
+{
+    0%
+    {
+        background: skyblue;
+    }
+    30%
+    {
+        background: darkslateblue;
+    }
+    75%
+    {
+        background: darkslateblue;
+    }
+    100%
+    {
+        background: skyblue;
+    }
+}
+
+.top-side
+{
+    position: absolute;
+
+    height: 100px;
+    width: 500px;
+
+    background: skyblue;
+
+    transform-origin: top;
+    animation: sky-top 30s linear infinite;
+    transform: translateZ(-100px) rotateX(90deg);
+}
+
+.right-side
+{
+    position: absolute;
+
+    height: 380px;
+    width: 100px;
+
+    background: skyblue;
+
+    transform-origin: left;
+    animation: sky 30s infinite linear;
+    transform: translateX(500px) rotateY(90deg);
+    box-shadow: 0 -400px 300px -300px steelblue inset;
+}
+
+.canvas:hover
+{
+    transform: rotateX(-15deg) rotateY(-15deg);
+}
+
+@keyframes sky
+{
+    0%
+    {
+        background: skyblue;
+        box-shadow: 0 -400px 300px -300px steelblue inset;
+    }
+    30%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px orangered inset;
+    }
+    75%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px transparent inset;
+    }
+    100%
+    {
+        background: skyblue;
+        box-shadow: 0 -400px 300px -300px steelblue inset;
+    }
 }
 
 .box_front
 {
-    position: relative;
 
+    animation: sky 30s infinite linear;
+    perspective: 800px;
+    position: relative;
     overflow: hidden;
 
     width: 500px;
@@ -69,10 +148,20 @@
     background: #fff;
 }
 
+@keyframes ship
+{
+    100%
+    {
+        transform: translateX(-750px);
+    }
+}
+
 .ship
 {
+
+    animation: ship 30s infinite linear;
     position: absolute;
-    right: 0;
+    right: -100px;
     bottom: 30px;
 
     width: 100px;
@@ -116,26 +205,54 @@
     background: #fff;
 }
 
+@keyframes smoke
+{
+    50%
+    {
+        transform: translateY(-20px) scale(1.5);
+        opacity: .6;
+
+    }
+    100%
+    {
+        transform: translateY(-40px) scale(1.8);
+        opacity: .2;
+    }
+}
+
 .smoke-1
 {
+    animation: smoke 3s linear infinite;
     top: -25px;
     right: 44px;
 }
 
 .smoke-2
 {
+    animation: smoke 3s linear 1s infinite;
     top: -25px;
     right: 42px;
 }
 
 .smoke-3
 {
+    animation: smoke 3s linear 2s infinite;
     top: -25px;
     right: 49px;
 }
 
+@keyframes sun
+{
+    100%
+    {
+        transform: rotate(360deg);
+    }
+
+}
+
 .sun
 {
+    animation: sun 10s infinite linear;
     position: absolute;
     top: 30px;
     right: 50%;
@@ -150,6 +267,7 @@
 
 .sun-wrapper
 {
+    animation: sun 30s infinite linear;
     position: absolute;
 
     width: 100%;
@@ -219,8 +337,9 @@
 
 .cloud
 {
+    transform-style: preserve-3d;
     position: absolute;
-    left: -180px;
+    left: -200px;
 
     width: 200px;
     height: 60px;
@@ -256,23 +375,75 @@
     height: 120px;
 }
 
+@keyframes cloud-1
+{
+    0%
+    {
+        transform: scale(-.3, .3);
+    }
+    100%
+    {
+        transform: translateX(900px) scale(-.3, .3);
+    }
+}
+
 .cloud-1
 {
+    animation: cloud-1 40s linear 11s infinite;
     top: 10px;
+}
+
+@keyframes cloud-2
+{
+    0%
+    {
+        transform: scale(.4);
+    }
+    100%
+    {
+        transform: translateX(800px) scale(.4);
+    }
 }
 
 .cloud-2
 {
+    animation: cloud-2 30s linear 8s infinite;
     top: 50px;
+}
+
+@keyframes cloud-3
+{
+    0%
+    {
+        transform: scale(-.5, .5);
+    }
+    100%
+    {
+        transform: translateX(750px) scale(-.5, .5);
+    }
 }
 
 .cloud-3
 {
+    animation: cloud-3 25s linear 5s infinite;
     top: 100px;
+}
+
+@keyframes cloud-4
+{
+    0%
+    {
+        transform: scale(.65);
+    }
+    100%
+    {
+        transform: translateX(700px) scale(.65);
+    }
 }
 
 .cloud-4
 {
+    animation: cloud-4 18s linear 3s infinite;
     top: 170px;
 }
 
