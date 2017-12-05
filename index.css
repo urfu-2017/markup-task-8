@@ -1,20 +1,20 @@
 .canvas
 {
     position: relative;
-
+    left: 40px;
     width: 500px;
     height: 380px;
     margin: 80px 0 0;
 
     transition: .3s ease;
-
-    perspective: 800px;
+    transform-style: preserve-3d;
+    perspective: 3000px;
 }
 
 .box_front
 {
     position: relative;
-
+    animation: bgAnimation 100s linear infinite;
     overflow: hidden;
 
     width: 500px;
@@ -24,20 +24,62 @@
     box-shadow: 0 -400px 300px -300px steelblue inset;
 }
 
-/*TODO
-Цвета неба задаются следующими свойствами:
-    День:
+@keyframes topAnimation
+{
+    0%
+    {
+        background: skyblue;
+    }
+    20%
+    {
+        background: darkslateblue;
+    }
+    40%
+    {
+        background: darkslateblue;
+    }
+    100%
+    {
+        background: skyblue;
+    }
+}
+
+@keyframes bgAnimation
+{
+    0%
+    {
         background: skyblue;
         box-shadow: 0 -400px 300px -300px steelblue inset;
-    Вечер:
+    }
+    20%
+    {
         background: darkslateblue;
         box-shadow: 0 -400px 300px -300px orangered inset;
-    Ночь:
+    }
+    40%
+    {
         background: darkslateblue;
         box-shadow: 0 -400px 300px -300px transparent inset;
+    }
+    100%
+    {
+        background: skyblue;
+        box-shadow: 0 -400px 300px -300px steelblue inset;
+    }
 
-Нужно реализовать плавный переход между ними и зациклить его.
-*/
+}
+
+@keyframes shipAnimation
+{
+    from
+    {
+        transform: translate(100px);
+    }
+    to
+    {
+        transform: translate(-800px);
+    }
+}
 
 .ship::after
 {
@@ -74,6 +116,7 @@
     position: absolute;
     right: 0;
     bottom: 30px;
+    animation: shipAnimation 25s linear infinite;
 
     width: 100px;
     height: 36px;
@@ -105,6 +148,71 @@
     box-shadow: 13px 0 0 0 #a18e6e, -13px 0 0 0 #a18e6e;
 }
 
+@keyframes smokeAnimation1
+{
+    from
+    {
+        opacity: 1;
+    }
+    to
+    {
+        opacity: 0;
+        transform: translate(2px, -5px) scale(1.3);
+    }
+}
+
+@keyframes smokeAnimation2
+{
+    from
+    {
+        opacity: 1;
+    }
+    to
+    {
+        opacity: 0;
+        transform: translate(-1px, -5px) scale(1.3);
+    }
+}
+
+@keyframes sunWrap
+{
+    from
+    {
+        transform: rotate(0deg) rotate(-360deg);
+    }
+    to
+    {
+        transform: rotate(360deg) rotate(0deg);
+    }
+}
+
+@keyframes sunAnimation
+{
+    to
+    {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes cloudAnimation
+{
+
+    from
+    {
+        transform: translate(-300px);
+    }
+    to
+    {
+        transform: translateX(600px);
+    }
+}
+
+.smoke-1,
+.smoke-3
+{
+    animation: smokeAnimation1 2s infinite;
+}
+
 .smoke div
 {
     position: absolute;
@@ -126,16 +234,19 @@
 {
     top: -25px;
     right: 42px;
+    animation: smokeAnimation2 2s infinite 1s;
 }
 
 .smoke-3
 {
+    animation-delay: .5s;
     top: -25px;
     right: 49px;
 }
 
 .sun
 {
+    animation: sunAnimation 10s linear infinite;
     position: absolute;
     top: 30px;
     right: 50%;
@@ -150,11 +261,10 @@
 
 .sun-wrapper
 {
+    animation: sunWrap 150s linear infinite;
     position: absolute;
-
     width: 100%;
     height: 100%;
-
     transform-origin: bottom center;
 }
 
@@ -301,4 +411,55 @@
     content: '';
 
     background: #1d7fbb;
+}
+
+.box_top
+{
+    animation: topAnimation 100s linear infinite;
+    position: absolute;
+    top: 0;
+    width: 500px;
+    height: 100px;
+    transform: rotateX(-90deg);
+    transform-origin: top;
+}
+
+.box_side
+{
+    position: absolute;
+    right: 0;
+    height: 380px;
+    width: 100px;
+    transform: rotateY(-90deg);
+    transform-origin: right;
+    animation: bgAnimation 100s linear infinite;
+}
+
+.cloud-1
+{
+    animation: cloudAnimation 35s linear infinite -5s;
+    transform: scale(.3);
+}
+
+.cloud-2
+{
+    animation: cloudAnimation 30s linear infinite -10s;
+    transform: scale(.4) scaleX(-1);
+}
+
+.cloud-3
+{
+    animation: cloudAnimation 20s linear infinite 5s;
+    transform: scale(.5);
+}
+
+.cloud-4
+{
+    animation: cloudAnimation 25s linear infinite 8s;
+    transform: scale(.6) scaleX(-1);
+}
+
+.canvas:hover
+{
+    transform: rotateX(-20deg) rotateY(-20deg);
 }
