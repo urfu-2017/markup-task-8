@@ -7,8 +7,12 @@
     margin: 80px 0 0;
 
     transition: .3s ease;
+    transform-style: preserve-3d;
+}
 
-    perspective: 800px;
+.canvas:hover
+{
+    transform: rotateX(30deg) rotateY(30deg);
 }
 
 .box_front
@@ -22,6 +26,9 @@
 
     background: skyblue;
     box-shadow: 0 -400px 300px -300px steelblue inset;
+
+    transform: perspective(900px);
+    animation: box_frontanimation 90s infinite;
 }
 
 /*TODO
@@ -38,6 +45,55 @@
 
 Нужно реализовать плавный переход между ними и зациклить его.
 */
+  
+@keyframes box_frontanimation 
+{
+    0%
+    {
+        background: skyblue;
+        box-shadow: 0 -400px 300px -300px steelblue inset;
+    }
+    13%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px orangered inset;
+    }
+    15%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px transparent inset;
+    }
+    40%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px orangered inset;
+    }
+    50%
+    {
+        background: skyblue;
+        box-shadow: 0 -400px 300px -300px steelblue inset;
+    }
+    63%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px orangered inset;
+    }
+    65%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px transparent inset;
+    }
+    90%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px orangered inset;
+    }
+    100%
+    {
+        background: skyblue;
+        box-shadow: 0 -400px 300px -300px steelblue inset;
+    }
+}
 
 .ship::after
 {
@@ -72,11 +128,59 @@
 .ship
 {
     position: absolute;
-    right: 0;
-    bottom: 30px;
+    bottom: 50px;
 
     width: 100px;
     height: 36px;
+    animation: shipanimation 20s linear infinite;
+    z-index: 3;
+}
+
+@keyframes shipanimation
+{
+    0%
+    {
+        left: 600px;
+    }
+    5%,
+    15%,
+    25%,
+    35%,
+    45%,
+    55%,
+    65%,
+    75%
+    {
+        bottom: 45px;
+    }
+    10%,
+    20%,
+    30%,
+    40%,
+    50%,
+    60%,
+    70%,
+    80%
+    {
+        bottom: 50px;
+        transform: rotate(0deg);
+    }
+    85%
+    {
+        left: 48px;
+        bottom: 45px;
+    }
+    87%
+    {
+        left: 48px;
+        bottom: 45px;
+        transform: rotate(-90deg);
+    }
+    100%
+    {
+        left: 35px;
+        bottom: -150px;
+    }
 }
 
 .ship_smokestack
@@ -120,18 +224,38 @@
 {
     top: -25px;
     right: 44px;
+    animation: smokes 4s infinite;
+}
+
+@keyframes smokes
+{
+    0%
+    {
+        background-color: rgb(240, 230, 204);
+        top: -25px;
+    }
+    100%
+    {
+        background-color: rgba(242, 245, 169, 0);
+        top: -45px;
+        transform: scale(2);
+    }
 }
 
 .smoke-2
 {
     top: -25px;
     right: 42px;
+    animation: smokes 4s infinite;
+    animation-delay: 1s;
 }
 
 .smoke-3
 {
     top: -25px;
     right: 49px;
+    animation: smokes 4s infinite;
+    animation-delay: 2s;
 }
 
 .sun
@@ -144,8 +268,21 @@
     height: 80px;
 
     border-radius: 50%;
-    background: #ffcf11;
+    /* background: #ffcf11; */
+    background: url('suuunmini.png');
     box-shadow: 0 0 100px #ffdf05;
+}
+
+@keyframes sunanimation
+{
+    0%
+    {
+        transform: rotate(0turn);
+    }
+    100%
+    {
+        transform: rotate(2turn);
+    }
 }
 
 .sun-wrapper
@@ -156,6 +293,7 @@
     height: 100%;
 
     transform-origin: bottom center;
+    animation: sunanimation 90s linear infinite;
 }
 
 .sun div
@@ -259,21 +397,44 @@
 .cloud-1
 {
     top: 10px;
+    transform: scale(.4, .4);
+    animation: cloudanimation 30s linear infinite;
+    animation-delay: 5s;
 }
 
 .cloud-2
 {
     top: 50px;
+    transform: scale(.2, .2);
+    animation: cloudanimation 50s linear infinite;
+    animation-delay: 10s;
 }
 
 .cloud-3
 {
     top: 100px;
+    transform: scale(.6, .6);
+    animation: cloudanimation 40s linear infinite;
+    animation-delay: 15s;
 }
 
 .cloud-4
 {
     top: 170px;
+    transform: scale(.3, .3);
+    animation: cloudanimation 20s linear infinite;
+}
+
+@keyframes cloudanimation
+{
+    0%
+    {
+        left: -140px;
+    }
+    100%
+    {
+        left: 580px;
+    }
 }
 
 .sea
@@ -283,7 +444,7 @@
     bottom: 0;
     left: 0;
 
-    height: 40px;
+    height: 60px;
 
     opacity: .8;
     background: #2a94d6;
@@ -301,4 +462,168 @@
     content: '';
 
     background: #1d7fbb;
+}
+
+.iceberg
+{
+    background: url('iceberg.svg');
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    bottom: 8px;
+    animation: iceberganimation 5s infinite;
+    z-index: 50;
+}
+
+@keyframes iceberganimation
+{
+    0%,
+    100%
+    {
+        transform: translateY(2px);
+    }
+    50%
+    {
+        transform: translateY(-3px);
+    }
+}
+
+.fish
+{
+    background: url('fish.svg');
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    bottom: -10px;
+    animation: fishanimation 40s linear infinite;
+}
+
+@keyframes fishanimation
+{
+    0%
+    {
+        left: -60px;
+    }
+    100%
+    {
+        left: 550px;
+    }
+}
+
+.manyfishes
+{
+    background: url('fish2.svg');
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    bottom: 30px;
+    animation: fishesanimation 20s linear infinite;
+}
+
+@keyframes fishesanimation
+{
+    0%
+    {
+        left: -70px;
+    }
+    70%
+    {
+        bottom: 10px;
+    }
+    100%
+    {
+        left: 550px;
+    }
+}
+
+.jellyfish
+{
+    background: url('jellyfish.svg');
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    left: 10px;
+    animation: jellyanimation 7s infinite;
+}
+
+@keyframes jellyanimation
+{
+    0%,
+    100%
+    {
+        bottom: 10px;
+    }
+    50%
+    {
+        bottom: 15px;
+    }
+}
+
+.topface
+{
+    width: 500px;
+    height: 70px;
+    position: absolute;
+    top: -70px;
+    background: skyblue;
+    transform-origin: 0 100%;
+    transform: rotateX(-90deg);
+    animation: facesanimation 90s infinite;
+}
+
+.rightface
+{
+    width: 70px;
+    height: 380px;
+    position: absolute;
+    left: 500px;
+    background: skyblue;
+    transform-origin: left;
+    transform: rotateY(-90deg);
+    animation: facesanimation 90s infinite;
+}
+
+@keyframes facesanimation 
+{
+    0%
+    {
+        background: skyblue;
+        box-shadow: 0 -400px 300px -300px steelblue inset;
+    }
+    13%
+    {
+        background: darkslateblue;
+    }
+    15%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px transparent inset;
+    }
+    40%
+    {
+        background: darkslateblue;
+    }
+    50%
+    {
+        background: skyblue;
+        box-shadow: 0 -400px 300px -300px steelblue inset;
+    }
+    63%
+    {
+        background: darkslateblue;
+    }
+    65%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px transparent inset;
+    }
+    90%
+    {
+        background: darkslateblue;
+    }
+    100%
+    {
+        background: skyblue;
+        box-shadow: 0 -400px 300px -300px steelblue inset;
+    }
 }
