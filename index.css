@@ -23,10 +23,7 @@
     background: darkslateblue;
     box-shadow: 0 -400px 300px -300px orangered inset;
 
-    animation-name: sky;
-    animation-duration: 120s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
+    animation: sky 120s linear 0s infinite;
 }
 
 @keyframes sky
@@ -97,7 +94,7 @@
 {
     to
     {
-        right: 500px;
+        transform: translateX(-800px);
     }
 }
 
@@ -171,6 +168,7 @@
     animation-name: smoke;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in;
+    animation-duration: 3s;
 }
 
 .smoke-1
@@ -178,7 +176,6 @@
     top: -25px;
     right: 44px;
 
-    animation-duration: 3s;
     animation-delay: 2s;
 }
 
@@ -186,8 +183,6 @@
 {
     top: -25px;
     right: 42px;
-
-    animation-duration: 3s;
 }
 
 .smoke-3
@@ -195,45 +190,34 @@
     top: -25px;
     right: 49px;
 
-    animation-duration: 3s;
     animation-delay: 1s;
 }
 
 @keyframes rotate-sun
 {
-    12%
+    60%
     {
-        top: 60px;
-        right: 370px;
+        transform: rotateZ(180deg);
     }
-    24%
+    to
     {
-        top: 30px;
-        right: 220px;
+        transform: rotateZ(360deg);
     }
-    36%
+}
+
+@keyframes rotate-beams
+{
+    to
     {
-        top: 60px;
-        right: 70px;
-    }
-    48%
-    {
-        top: 250px;
-        right: -100px;
-    }
-    100%
-    {
-        transform: rotateZ(4000deg);
-        top: 250px;
-        right: -100px;
+        transform: rotateZ(180deg);
     }
 }
 
 .sun
 {
     position: absolute;
-    top: 250px;
-    right: 520px;
+    top: 30px;
+    right: 50%;
 
     width: 80px;
     height: 80px;
@@ -242,9 +226,8 @@
     background: #ffcf11;
     box-shadow: 0 0 100px #ffdf05;
 
-    animation-name: rotate-sun;
-    animation-duration: 120s;
-    animation-delay: 40s;
+    animation-name: rotate-beams;
+    animation-duration: 5s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
 }
@@ -257,6 +240,12 @@
     height: 100%;
 
     transform-origin: bottom center;
+    transform: rotateZ(-90deg);
+    animation-name: rotate-sun;
+    animation-duration: 120s;
+    animation-delay: 55s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
 }
 
 .sun div
