@@ -5,10 +5,15 @@
     width: 500px;
     height: 380px;
     margin: 80px 0 0;
-
     transition: .3s ease;
-
+    transform-style: preserve-3d;
     perspective: 800px;
+}
+
+.canvas:hover
+{
+    -webkit-transform: rotateX(-25deg) rotateY(-25deg) ;
+    transform: rotateX(-25deg) rotateY(-25deg) ;
 }
 
 .box_front
@@ -22,6 +27,37 @@
 
     background: skyblue;
     box-shadow: 0 -400px 300px -300px steelblue inset;
+
+    animation: sky 40s linear infinite;
+}
+
+@keyframes sky
+{
+    0%
+    {
+        background: skyblue;
+        box-shadow: 0 -400px 300px -300px steelblue inset;
+    }
+    20%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px orangered inset;
+    }
+    40%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px transparent inset;
+    }
+    60%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px transparent inset;
+    }
+    80%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px orangered inset;
+    }
 }
 
 /*TODO
@@ -71,10 +107,27 @@
 
 .ship
 {
+    animation: ship 40s linear infinite;
+}
+
+@keyframes ship
+{
+    from 
+    {
+        transform: translateX(100px);
+    }
+
+    to 
+    {
+        transform: translateX(-500px);
+    }
+}
+
+.ship
+{
     position: absolute;
     right: 0;
     bottom: 30px;
-
     width: 100px;
     height: 36px;
 }
@@ -120,18 +173,39 @@
 {
     top: -25px;
     right: 44px;
+    animation: movingSmoke 3s linear infinite;
+    animation-delay: 1s;
 }
 
 .smoke-2
 {
     top: -25px;
     right: 42px;
+    animation: movingSmoke 3s linear infinite;
+    animation-delay: 2s;
 }
 
 .smoke-3
 {
     top: -25px;
     right: 49px;
+    animation: movingSmoke 3s linear infinite;
+}
+
+@keyframes movingSmoke
+{
+    from
+    {
+        top: -25px;
+        opacity: 1;
+        transform: scale(1);
+    }
+    to
+    {
+        top: -47px;
+        opacity: 0;
+        transform: scale(1.7);
+    }
 }
 
 .sun
@@ -142,10 +216,118 @@
 
     width: 80px;
     height: 80px;
-
+    animation: sol linear 40s infinite;
     border-radius: 50%;
     background: #ffcf11;
     box-shadow: 0 0 100px #ffdf05;
+}
+
+@keyframes sol
+{
+    0%
+    {
+        transform: translate(0, 30px) rotate(0deg);
+    }
+    3%
+    {
+        transform: translate(40px, 30px) rotate(90deg);
+    }
+    6%
+    {
+        transform: translate(80px, 41px) rotate(180deg);
+    }
+    9%
+    {
+        transform: translate(120px, 58px) rotate(270deg);
+    }
+    12%
+    {
+        transform: translate(160px, 82px) rotate(360deg);
+    }
+    15%
+    {
+        transform: translate(200px, 111px) rotate(450deg);
+    }
+    18%
+    {
+        transform: translate(240px, 145px) rotate(540deg);
+    }
+    21%
+    {
+        transform: translate(280px, 184px) rotate(630deg);
+    }
+    24%
+    {
+        transform: translate(320px, 226px) rotate(720deg);
+    }
+    27%
+    {
+        transform: translate(360px, 277px) rotate(810deg);
+    }
+    30%
+    {
+        transform: translate(400px, 331px) rotate(900deg);
+    }
+    33%
+    {
+        opacity: 1;
+        transform: translate(440px, 390px) rotate(990deg);
+    }
+    34%
+    {
+        opacity: 0;
+        transform: translate(440px, 390px) rotate(0deg);
+    }
+    68%
+    {
+        opacity: 0;
+        transform: translate(-400px, 390px) rotate(0deg);
+    }
+    70%
+    {
+        opacity: 1;
+        transform: translate(-400px, 390px) rotate(0deg);
+    }
+    73%
+    {
+        transform: translate(-360px, 331px) rotate(-810deg);
+    }
+    76%
+    {
+        transform: translate(-320px, 277px) rotate(-720deg);
+    }
+    79%
+    {
+        transform: translate(-280px, 228px) rotate(-630deg);
+    }
+    82%
+    {
+        transform: translate(-240px, 184px) rotate(-540deg);
+    }
+    85%
+    {
+        transform: translate(-200px, 145px) rotate(-450deg);
+    }
+    88%
+    {
+        transform: translate(-160px, 111px) rotate(-360deg);
+    }
+    91%
+    {
+        transform: translate(-120px, 82px) rotate(-270deg);
+    }
+    94%
+    {
+        transform: translate(-80px, 58px) rotate(-180deg);
+    }
+    97%
+    {
+        transform: translate(-40px, 41px) rotate(-90deg);
+    }
+    100%
+    {
+        transform: translate(0, 30px) rotate(0deg);
+    }
 }
 
 .sun-wrapper
@@ -259,21 +441,74 @@
 .cloud-1
 {
     top: 10px;
+    left: -70px;
+    animation: cloud-1 40s linear infinite;
+}
+
+@keyframes cloud-1
+{
+    from 
+    {
+        transform: scale(.3) translateX(-1px);
+    }
+    to 
+    {
+        transform: scale(.3) translateX(700px);
+    }
 }
 
 .cloud-2
 {
     top: 50px;
+    animation: cloud-2 22s linear infinite;
+}
+
+@keyframes cloud-2
+{
+    from 
+    {
+        transform: scale(-.5, .5) translateX(-1px);
+    }
+    to 
+    {
+        transform: scale(-.5, .5) translateX(-1300px);
+    }
 }
 
 .cloud-3
 {
     top: 100px;
+    animation: cloud-3 30s linear infinite;
+}
+
+@keyframes cloud-3
+{
+    from 
+    {
+        transform: scale(.6) translateX(-10px);
+    }
+    to 
+    {
+        transform: scale(.6) translateX(1200px);
+    }
 }
 
 .cloud-4
 {
     top: 170px;
+    animation: cloud-4 14s linear infinite;
+}
+
+@keyframes cloud-4
+{
+    from 
+    {
+        transform: scale(-.7,.7) translateX(0);
+    }
+    to 
+    {
+        transform: scale(-.7,.7) translateX(-950px);
+    }
 }
 
 .sea
