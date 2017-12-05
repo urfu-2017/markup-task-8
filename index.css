@@ -38,12 +38,12 @@
 {
     from
     {
-        transform: translateX(0%);
+        transform: translate3D(0%, 0, 0);
     }
 
     to
     {
-        transform: translateX(-700%);
+        transform: translate3D(-700%, 0, 0);
     }
 }
 
@@ -51,15 +51,13 @@
 {
     from
     {
-        top: -30px;
-        transform: scale(1);
+        transform: translate3D(0, 0, 0) scale3D(1, 1, 1);
         opacity: 1;
     }
 
     to
     {
-        top: -50px;
-        transform: scale(2);
+        transform: translate3D(0, -20px, 0) scale3D(2, 2, 1);
         opacity: 0;
     }
 }
@@ -68,12 +66,12 @@
 {
     from
     {
-        transform: rotate(0deg);
+        transform: rotate3D(0, 0, 1, 0deg);
     }
 
     to
     {
-        transform: rotate(720deg);
+        transform: rotate3D(0, 0, 1, 720deg);
     }
 }
 
@@ -265,47 +263,47 @@
 
 .sun div:nth-child(2)
 {
-    transform: rotate(18deg);
+    transform: rotate3D(0, 0, 1, 18deg);
 }
 
 .sun div:nth-child(3)
 {
-    transform: rotate(36deg);
+    transform: rotate3D(0, 0, 1, 36deg);
 }
 
 .sun div:nth-child(4)
 {
-    transform: rotate(54deg);
+    transform: rotate3D(0, 0, 1, 54deg);
 }
 
 .sun div:nth-child(5)
 {
-    transform: rotate(72deg);
+    transform: rotate3D(0, 0, 1, 72deg);
 }
 
 .sun div:nth-child(6)
 {
-    transform: rotate(90deg);
+    transform: rotate3D(0, 0, 1, 90deg);
 }
 
 .sun div:nth-child(7)
 {
-    transform: rotate(-18deg);
+    transform: rotate3D(0, 0, 1, -18deg);
 }
 
 .sun div:nth-child(8)
 {
-    transform: rotate(-36deg);
+    transform: rotate3D(0, 0, 1, -36deg);
 }
 
 .sun div:nth-child(9)
 {
-    transform: rotate(-54deg);
+    transform: rotate3D(0, 0, 1, -54deg);
 }
 
 .sun div:nth-child(10)
 {
-    transform: rotate(-72deg);
+    transform: rotate3D(0, 0, 1, -72deg);
 }
 
 .cloud
@@ -351,7 +349,7 @@
 {
     top: 10px;
 
-    transform: scale(.2);
+    transform: scale3D(.2, .2, 1);
     animation: cloud_animation 20s linear infinite;
 }
 
@@ -359,7 +357,7 @@
 {
     top: 50px;
 
-    transform: scale(-.35, .35);
+    transform: scale3D(-.35, .35, 1);
     animation: cloud_animation 17s linear infinite;
 }
 
@@ -367,15 +365,15 @@
 {
     top: 100px;
 
-    transform: scale(.5);
+    transform: scale3D(.5, .5, 1);
     animation: cloud_animation 13s linear infinite;
 }
 
 .cloud-4
 {
     top: 170px;
-    
-    transform: scale(-.7, .7);
+
+    transform: scale3D(-.7, .7, 1);
     animation: cloud_animation 7s linear infinite;
 }
 
