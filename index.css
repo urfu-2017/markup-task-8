@@ -8,7 +8,75 @@
 
     transition: .3s ease;
 
-    perspective: 800px;
+    perspective: 1800px;
+    transform-style: preserve-3d;
+}
+
+.canvas:hover
+{
+    transform: rotateX(-20deg) rotateY(-20deg);
+}
+
+@keyframes gradient_animation
+{
+    0%,
+    100%
+    {
+        background: skyblue;
+        box-shadow: 0 -400px 300px -300px steelblue inset;
+    }
+    33%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px orangered inset;
+    }
+    66%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px transparent inset;
+    }
+}
+
+@keyframes box_top_animation
+{
+    0%,
+    100%
+    {
+        background: skyblue;
+    }
+    33%,
+    66%
+    {
+        background: darkslateblue;
+    }
+}
+
+.box_top
+{
+    position: absolute;
+    top: -150px;
+    left: 0;
+    width: 500px;
+    height: 150px;
+    transform-origin: bottom;
+    transform: rotateX(90deg);
+
+    animation: box_top_animation 90s linear -15s infinite;
+}
+
+.box_right
+{
+    position: absolute;
+    width: 150px;
+    height: 380px;
+    left: 100%;
+    transform-origin: left;
+    transform: rotateY(90deg);
+
+    background: skyblue;
+    box-shadow: 0 -400px 300px -300px steelblue inset;
+
+    animation: gradient_animation 90s linear -15s infinite;
 }
 
 .box_front
@@ -22,6 +90,8 @@
 
     background: skyblue;
     box-shadow: 0 -400px 300px -300px steelblue inset;
+
+    animation: gradient_animation 90s linear -15s infinite;
 }
 
 /*TODO
@@ -69,6 +139,18 @@
     background: #fff;
 }
 
+@keyframes ship_animation
+{
+    from
+    {
+        transform: translateX(100px);
+    }
+    to
+    {
+        transform: translateX(-600px);
+    }
+}
+
 .ship
 {
     position: absolute;
@@ -77,6 +159,8 @@
 
     width: 100px;
     height: 36px;
+
+    animation: ship_animation 60s linear -10s infinite;
 }
 
 .ship_smokestack
@@ -105,6 +189,15 @@
     box-shadow: 13px 0 0 0 #a18e6e, -13px 0 0 0 #a18e6e;
 }
 
+@keyframes smoke_animation
+{
+    to
+    {
+        transform: translateY(-15px) scale(2);
+        opacity: 0;
+    }
+}
+
 .smoke div
 {
     position: absolute;
@@ -114,24 +207,36 @@
 
     border-radius: 50%;
     background: #fff;
+    animation: smoke_animation 2s linear infinite;
 }
 
-.smoke-1
+.smoke .smoke-1
 {
     top: -25px;
     right: 44px;
+    animation-delay: -1.5s;
 }
 
-.smoke-2
+.smoke .smoke-2
 {
     top: -25px;
     right: 42px;
+    animation-delay: -.3s;
 }
 
-.smoke-3
+.smoke .smoke-3
 {
     top: -25px;
     right: 49px;
+    animation-delay: -.9s;
+}
+
+@keyframes sun_animation
+{
+    to
+    {
+        transform: rotate(1turn);
+    }
 }
 
 .sun
@@ -146,6 +251,7 @@
     border-radius: 50%;
     background: #ffcf11;
     box-shadow: 0 0 100px #ffdf05;
+    animation: sun_animation 10s linear infinite;
 }
 
 .sun-wrapper
@@ -156,6 +262,7 @@
     height: 100%;
 
     transform-origin: bottom center;
+    animation: sun_animation 90s linear -15s infinite;
 }
 
 .sun div
@@ -228,6 +335,7 @@
     opacity: .8;
     border-radius: 200px;
     background: #fff;
+    animation: cloud_animation linear infinite;
 }
 
 .cloud:before,
@@ -246,6 +354,18 @@
     background: #fff;
 }
 
+@keyframes cloud_animation
+{
+    from
+    {
+        left: -170px;
+    }
+    to
+    {
+        left: 100%;
+    }
+}
+
 .cloud:after
 {
     top: -55px;
@@ -259,21 +379,34 @@
 .cloud-1
 {
     top: 10px;
+    left: 100px;
+    transform: scale(.3, .3);
+    animation-duration: 45s;
+    animation-delay: -6s;
 }
 
 .cloud-2
 {
     top: 50px;
+    transform: scale(-.4, .4);
+    animation-duration: 25s;
+    animation-delay: 10s;
 }
 
 .cloud-3
 {
     top: 100px;
+    transform: scale(.5, .5);
+    animation-duration: 20s;
+    animation-delay: -5s;
 }
 
 .cloud-4
 {
     top: 170px;
+    transform: scale(-.6, .6);
+    animation-duration: 15s;
+    animation-delay: 4s;
 }
 
 .sea
