@@ -450,6 +450,7 @@
     height: 100%;
     width: 50px;
     transform: translateX(50%) rotateY(90deg) translateX(50%);
+    animation: days-time 2.5s linear 0s infinite alternate both;
 }
 
 .box-top
@@ -457,4 +458,24 @@
     width: 100%;
     height: 50px;
     transform: translateY(-50%) rotateX(90deg) translateY(-50%);
+    animation: days-time-box-top 2.5s linear 0s infinite alternate both;
+}
+
+@keyframes days-time-box-top
+{
+    0%
+    {
+        background: skyblue;
+        box-shadow: 0 -50px 40 -40px steelblue inset;
+    }
+    50%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -50px 40 -40px orangered inset;
+    }
+    100%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -50px 40px -40px transparent inset;
+    }
 }
