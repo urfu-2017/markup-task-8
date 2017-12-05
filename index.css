@@ -1,3 +1,93 @@
+/*
+Цвета неба задаются следующими свойствами:
+    День:
+        background: skyblue;
+        box-shadow: 0 -400px 300px -300px steelblue inset;
+    Вечер:
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px orangered inset;
+    Ночь:
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px transparent inset;
+
+Нужно реализовать плавный переход между ними и зациклить его.
+*/
+
+@keyframes sky_animation
+{
+    0%
+    {
+        background: skyblue;
+        box-shadow: 0 -400px 300px -300px steelblue inset;
+    }
+
+    33%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px orangered inset;
+    }
+
+    66%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px transparent inset;
+    }
+}
+
+@keyframes ship_animation
+{
+    from
+    {
+        transform: translate3D(0%, 0, 0);
+    }
+
+    to
+    {
+        transform: translate3D(-700%, 0, 0);
+    }
+}
+
+@keyframes smoke_animation
+{
+    from
+    {
+        transform: translate3D(0, 0, 0) scale3D(1, 1, 1);
+        opacity: 1;
+    }
+
+    to
+    {
+        transform: translate3D(0, -20px, 0) scale3D(2, 2, 1);
+        opacity: 0;
+    }
+}
+
+@keyframes sun_animation
+{
+    from
+    {
+        transform: rotate3D(0, 0, 1, 0deg);
+    }
+
+    to
+    {
+        transform: rotate3D(0, 0, 1, 720deg);
+    }
+}
+
+@keyframes cloud_animation
+{
+    from
+    {
+        left: -40%;
+    }
+
+    to
+    {
+        left: 100%;
+    }
+}
+
 .canvas
 {
     position: relative;
@@ -22,22 +112,9 @@
 
     background: skyblue;
     box-shadow: 0 -400px 300px -300px steelblue inset;
+
+    animation: sky_animation 14s linear infinite;
 }
-
-/*TODO
-Цвета неба задаются следующими свойствами:
-    День:
-        background: skyblue;
-        box-shadow: 0 -400px 300px -300px steelblue inset;
-    Вечер:
-        background: darkslateblue;
-        box-shadow: 0 -400px 300px -300px orangered inset;
-    Ночь:
-        background: darkslateblue;
-        box-shadow: 0 -400px 300px -300px transparent inset;
-
-Нужно реализовать плавный переход между ними и зациклить его.
-*/
 
 .ship::after
 {
@@ -72,11 +149,13 @@
 .ship
 {
     position: absolute;
-    right: 0;
+    right: -100px;
     bottom: 30px;
 
     width: 100px;
     height: 36px;
+
+    animation: ship_animation 12s linear infinite;
 }
 
 .ship_smokestack
@@ -120,18 +199,24 @@
 {
     top: -25px;
     right: 44px;
+
+    animation: smoke_animation 3s infinite;
 }
 
 .smoke-2
 {
     top: -25px;
     right: 42px;
+
+    animation: smoke_animation 1s infinite;
 }
 
 .smoke-3
 {
     top: -25px;
     right: 49px;
+
+    animation: smoke_animation 2s infinite;
 }
 
 .sun
@@ -146,6 +231,8 @@
     border-radius: 50%;
     background: #ffcf11;
     box-shadow: 0 0 100px #ffdf05;
+
+    animation: sun_animation 10s linear infinite;
 }
 
 .sun-wrapper
@@ -156,6 +243,8 @@
     height: 100%;
 
     transform-origin: bottom center;
+
+    animation: sun_animation 28s linear infinite;
 }
 
 .sun div
@@ -174,47 +263,47 @@
 
 .sun div:nth-child(2)
 {
-    transform: rotate(18deg);
+    transform: rotate3D(0, 0, 1, 18deg);
 }
 
 .sun div:nth-child(3)
 {
-    transform: rotate(36deg);
+    transform: rotate3D(0, 0, 1, 36deg);
 }
 
 .sun div:nth-child(4)
 {
-    transform: rotate(54deg);
+    transform: rotate3D(0, 0, 1, 54deg);
 }
 
 .sun div:nth-child(5)
 {
-    transform: rotate(72deg);
+    transform: rotate3D(0, 0, 1, 72deg);
 }
 
 .sun div:nth-child(6)
 {
-    transform: rotate(90deg);
+    transform: rotate3D(0, 0, 1, 90deg);
 }
 
 .sun div:nth-child(7)
 {
-    transform: rotate(-18deg);
+    transform: rotate3D(0, 0, 1, -18deg);
 }
 
 .sun div:nth-child(8)
 {
-    transform: rotate(-36deg);
+    transform: rotate3D(0, 0, 1, -36deg);
 }
 
 .sun div:nth-child(9)
 {
-    transform: rotate(-54deg);
+    transform: rotate3D(0, 0, 1, -54deg);
 }
 
 .sun div:nth-child(10)
 {
-    transform: rotate(-72deg);
+    transform: rotate3D(0, 0, 1, -72deg);
 }
 
 .cloud
@@ -259,21 +348,33 @@
 .cloud-1
 {
     top: 10px;
+
+    transform: scale3D(.2, .2, 1);
+    animation: cloud_animation 20s linear infinite;
 }
 
 .cloud-2
 {
     top: 50px;
+
+    transform: scale3D(-.35, .35, 1);
+    animation: cloud_animation 17s linear infinite;
 }
 
 .cloud-3
 {
     top: 100px;
+
+    transform: scale3D(.5, .5, 1);
+    animation: cloud_animation 13s linear infinite;
 }
 
 .cloud-4
 {
     top: 170px;
+
+    transform: scale3D(-.7, .7, 1);
+    animation: cloud_animation 7s linear infinite;
 }
 
 .sea
