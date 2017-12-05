@@ -9,6 +9,8 @@
     transition: .3s ease;
 
     perspective: 800px;
+    transform-style: preserve-3d;
+    perspective-origin: 100% 0;
 }
 
 .box_front
@@ -72,7 +74,7 @@
 .ship
 {
     position: absolute;
-    right: 0;
+    right: -100px;
     bottom: 30px;
 
     width: 100px;
@@ -137,9 +139,9 @@
 .sun
 {
     position: absolute;
-    top: 30px;
-    right: 50%;
-
+    bottom: -40px;
+    right: calc(50% - 40px);
+    transform: translateX(50%);
     width: 80px;
     height: 80px;
 
@@ -301,4 +303,158 @@
     content: '';
 
     background: #1d7fbb;
+}
+
+.cloud
+{
+    animation: clouds-movement 8s linear 0s infinite;
+}
+
+.cloud-1
+{
+    transform: scale(.2);
+}
+
+.cloud-2
+{
+    transform: scale(.4) scaleX(-1);
+    animation-duration: 6s;
+}
+
+.cloud-3
+{
+    transform: scale(.6);
+    animation-duration: 4s;
+}
+
+.cloud-4
+{
+    transform: scale(.8) scaleX(-1);
+    animation-duration: 2s;
+}
+
+@keyframes clouds-movement
+{
+    to
+    {
+        left: 100%;
+    }
+}
+
+@keyframes smoke
+{
+    from
+    {
+        opacity: 1;
+    }
+    to
+    {
+        top: -50px;
+        transform: scale(3);
+        opacity: 0;
+    }
+}
+
+.smoke-1,
+.smoke-2,
+.smoke-3,
+.smoke-4
+{
+    animation: smoke 3s ease-out 0s infinite;
+    opacity: 0;
+}
+
+.smoke-1
+{
+    animation-delay: 1s;
+}
+
+.smoke-2
+{
+    animation-delay: 2s;
+}
+
+@keyframes sun
+{
+    from
+    {
+        transform: rotate(0) translateY(-310px) rotate(0);
+    }
+    to 
+    {
+        transform: rotate(360deg) translateY(-310px) rotate(360deg);
+    }
+}
+
+.sun
+{
+    animation: sun 5s linear 0s infinite normal backwards;
+}
+
+@keyframes ship
+{
+    to
+    {
+        right: 500px;
+    }
+}
+
+.ship
+{
+    animation: ship 5s linear 0s infinite;
+}
+
+@keyframes days-time
+{
+    0%
+    {
+        background: skyblue;
+        box-shadow: 0 -400px 300px -300px steelblue inset;
+    }
+    50%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px orangered inset;
+    }
+    100%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px transparent inset;
+    }
+}
+
+.box_front
+{
+    animation: days-time 2.5s linear 0s infinite alternate both;
+}
+
+.canvas:hover
+{
+    transform: rotate3d(1,0,0, -25deg) rotate3d(0,1,0, -25deg);
+}
+
+.box-right,
+.box-top
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    backface-visibility: hidden;
+    background: skyblue;
+    box-shadow: 0 -400px 300px -300px steelblue inset;
+}
+
+.box-right
+{
+
+    height: 100%;
+    width: 50px;
+    transform: translateX(50%) rotateY(90deg) translateX(50%);
+}
+
+.box-top
+{
+    width: 100%;
+    height: 50px;
+    transform: translateY(-50%) rotateX(90deg) translateY(-50%);
 }
