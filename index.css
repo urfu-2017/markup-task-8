@@ -8,7 +8,14 @@
 
     transition: .3s ease;
 
-    perspective: 800px;
+    perspective: 2500px;
+
+    transform-style: preserve-3d;
+}
+
+.canvas:hover
+{
+    transform: rotateX(-20deg) rotateY(-20deg);
 }
 
 .box_front
@@ -22,22 +29,74 @@
 
     background: skyblue;
     box-shadow: 0 -400px 300px -300px steelblue inset;
+
+    animation: sky 85s linear infinite;
 }
 
-/*TODO
-Цвета неба задаются следующими свойствами:
-    День:
+.box_top,
+.box_right
+{
+    position: absolute;
+    background: skyblue;
+}
+
+.box_top
+{
+    width: 500px;
+    height: 100px;
+
+    transform: rotateX(-90deg);
+    transform-origin: top center;
+    animation: skyWithoutShadow 85s linear infinite;
+}
+
+.box_right
+{
+    right: 0;
+    width: 100px;
+    height: 380px;
+
+    box-shadow: 0 -400px 300px -300px steelblue inset;
+
+    transform: rotateY(-90deg);
+    transform-origin: right center;
+    animation: sky 85s linear infinite;
+}
+
+@keyframes skyWithoutShadow
+{
+    from
+    {
+        background: skyblue;
+    }
+
+    33%,
+    66%
+    {
+        background: darkslateblue;
+    }
+}
+
+@keyframes sky
+{
+    from
+    {
         background: skyblue;
         box-shadow: 0 -400px 300px -300px steelblue inset;
-    Вечер:
+    }
+
+    33%
+    {
         background: darkslateblue;
         box-shadow: 0 -400px 300px -300px orangered inset;
-    Ночь:
+    }
+
+    66%
+    {
         background: darkslateblue;
         box-shadow: 0 -400px 300px -300px transparent inset;
-
-Нужно реализовать плавный переход между ними и зациклить его.
-*/
+    }
+}
 
 .ship::after
 {
@@ -72,11 +131,26 @@
 .ship
 {
     position: absolute;
-    right: 0;
+    right: -110px;
     bottom: 30px;
 
     width: 100px;
     height: 36px;
+
+    animation: swim 35s linear infinite;
+}
+
+@keyframes swim
+{
+    from
+    {
+        right: -110px;
+    }
+
+    to
+    {
+        right: 500px;
+    }
 }
 
 .ship_smokestack
@@ -114,24 +188,45 @@
 
     border-radius: 50%;
     background: #fff;
+    opacity: 1;
+    animation: smoking 1.5s cubic-bezier(.02, .46, 1, .96) infinite;
 }
 
-.smoke-1
+.smoke .smoke-1
 {
     top: -25px;
     right: 44px;
+    animation-delay: 0s;
 }
 
-.smoke-2
+.smoke .smoke-2
 {
     top: -25px;
     right: 42px;
+    animation-delay: 1s;
 }
 
-.smoke-3
+.smoke .smoke-3
 {
     top: -25px;
     right: 49px;
+    animation-delay: 2s;
+}
+
+@keyframes smoking
+{
+    from
+    {
+        opacity: 1;
+        top: -25px;
+    }
+
+    to
+    {
+        opacity: 0;
+        transform: scale3d(2, 2, 1);
+        top: -40px;
+    }
 }
 
 .sun
@@ -146,6 +241,8 @@
     border-radius: 50%;
     background: #ffcf11;
     box-shadow: 0 0 100px #ffdf05;
+
+    animation: spin 10s linear infinite;
 }
 
 .sun-wrapper
@@ -156,6 +253,16 @@
     height: 100%;
 
     transform-origin: bottom center;
+
+    animation: spin 85s linear infinite;
+}
+
+@keyframes spin
+{
+    to
+    {
+        transform: rotateZ(1turn);
+    }
 }
 
 .sun div
@@ -220,7 +327,7 @@
 .cloud
 {
     position: absolute;
-    left: -180px;
+    left: -200px;
 
     width: 200px;
     height: 60px;
@@ -259,21 +366,94 @@
 .cloud-1
 {
     top: 10px;
+    left: -50px;
+    transform: scale3d(.3, .3, 1);
+
+    animation: flying1 60s linear infinite;
 }
 
 .cloud-2
 {
     top: 50px;
+    transform: scale3d(-.4, .4, 1);
+    
+    animation: flying2 40s linear infinite;
 }
 
 .cloud-3
 {
     top: 100px;
+    left: 100px;
+    transform: scale3d(.5, .5, 1);
+
+    animation: flying3 30s linear infinite;
 }
 
 .cloud-4
 {
     top: 170px;
+    transform: scale3d(-.7, .7, 1);
+
+    animation: flying2 20s linear infinite;
+}
+
+@keyframes flying1
+{
+    from
+    {
+        left: -50px;
+    }
+
+    80%
+    {
+        left: 500px;
+    }
+
+    80.01%
+    {
+        left: -200px;
+    }
+
+    100%
+    {
+        left: -50px;
+    }
+}
+
+@keyframes flying2
+{
+    from
+    {
+        left: -200px;
+    }
+
+    to
+    {
+        left: 500px;
+    }
+}
+
+@keyframes flying3
+{
+    from
+    {
+        left: 100px;
+    }
+
+    60%
+    {
+        left: 500px;
+    }
+
+    60.01%
+    {
+        left: -200px;
+    }
+
+    100%
+    {
+        left: 100px;
+    }
 }
 
 .sea
