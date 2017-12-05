@@ -10,10 +10,10 @@
 {
     to
     {
+        background: rgba(255, 255, 255, 0);
         width: 13px;
         height: 13px;
         top: -50px;
-        opacity: 0;
     }
 }
 
