@@ -1,3 +1,5 @@
+@import 'animations.css';
+
 .canvas
 {
     position: relative;
@@ -9,6 +11,13 @@
     transition: .3s ease;
 
     perspective: 800px;
+    transform-style: preserve-3d;
+    perspective-origin: top right;
+}
+
+.canvas:hover
+{
+    transform: rotateX(-20deg) rotateY(-20deg);
 }
 
 .box_front
@@ -19,11 +28,35 @@
 
     width: 500px;
     height: 380px;
-
     background: skyblue;
     box-shadow: 0 -400px 300px -300px steelblue inset;
+    animation: colorOfSky 80s linear infinite;
 }
 
+.box_top
+{
+    position: absolute;
+    bottom: 100%;
+    width: 500px;
+    height: 120px;
+    background: skyblue;
+    animation: colorOfSkyTop 80s linear infinite;
+    transform: rotateX(90deg);
+    transform-origin: bottom;
+}
+
+.box_right
+{
+    position: absolute;
+    left: 100%;
+    width: 120px;
+    height: 380px;
+    background: skyblue;
+    box-shadow: 0 -400px 300px -300px steelblue inset;
+    animation: colorOfSky 80s linear infinite;
+    transform: rotateY(90deg);
+    transform-origin: left;
+}
 /*TODO
 Цвета неба задаются следующими свойствами:
     День:
@@ -77,6 +110,8 @@
 
     width: 100px;
     height: 36px;
+
+    animation: shipMove 48s linear infinite;
 }
 
 .ship_smokestack
@@ -114,24 +149,29 @@
 
     border-radius: 50%;
     background: #fff;
+    opacity: 0;
 }
 
 .smoke-1
 {
     top: -25px;
     right: 44px;
+    animation: smokeMove 2.3s infinite;
 }
 
 .smoke-2
 {
     top: -25px;
     right: 42px;
+    animation: smokeMove 2.3s infinite 1.4s;
 }
 
 .smoke-3
 {
     top: -25px;
     right: 49px;
+
+    animation: smokeMove 2.3s infinite 1s;
 }
 
 .sun
@@ -146,6 +186,7 @@
     border-radius: 50%;
     background: #ffcf11;
     box-shadow: 0 0 100px #ffdf05;
+    animation: sunRotate 20s linear infinite;
 }
 
 .sun-wrapper
@@ -156,6 +197,7 @@
     height: 100%;
 
     transform-origin: bottom center;
+    animation: sunMove 80s linear infinite;
 }
 
 .sun div
@@ -220,7 +262,7 @@
 .cloud
 {
     position: absolute;
-    left: -180px;
+    left: -210px;
 
     width: 200px;
     height: 60px;
@@ -259,21 +301,25 @@
 .cloud-1
 {
     top: 10px;
+    animation: cloud1Move 50s linear infinite;
 }
 
 .cloud-2
 {
     top: 50px;
+    animation: cloud2Move 35s linear infinite 12s;
 }
 
 .cloud-3
 {
     top: 100px;
+    animation: cloud3Move 25s linear infinite;
 }
 
 .cloud-4
 {
     top: 170px;
+    animation: cloud4Move 15s linear infinite 10s;
 }
 
 .sea
