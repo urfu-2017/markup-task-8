@@ -27,7 +27,9 @@
     background: skyblue;
     box-shadow: 0 -400px 300px -300px steelblue inset;
 
-    animation: gradient-animation 10s linear infinite;
+    transform: rotateY(-90deg) translateZ(-19px) translateX(50px) translateY(0);
+
+    animation: gradient-animation 45s linear infinite;
 }
 
 .box_top
@@ -35,15 +37,17 @@
     position: absolute;
     visibility: hidden;
 
-    top: -59px;
-    left: -39.5px;
+    top: -36px;
+    left: -56px;
 
-    width: 516px;
-    height: 104px;
+    width: 491px;
+    height: 100px;
 
     background: skyblue;
 
-    animation: top-animation 10s linear infinite;
+    transform: rotateX(-90deg) translateY(-76px) translateX(50px);
+
+    animation: top-animation 45s linear infinite;
 }
 
 .canvas:hover
@@ -54,13 +58,11 @@
 .canvas:hover .box_right
 {
     visibility: visible;
-    transform: rotateY(-90deg) translateZ(-19px) translateX(50px) translateY(0);
 }
 
 .canvas:hover .box_top
 {
     visibility: visible;
-    transform: rotateX(-90deg) translateZ(-19px) translateX(50px) translateY(0);
 }
 
 .box_front
@@ -75,7 +77,7 @@
     background: skyblue;
     box-shadow: 0 -400px 300px -300px steelblue inset;
 
-    animation: gradient-animation 10s linear infinite;
+    animation: gradient-animation 45s linear infinite;
 }
 
 @keyframes gradient-animation
@@ -268,7 +270,7 @@
 
     transform-origin: bottom center;
 
-    animation: sun-animation 10s infinite linear;
+    animation: sun-animation 45s infinite linear;
 }
 
 @keyframes ray-animation
