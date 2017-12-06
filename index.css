@@ -8,7 +8,61 @@
 
     transition: .3s ease;
 
-    perspective: 800px;
+    perspective: 1600px;
+
+    transform-style: preserve-3d;
+}
+
+.box_right
+{
+    position: absolute;
+    visibility: hidden;
+
+    right: -30px;
+    top: 0;
+
+    height: 380px;
+    width: 100px;
+
+    background: skyblue;
+    box-shadow: 0 -400px 300px -300px steelblue inset;
+
+    transform: rotateY(-90deg) translateZ(-19px) translateX(50px) translateY(0);
+
+    animation: gradient-animation 45s linear infinite;
+}
+
+.box_top
+{
+    position: absolute;
+    visibility: hidden;
+
+    top: -36px;
+    left: -56px;
+
+    width: 491px;
+    height: 100px;
+
+    background: skyblue;
+
+    transform: rotateX(-90deg) translateY(-76px) translateX(50px);
+
+    animation: top-animation 45s linear infinite;
+}
+
+.canvas:hover
+{
+    transform: rotateX(20deg) rotateY(20deg);
+}
+
+.canvas:hover .box_right
+{
+    visibility: visible;
+}
+
+.canvas:hover .box_top
+{
+    visibility: visible;
 }
 
 .box_front
@@ -22,9 +76,37 @@
 
     background: skyblue;
     box-shadow: 0 -400px 300px -300px steelblue inset;
+
+    animation: gradient-animation 45s linear infinite;
+}
+
+@keyframes gradient-animation
+{
+    33.3%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px orangered inset;
+    }
+
+    66.6%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px transparent inset;
+    }
+}
+
+@keyframes top-animation
+{
+    33.3%,
+    66.6%
+    {
+        background: darkslateblue;
+    }
 }
 
 /*TODO
+
+/*
 Цвета неба задаются следующими свойствами:
     День:
         background: skyblue;
@@ -77,6 +159,22 @@
 
     width: 100px;
     height: 36px;
+
+    animation: ship-animation 30s linear infinite;
+}
+
+@keyframes ship-animation
+{
+    from
+    {
+        transform: translateX(120px);
+    }
+
+    50%,
+    100%
+    {
+        transform: translateX(-500px);
+    }
 }
 
 .ship_smokestack
@@ -114,24 +212,37 @@
 
     border-radius: 50%;
     background: #fff;
+
+}
+
+@keyframes smoke-animation
+{
+    to
+    {
+        opacity: 0;
+        transform: scale(1.7) translateY(-10px);
+    }
 }
 
 .smoke-1
 {
     top: -25px;
     right: 44px;
+    animation: smoke-animation 2s infinite -1.2s;
 }
 
 .smoke-2
 {
     top: -25px;
     right: 42px;
+    animation: smoke-animation 2s infinite -1s;
 }
 
 .smoke-3
 {
     top: -25px;
     right: 49px;
+    animation: smoke-animation 2s infinite -.5s;
 }
 
 .sun
@@ -146,6 +257,8 @@
     border-radius: 50%;
     background: #ffcf11;
     box-shadow: 0 0 100px #ffdf05;
+
+    animation: ray-animation 10s infinite linear;
 }
 
 .sun-wrapper
@@ -156,6 +269,24 @@
     height: 100%;
 
     transform-origin: bottom center;
+
+    animation: sun-animation 45s infinite linear;
+}
+
+@keyframes ray-animation
+{
+    to
+    {
+        transform: rotate(1turn);
+    }
+}
+
+@keyframes sun-animation
+{
+    to
+    {
+        transform: rotate(1turn);
+    }
 }
 
 .sun div
@@ -246,6 +377,19 @@
     background: #fff;
 }
 
+@keyframes cloud1-animation
+{
+    from
+    {
+        right: 0;
+    }
+
+    to
+    {
+        left: 520px;
+    }
+}
+
 .cloud:after
 {
     top: -55px;
@@ -259,21 +403,29 @@
 .cloud-1
 {
     top: 10px;
+    transform: scale(.3);
+    animation: cloud1-animation 6s infinite linear;
 }
 
 .cloud-2
 {
     top: 50px;
+    transform: scale(.5) scaleX(-1);
+    animation: cloud1-animation 7s infinite linear 1s;
 }
 
 .cloud-3
 {
     top: 100px;
+    transform: scale(.7);
+    animation: cloud1-animation 9s infinite linear 2s;
 }
 
 .cloud-4
 {
     top: 170px;
+    transform: scaleX(-1);
+    animation: cloud1-animation 10s infinite linear .2s;
 }
 
 .sea
