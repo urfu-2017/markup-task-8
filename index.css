@@ -28,7 +28,8 @@
 
     width: 500px;
     height: 380px;
-
+    background: skyblue;
+    box-shadow: 0 -400px 300px -300px steelblue inset;
     animation: colorOfSky 80s linear infinite;
 }
 
@@ -51,6 +52,7 @@
     width: 120px;
     height: 380px;
     background: skyblue;
+    box-shadow: 0 -400px 300px -300px steelblue inset;
     animation: colorOfSky 80s linear infinite;
     transform: rotateY(90deg);
     transform-origin: left;

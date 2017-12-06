@@ -93,65 +93,33 @@
 
 @keyframes colorOfSky
 {
-    0%,
-    20%
+    20%,
+    90%
     {
-        background: skyblue;
-        box-shadow: 0 -400px 300px -300px steelblue inset;
+        background: darkslateblue;
     }
-
     20%,
     40%
     {
-        background: darkslateblue;
         box-shadow: 0 -400px 300px -300px orangered inset;
     }
     40%,
     60%
     {
-        background: darkslateblue;
         box-shadow: 0 -400px 300px -300px transparent inset;
     }
     80%,
-    95%
+    90%
     {
-        background: darkslateblue;
         box-shadow: 0 -400px 300px -300px orangered inset;
-    }
-    95%,
-    100%
-    {
-        background: skyblue;
-        box-shadow: 0 -400px 300px -300px steelblue inset;
     }
 }
 
 @keyframes colorOfSkyTop
 {
-    0%,
-    20%
-    {
-        background: skyblue;
-    }
-
     20%,
-    40%
+    90%
     {
         background: darkslateblue;
-    }
-    40%,
-    60%
-    {
-        background: darkslateblue;
-    }
-    80%,
-    95%
-    {
-        background: darkslateblue;
-    }
-    95%,
-    100%
-    {
-        background: skyblue;
     }
 }
