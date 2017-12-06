@@ -2,7 +2,16 @@
 (корабль, солнце, облака, пар) */
 
 :root {
-    --second-in-cycle: 4s;
+    --second-in-cycle: 64s;
+}
+/* внешнии div для плавной анимации снизу */
+
+.wrapper {
+    position: relative;
+    width: 500px;
+    height: 400px;
+    margin: 0 auto;
+    top: 200px;
 }
 
 .canvas {
@@ -10,13 +19,11 @@
     width: 500px;
     height: 380px;
     transition: .3s ease;
-    margin: 0 auto;
-    top: 200px;
     perspective: 2000px;
     transform-style: preserve-3d;
 }
 
-.canvas:hover {
+.wrapper:hover .canvas {
     transform: rotateX(-25deg) rotateY(-35deg);
 }
 
@@ -250,25 +257,32 @@
 
 .cloud-1 {
     top: 10px;
-    animation: cloud-move calc(var(--second-in-cycle)/2) linear infinite;
+    animation: cloud-move calc(var(--second-in-cycle)/2)
+        linear infinite, cloud-spawn 10s linear;
+    animation-delay: -4s;
     transform: scale(.3, .3);
 }
 
 .cloud-2 {
     top: 50px;
-    animation: cloud-move calc(var(--second-in-cycle)/4) linear infinite;
+    animation: cloud-move calc(var(--second-in-cycle)/4)
+        linear infinite, cloud-spawn 2s linear;
     transform: scale(-.4, .4);
 }
 
 .cloud-3 {
     top: 100px;
-    animation: cloud-move calc(var(--second-in-cycle)/3) linear infinite;
+    animation: cloud-move calc(var(--second-in-cycle)/3)
+        linear infinite, cloud-spawn 4s linear;
+    animation-delay: -2s;
     transform: scale(.55, .55);
 }
 
 .cloud-4 {
     top: 170px;
-    animation: cloud-move calc(var(--second-in-cycle)/5) linear infinite;
+    animation: cloud-move calc(var(--second-in-cycle)/5)
+        linear infinite, cloud-spawn 3s linear;
+    animation-delay: -2s;
     transform: scale(-.7, .7);
 }
 
@@ -290,6 +304,12 @@
     height: 10px;
     content: '';
     background: #1d7fbb;
+}
+
+@keyframes cloud-spawn {
+    0% {
+        opacity: 0;
+    }
 }
 
 @keyframes top-sun-move {
