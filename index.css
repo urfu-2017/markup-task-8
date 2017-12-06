@@ -1,14 +1,7 @@
-.canvas
+body
 {
-    position: relative;
-
+    perspective-origin: right -20em;
     width: 500px;
-    height: 380px;
-    margin: 80px 0 0;
-
-    /* transition: .3s ease; */
-
-    perspective: 200px;
 }
 
 @keyframes sky
@@ -35,16 +28,75 @@
     }
 }
 
-.box_front
+body:hover
+{
+    perspective: 800px;
+}
+
+.canvas:hover
+{
+    transform: rotateY(-15deg);
+}
+
+.canvas
 {
     position: relative;
 
-    overflow: hidden;
+    margin: 80px 0 0;
 
-    width: 500px;
+    transform-style: preserve-3d;
+}
+
+.side,
+.canvas
+{
+    width: inherit;
     height: 380px;
+}
+
+.side
+{
+    position: absolute;
 
     animation: sky 60s infinite linear;
+}
+
+.back
+{
+    transform: translateZ(-22px);
+}
+
+.left
+{
+    transform: translateX(-22px) rotateY(90deg);
+    width: 44px;
+}
+
+.right
+{
+    transform: translateX(478px) rotateY(90deg);
+    width: 44px;
+}
+
+.top
+{
+    transform: translateY(-21px) rotateX(90deg);
+    height: 44px;
+}
+
+.bottom
+{
+    transform: translateY(358px) rotateX(90deg);
+    height: 44px;
+}
+
+.front
+{
+    transform: translateZ(22px);
+
+    position: relative;
+
+    overflow: hidden;
 }
 
 .ship::after
@@ -97,7 +149,6 @@
     width: 100px;
     height: 36px;
     animation: ship-move 60s infinite linear;
-    /* animation-delay: -24s; */
 }
 
 .ship_smokestack
@@ -282,7 +333,6 @@ div.smoke-3
 .cloud
 {
     position: absolute;
-    /* left: -180px; */
 
     width: 200px;
     height: 60px;
