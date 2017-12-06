@@ -9,6 +9,13 @@
     transition: .3s ease;
 
     perspective: 800px;
+    transform-style: preserve-3d;
+    perspective-origin: top right;
+}
+
+.canvas:hover
+{
+    transform: rotateX(-20deg) rotateY(-20deg);
 }
 
 .box_front
@@ -393,4 +400,68 @@
     content: '';
 
     background: #1d7fbb;
+}
+
+.canvas:hover
+{
+    transform: rotateX(-25deg) rotateY(-25deg);
+}
+
+.top-3d
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 500px;
+    height: 150px;
+    transform: translateY(-100%) rotateX(90deg);
+    transform-origin: 0% 100%;
+    animation: top-animation  90s linear infinite;
+}
+
+.right-3d
+{
+    position: absolute;
+    left: 500px;
+    top: 0;
+    width: 150px;
+    height: 380px;
+    transform: rotateY(90deg);
+    transform-origin: 0% 0%;
+    animation: right-animation 90s linear infinite;
+}
+
+@keyframes top-animation
+{
+    0%
+    {
+        background: skyblue;
+    }
+    25%
+    {
+        background: darkslateblue;
+    }
+    50%
+    {
+        background: darkslateblue;
+    }
+}
+
+@keyframes right-animation
+{
+    0%
+    {
+        background: skyblue;
+        box-shadow: 0 -400px 300px -300px steelblue inset;
+    }
+    25%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px orangered inset;
+    }
+    50%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px transparent inset;
+    }
 }
