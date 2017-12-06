@@ -1,46 +1,141 @@
-.canvas
-{
+body {
+    --canvas-width: 500px;
+    --canvas-height: 380px;
+
+    --day-length: 60s;
+}
+
+@keyframes switch-day-to-night--color {
+    0% {
+        background: skyblue;
+    }
+    50% {
+        background: darkslateblue;
+    }
+    70%,
+    100% {
+        background: darkslateblue;
+    }
+}
+
+@keyframes switch-day-to-night--gradient {
+    0% {
+        box-shadow: 0 -400px 300px -300px steelblue inset;
+    }
+    50% {
+        box-shadow: 0 -400px 300px -300px orangered inset;
+    }
+    70%,
+    100% {
+        box-shadow: 0 -400px 300px -300px transparent inset;
+    }
+}
+
+@keyframes move-ship {
+    to {
+        transform: translateX(-500px);
+    }
+}
+
+@keyframes evaporate-smoke {
+    to {
+        top: -50px;
+        right: 30px;
+        width: 10px;
+        height: 10px;
+        opacity: 0;
+    }
+}
+
+@keyframes rotate-sun {
+    to {
+        transform: rotate(1turn);
+    }
+}
+
+@keyframes move-sun-wrapper {
+    to {
+        transform: rotate(1turn);
+    }
+}
+
+@keyframes move-cloud {
+    to {
+        left: 100%;
+    }
+}
+
+.canvas {
     position: relative;
 
-    width: 500px;
-    height: 380px;
-    margin: 80px 0 0;
+    width: var(--canvas-width);
+    height: var(--canvas-height);
+    margin: 80px auto 0;
 
     transition: .3s ease;
 
-    perspective: 800px;
+    perspective: 2000px;
+
+    transform-style: preserve-3d;
 }
 
-.box_front
-{
+.canvas:hover {
+    transform: rotateX(-25deg) rotateY(-25deg);
+}
+
+.box_front {
     position: relative;
+    z-index: 1;
 
     overflow: hidden;
-
-    width: 500px;
-    height: 380px;
-
-    background: skyblue;
-    box-shadow: 0 -400px 300px -300px steelblue inset;
 }
 
-/*TODO
-Цвета неба задаются следующими свойствами:
-    День:
-        background: skyblue;
-        box-shadow: 0 -400px 300px -300px steelblue inset;
-    Вечер:
-        background: darkslateblue;
-        box-shadow: 0 -400px 300px -300px orangered inset;
-    Ночь:
-        background: darkslateblue;
-        box-shadow: 0 -400px 300px -300px transparent inset;
+.box_top {
+    height: 150px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotateX(-90deg);
+    transform-origin: top;
 
-Нужно реализовать плавный переход между ними и зациклить его.
-*/
+    animation: switch-day-to-night--color calc(var(--day-length) / 2) linear infinite;
+}
 
-.ship::after
-{
+.box_right {
+    width: 150px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: rotateY(-90deg);
+    transform-origin: right;
+}
+
+.box_front,
+.box_top {
+    width: var(--canvas-width);
+}
+
+.box_front,
+.box_right {
+    height: var(--canvas-height);
+
+    box-shadow: 0 -400px 300px -300px steelblue inset;
+
+    /* stylelint-disable indentation, value-list-comma-space-after */
+    animation: switch-day-to-night--color calc(var(--day-length) / 2) linear infinite,
+               switch-day-to-night--gradient calc(var(--day-length) / 2) linear infinite;
+    /* stylelint-enable */
+}
+
+.box_front,
+.box_top,
+.box_right {
+    background: skyblue;
+
+    animation-direction: alternate;
+}
+
+.ship::after {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -54,8 +149,7 @@
     background: #e25c45;
 }
 
-.ship::before
-{
+.ship::before {
     position: absolute;
     top: 0;
     left: 10px;
@@ -69,18 +163,19 @@
     background: #fff;
 }
 
-.ship
-{
+.ship {
     position: absolute;
     right: 0;
     bottom: 30px;
 
     width: 100px;
     height: 36px;
+
+    transform: translateX(150px);
+    animation: move-ship calc(var(--day-length) / 6) linear infinite;
 }
 
-.ship_smokestack
-{
+.ship_smokestack {
     position: absolute;
     bottom: 36px;
     left: 45px;
@@ -91,8 +186,7 @@
     background: #a18e6e;
 }
 
-.ship_window
-{
+.ship_window {
     position: absolute;
     top: 6px;
     left: 40px;
@@ -105,8 +199,7 @@
     box-shadow: 13px 0 0 0 #a18e6e, -13px 0 0 0 #a18e6e;
 }
 
-.smoke div
-{
+.smoke div {
     position: absolute;
 
     width: 7px;
@@ -116,26 +209,36 @@
     background: #fff;
 }
 
-.smoke-1
-{
+.smoke-1,
+.smoke-2,
+.smoke-3 {
+    animation: evaporate-smoke 3s ease-out infinite;
+}
+
+.smoke-1 {
     top: -25px;
     right: 44px;
+
+    transform: scale(1.2);
 }
 
-.smoke-2
-{
+.smoke-2 {
     top: -25px;
     right: 42px;
+
+    transform: scale(1.5);
+
+    animation-delay: 1s;
 }
 
-.smoke-3
-{
+.smoke-3 {
     top: -25px;
     right: 49px;
+
+    animation-delay: 2s;
 }
 
-.sun
-{
+.sun {
     position: absolute;
     top: 30px;
     right: 50%;
@@ -146,20 +249,22 @@
     border-radius: 50%;
     background: #ffcf11;
     box-shadow: 0 0 100px #ffdf05;
+
+    animation: rotate-sun calc(var(--day-length) / 6) linear infinite;
 }
 
-.sun-wrapper
-{
+.sun-wrapper {
     position: absolute;
 
     width: 100%;
     height: 100%;
 
     transform-origin: bottom center;
+
+    animation: move-sun-wrapper var(--day-length) linear infinite;
 }
 
-.sun div
-{
+.sun div {
     position: absolute;
     top: -20px;
     left: 50%;
@@ -172,53 +277,43 @@
     border-width: 10px 0;
 }
 
-.sun div:nth-child(2)
-{
+.sun div:nth-child(2) {
     transform: rotate(18deg);
 }
 
-.sun div:nth-child(3)
-{
+.sun div:nth-child(3) {
     transform: rotate(36deg);
 }
 
-.sun div:nth-child(4)
-{
+.sun div:nth-child(4) {
     transform: rotate(54deg);
 }
 
-.sun div:nth-child(5)
-{
+.sun div:nth-child(5) {
     transform: rotate(72deg);
 }
 
-.sun div:nth-child(6)
-{
+.sun div:nth-child(6) {
     transform: rotate(90deg);
 }
 
-.sun div:nth-child(7)
-{
+.sun div:nth-child(7) {
     transform: rotate(-18deg);
 }
 
-.sun div:nth-child(8)
-{
+.sun div:nth-child(8) {
     transform: rotate(-36deg);
 }
 
-.sun div:nth-child(9)
-{
+.sun div:nth-child(9) {
     transform: rotate(-54deg);
 }
 
-.sun div:nth-child(10)
-{
+.sun div:nth-child(10) {
     transform: rotate(-72deg);
 }
 
-.cloud
-{
+.cloud {
     position: absolute;
     left: -180px;
 
@@ -231,8 +326,7 @@
 }
 
 .cloud:before,
-.cloud:after
-{
+.cloud:after {
     position: absolute;
     top: -15px;
     left: 10px;
@@ -246,8 +340,7 @@
     background: #fff;
 }
 
-.cloud:after
-{
+.cloud:after {
     top: -55px;
     right: 15px;
     left: auto;
@@ -256,28 +349,51 @@
     height: 120px;
 }
 
-.cloud-1
-{
+.cloud-1 {
     top: 10px;
+
+    transform: scale(-.3, .3);
+
+    animation-duration: calc(var(--day-length) / 2);
+    animation-delay: calc(var(--day-length) / 20 * 2);
 }
 
-.cloud-2
-{
+.cloud-2 {
     top: 50px;
+
+    transform: scale(.4);
+
+    animation-duration: calc(var(--day-length) / 3);
+    animation-delay: calc(var(--day-length) / 20 * 1);
 }
 
-.cloud-3
-{
+.cloud-3 {
     top: 100px;
+
+    transform: scale(-.5,.5);
+
+    animation-duration: calc(var(--day-length) / 4);
 }
 
-.cloud-4
-{
+.cloud-4 {
     top: 170px;
+
+    transform: scale(.6);
+
+    animation-duration: calc(var(--day-length) / 5);
+    animation-delay: calc(var(--day-length) / 20 * 3);
 }
 
-.sea
-{
+.cloud-1,
+.cloud-2,
+.cloud-3,
+.cloud-4 {
+    animation-name: move-cloud;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.sea {
     position: absolute;
     right: 0;
     bottom: 0;
@@ -289,8 +405,7 @@
     background: #2a94d6;
 }
 
-.sea::after
-{
+.sea::after {
     position: absolute;
     right: 0;
     bottom: 0;
