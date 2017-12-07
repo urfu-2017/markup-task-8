@@ -1,6 +1,13 @@
+body
+{
+    transform-style: preserve-3d;
+    perspective: 2500px;
+}
+
 .canvas
 {
     position: relative;
+    transform-style: preserve-3d;
 
     width: 500px;
     height: 380px;
@@ -9,6 +16,44 @@
     transition: .3s ease;
 
     perspective: 800px;
+}
+
+.canvas:hover
+{
+    transform: rotateX(-15deg) rotateY(-35deg);
+}
+
+.box_up
+{
+    height: 100px;
+    transform: translateY(50px) translateZ(-50px) rotateX(90deg);
+    background: skyblue;
+
+    animation: dayNightTop 60s linear infinite;
+}
+
+.box_right
+{
+    width: 100px;
+    height: 380px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    backface-visibility: hidden;
+    transform: translateX(450px) translateY(-380px) translateZ(-50px)
+        rotateY(90deg);
+    background: skyblue;
+
+    animation: dayNight 60s linear infinite;
+}
+
+.sea_right
+{
+    width: 100px;
+    height: 40px;
+    backface-visibility: hidden;
+    opacity: .8;
+    background: #2a94d6;
 }
 
 .box_front
@@ -42,6 +87,22 @@
     {
         background: skyblue;
         box-shadow: 0 -400px 300px -300px steelblue inset;
+    }
+}
+
+@keyframes dayNightTop
+{
+    25%
+    {
+        background: darkslateblue;
+    }
+    50%
+    {
+        background: darkslateblue;
+    }
+    100%
+    {
+        background: skyblue;
     }
 }
 
@@ -183,7 +244,7 @@
     animation: sunrotate 1s linear infinite;
 }
 
-@keyframes sunrotate
+@keyframes sunRotate
 {
     100%
     {
@@ -401,6 +462,20 @@
 }
 
 .sea::after
+{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    height: 10px;
+
+    content: '';
+
+    background: #1d7fbb;
+}
+
+.sea_right::after
 {
     position: absolute;
     right: 0;
