@@ -8,7 +8,8 @@
 
     transition: .3s ease;
 
-    perspective: 800px;
+    perspective: 3000px;
+    transform-style: preserve-3d;
 }
 
 .box_front
@@ -280,6 +281,8 @@
     opacity: .8;
     border-radius: 200px;
     background: #fff;
+
+    animation: 40s linear infinite;
 }
 
 .cloud:before,
@@ -311,72 +314,76 @@
 .cloud-1
 {
     top: 10px;
-    animation: cloud-1_animation 40s linear 2s infinite;
+    animation-name: cloud-1_animation;
+    animation-delay: 8s;
 }
 
 @keyframes cloud-1_animation
 {
     from
     {
-        transform: translateX(0%) scale(-.3, .3);
+        transform: translateZ(-2800px) translateX(-210px) scale(-1, 1);
     }
     to
     {
-        transform: translateX(700px) scale(-.3, .3);
+        transform: translateZ(-2800px) translateX(1000px) scale(-1, 1);
     }
 }
 
 .cloud-2
 {
     top: 50px;
-    animation: cloud-2_animation 30s linear 14s infinite;
+    animation-name: cloud-2_animation;
+    animation-delay: 20s;
 }
 
 @keyframes cloud-2_animation
 {
     from
     {
-        transform: translateX(0%) scale(.4, .4);
+        transform: translateZ(-2200px) translateX(-210px);
     }
     to
     {
-        transform: translateX(700px) scale(.4, .4);
+        transform: translateZ(-2200px) translateX(1000px);
     }
 }
 
 .cloud-3
 {
     top: 100px;
-    animation: cloud-3_animation 36s linear 0s infinite;
+    animation-name: cloud-3_animation;
+    animation-delay: 0s;
 }
 
 @keyframes cloud-3_animation
 {
     from
     {
-        transform: translateX(0%) scale(-.6, .6);
+        transform: translateZ(-1200px) translateX(-210px) scale(-1, 1);
     }
     to
     {
-        transform: translateX(700px) scale(-.6, .6);
+        transform: translateZ(-1200px) translateX(1000px) scale(-1, 1);
     }
 }
 
 .cloud-4
 {
     top: 170px;
-    animation: cloud-4_animation 28s linear 10s infinite;
+    animation-name: cloud-4_animation;
+    animation-delay: 10s;
 }
 
 @keyframes cloud-4_animation
 {
     from
     {
-        transform: translateX(0%) scale(.7, .7);
+        transform: translateZ(-800px) translateX(-210px);
     }
     to
     {
-        transform: translateX(700px) scale(.7, .7);
+        transform: translateZ(-800px) translateX(1000px);
     }
 }
 
