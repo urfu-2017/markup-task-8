@@ -13,9 +13,9 @@
     transform-style: preserve-3d;
 }
 
-.canvas:hover
+.wrapper:hover .canvas
 {
-    transition: 1s;
+    transition: 1.3s;
     transform: rotateX(-20deg) rotateY(-20deg);
 }
 
