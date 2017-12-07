@@ -1,6 +1,6 @@
 body
 {
-    perspective-origin: right -20em;
+    perspective-origin: right -15em;
     width: 500px;
 }
 
@@ -28,6 +28,14 @@ body
     }
 }
 
+@keyframes rotate
+{
+    100%
+    {
+        transform: rotateY(-15deg);
+    }
+}
+
 body:hover
 {
     perspective: 800px;
@@ -35,7 +43,7 @@ body:hover
 
 .canvas:hover
 {
-    transform: rotateY(-15deg);
+    animation: rotate 1s forwards;
 }
 
 .canvas
@@ -61,38 +69,43 @@ body:hover
     animation: sky 60s infinite linear;
 }
 
-.back
-{
-    transform: translateZ(-22px);
-}
-
-.left
-{
-    transform: translateX(-22px) rotateY(90deg);
-    width: 44px;
-}
-
 .right
 {
-    transform: translateX(478px) rotateY(90deg);
-    width: 44px;
+    transform: translateX(450px) rotateY(90deg);
+    width: 100px;
+}
+
+@keyframes sky-top
+{
+    0%
+    {
+        background: darkslateblue;
+    }
+
+    50%
+    {
+        background: skyblue;
+    }
+    85%
+    {
+        background: darkslateblue;
+    }
+    100%
+    {
+        background: darkslateblue;
+    }
 }
 
 .top
 {
-    transform: translateY(-21px) rotateX(90deg);
-    height: 44px;
-}
-
-.bottom
-{
-    transform: translateY(358px) rotateX(90deg);
-    height: 44px;
+    transform: translateY(-50px) rotateX(90deg);
+    height: 100px;
+    animation: sky-top 60s infinite linear;
 }
 
 .front
 {
-    transform: translateZ(22px);
+    transform: translateZ(50px);
 
     position: relative;
 
