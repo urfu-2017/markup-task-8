@@ -28,8 +28,6 @@
     animation: skyy 40s linear infinite;
 }
 
-
-
 /*
 sea::before
 {
@@ -46,18 +44,18 @@ sea::before
 }
 */
 
-.canvas::after {
+.canvas::after 
+{
     overflow: hidden;
     position: absolute;
     top: -100px;
-    left: 0px;
     height: 100px;
     width: 500px;
     content: '';
     transform: rotateX(90deg);
     transform-origin: bottom;
     animation: skytop 40s linear infinite;
-  }
+}
 
 .box_front
 {
@@ -98,33 +96,37 @@ sea::before
     }
 }
 
-
 @keyframes skyy
 {
     0%
     {
-        background: linear-gradient(to top, #1d7fbb 10px, #2a94d6 10px, #2a94d6 40px, skyblue 40px);
-        box-shadow: 0 10px 300px -300px steelblue inset;
+        background: linear-gradient(to top, #1d7fbb 10px, #2a94d6 10px,
+        #2a94d6 40px, skyblue 40px);
+        box-shadow: 0 -400px 300px -300px steelblue inset;
     }
     20%
     {
-        background: linear-gradient(to top, #1d7fbb 10px, #2a94d6 10px, #2a94d6 40px, darkslateblue 40px);
-        box-shadow: 0 50px 300px -300px orangered inset;
+        background: linear-gradient(to top, #1d7fbb 10px, #2a94d6 10px,
+        #2a94d6 40px, darkslateblue 40px);
+        box-shadow: 0 -400px 300px -300px orangered inset;
     }
     40%
     {
-        background: linear-gradient(to top, #1d7fbb 10px, #2a94d6 10px, #2a94d6 40px, darkslateblue 40px);
-        box-shadow: 0 100px 300px -300px transparent inset;
+        background: linear-gradient(to top, #1d7fbb 10px,
+        #2a94d6 10px, #2a94d6 40px, darkslateblue 40px);
+        box-shadow: 0 -400px 300px -300px transparent inset;
     }
     60%
     {
-        background: linear-gradient(0deg, #1d7fbb 30px, #2a94d6 10px, darkslateblue 40px);
-        box-shadow: 0 -100px 300px -300px transparent inset;
+        background: linear-gradient(0deg, #1d7fbb 30px,
+        #2a94d6 10px, darkslateblue 40px);
+        box-shadow: 0 -400px 300px -300px transparent inset;
     }
     80%
     {
-        background: linear-gradient(0deg, #1d7fbb 30px, #2a94d6 10px, darkslateblue 40px);
-        box-shadow: 0 -10px 300px -300px orangered inset;
+        background: linear-gradient(0deg, #1d7fbb 30px,
+        #2a94d6 10px, darkslateblue 40px);
+        box-shadow: 0 -400px 300px -300px orangered inset;
     }
 }
 
