@@ -1,27 +1,117 @@
 .canvas
 {
     position: relative;
-
     width: 500px;
     height: 380px;
     margin: 80px 0 0;
-
     transition: .3s ease;
+    transform-style: preserve-3d;
+}
 
-    perspective: 800px;
+.canvas:hover
+{
+    -webkit-transform: rotateX(-25deg) rotateY(-25deg) ;
+    transform: rotateX(-25deg) rotateY(-25deg) ;
+}
+
+.box_right
+{
+    position: absolute;
+    top: 0;
+    left: 100%;
+    height: inherit;
+    width: 100px;
+    content: '';
+    transform: rotateY(90deg);
+    transform-origin: left;
+    animation: sky 40s linear infinite;
+}
+
+.canvas::after 
+{
+    overflow: hidden;
+    position: absolute;
+    top: -100px;
+    height: 100px;
+    width: 500px;
+    content: '';
+    transform: rotateX(90deg);
+    transform-origin: bottom;
+    animation: skytop 40s linear infinite;
 }
 
 .box_front
 {
     position: relative;
-
     overflow: hidden;
-
     width: 500px;
     height: 380px;
-
     background: skyblue;
     box-shadow: 0 -400px 300px -300px steelblue inset;
+
+    animation: sky 40s linear infinite;
+}
+
+@keyframes skytop
+{
+    0%
+    {
+        background: skyblue;
+    }
+    20%
+    {
+        background: darkslateblue;
+    }
+    40%
+    {
+        background: darkslateblue;
+    }
+    60%
+    {
+        background: darkslateblue;
+    }
+    80%
+    {
+        background: darkslateblue;
+    }
+    100%
+    {
+        background: skyblue;
+    }
+}
+
+@keyframes sky
+{
+    0%
+    {
+        background: skyblue;
+        box-shadow: 0 -400px 300px -300px steelblue inset;
+    }
+    20%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px orangered inset;
+    }
+    40%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px transparent inset;
+    }
+    60%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px transparent inset;
+    }
+    80%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px orangered inset;
+    }
+    100%
+    {
+        background: skyblue;
+        box-shadow: 0 -400px 300px -300px steelblue inset;
+    }
 }
 
 /*TODO
@@ -71,10 +161,27 @@
 
 .ship
 {
+    animation: move 40s linear infinite;
+}
+
+@keyframes move
+{
+    from 
+    {
+        transform: translateX(100px);
+    }
+
+    to 
+    {
+        transform: translateX(-500px);
+    }
+}
+
+.ship
+{
     position: absolute;
     right: 0;
     bottom: 30px;
-
     width: 100px;
     height: 36px;
 }
@@ -120,18 +227,39 @@
 {
     top: -25px;
     right: 44px;
+    animation: movingSmoke 3s linear infinite;
+    animation-delay: 1s;
 }
 
 .smoke-2
 {
     top: -25px;
     right: 42px;
+    animation: movingSmoke 3s linear infinite;
+    animation-delay: 2s;
 }
 
 .smoke-3
 {
     top: -25px;
     right: 49px;
+    animation: movingSmoke 3s linear infinite;
+}
+
+@keyframes movingSmoke
+{
+    from
+    {
+        top: -25px;
+        opacity: 1;
+        transform: scale(1);
+    }
+    to
+    {
+        top: -47px;
+        opacity: 0;
+        transform: scale(1.7);
+    }
 }
 
 .sun
@@ -142,10 +270,118 @@
 
     width: 80px;
     height: 80px;
-
+    animation: sol linear 40s infinite;
     border-radius: 50%;
     background: #ffcf11;
     box-shadow: 0 0 100px #ffdf05;
+}
+
+@keyframes sol
+{
+    0%
+    {
+        transform: translate(0, 30px) rotate(0deg);
+    }
+    3%
+    {
+        transform: translate(40px, 30px) rotate(90deg);
+    }
+    6%
+    {
+        transform: translate(80px, 41px) rotate(180deg);
+    }
+    9%
+    {
+        transform: translate(120px, 58px) rotate(270deg);
+    }
+    12%
+    {
+        transform: translate(160px, 82px) rotate(360deg);
+    }
+    15%
+    {
+        transform: translate(200px, 111px) rotate(450deg);
+    }
+    18%
+    {
+        transform: translate(240px, 145px) rotate(540deg);
+    }
+    21%
+    {
+        transform: translate(280px, 184px) rotate(630deg);
+    }
+    24%
+    {
+        transform: translate(320px, 226px) rotate(720deg);
+    }
+    27%
+    {
+        transform: translate(360px, 277px) rotate(810deg);
+    }
+    30%
+    {
+        transform: translate(400px, 331px) rotate(900deg);
+    }
+    33%
+    {
+        opacity: 1;
+        transform: translate(440px, 390px) rotate(990deg);
+    }
+    34%
+    {
+        opacity: 0;
+        transform: translate(440px, 390px) rotate(0deg);
+    }
+    68%
+    {
+        opacity: 0;
+        transform: translate(-400px, 390px) rotate(0deg);
+    }
+    70%
+    {
+        opacity: 1;
+        transform: translate(-400px, 390px) rotate(0deg);
+    }
+    73%
+    {
+        transform: translate(-360px, 331px) rotate(-810deg);
+    }
+    76%
+    {
+        transform: translate(-320px, 277px) rotate(-720deg);
+    }
+    79%
+    {
+        transform: translate(-280px, 228px) rotate(-630deg);
+    }
+    82%
+    {
+        transform: translate(-240px, 184px) rotate(-540deg);
+    }
+    85%
+    {
+        transform: translate(-200px, 145px) rotate(-450deg);
+    }
+    88%
+    {
+        transform: translate(-160px, 111px) rotate(-360deg);
+    }
+    91%
+    {
+        transform: translate(-120px, 82px) rotate(-270deg);
+    }
+    94%
+    {
+        transform: translate(-80px, 58px) rotate(-180deg);
+    }
+    97%
+    {
+        transform: translate(-40px, 41px) rotate(-90deg);
+    }
+    100%
+    {
+        transform: translate(0, 30px) rotate(0deg);
+    }
 }
 
 .sun-wrapper
@@ -259,21 +495,42 @@
 .cloud-1
 {
     top: 10px;
+    left: -70px;
+    animation: cloud 40s linear infinite;
+    transform: scale(.3);
 }
 
 .cloud-2
 {
     top: 50px;
+    transform: scale(-.5, .5);
+    animation: cloud 22s linear infinite;
+}
+
+@keyframes cloud
+{
+    0%
+    {
+        left: -200px;
+    }
+    100%
+    {
+        left: 500px;
+    }
 }
 
 .cloud-3
 {
     top: 100px;
+    animation: cloud 30s linear infinite;
+    transform: scale(.6);
 }
 
 .cloud-4
 {
     top: 170px;
+    animation: cloud 14s linear infinite;
+    transform: scale(-.7,.7);
 }
 
 .sea
@@ -282,9 +539,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-
     height: 40px;
-
     opacity: .8;
     background: #2a94d6;
 }
@@ -295,10 +550,8 @@
     right: 0;
     bottom: 0;
     left: 0;
-
     height: 10px;
-
     content: '';
-
     background: #1d7fbb;
 }
+
