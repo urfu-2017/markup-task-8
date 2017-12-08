@@ -1,7 +1,6 @@
 body
 {
-    perspective-origin: right -15em;
-    width: 500px;
+    perspective: 2500px;
 }
 
 @keyframes sky
@@ -28,22 +27,9 @@ body
     }
 }
 
-@keyframes rotate
-{
-    100%
-    {
-        transform: rotateY(-15deg);
-    }
-}
-
-body:hover
-{
-    perspective: 800px;
-}
-
 .canvas:hover
 {
-    animation: rotate 1s forwards;
+    transform: rotateX(-20deg) rotateY(-25deg);
 }
 
 .canvas
@@ -53,12 +39,13 @@ body:hover
     margin: 80px 0 0;
 
     transform-style: preserve-3d;
+    transition: transform .5s ease-in;
 }
 
 .side,
 .canvas
 {
-    width: inherit;
+    width: 500px;
     height: 380px;
 }
 
