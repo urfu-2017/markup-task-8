@@ -1,7 +1,6 @@
 .canvas
 {
     position: relative;
-
     width: 500px;
     height: 380px;
     margin: 80px 0 0;
@@ -15,7 +14,7 @@
     transform: rotateX(-25deg) rotateY(-25deg) ;
 }
 
-.canvas::before
+.box_right
 {
     position: absolute;
     top: 0;
@@ -25,24 +24,8 @@
     content: '';
     transform: rotateY(90deg);
     transform-origin: left;
-    animation: skyy 40s linear infinite;
+    animation: sky 40s linear infinite;
 }
-
-/*
-sea::before
-{
-    top: 0;
-    right: 200%;
-    width: 100px;
-    content: '';
-    transform: rotateY(-90deg);
-    transform-origin: left;
-    position: absolute;
-    height: 40px;
-    opacity: .8;
-    background: #2a94d6;
-}
-*/
 
 .canvas::after 
 {
@@ -60,12 +43,9 @@ sea::before
 .box_front
 {
     position: relative;
-
     overflow: hidden;
-
     width: 500px;
     height: 380px;
-
     background: skyblue;
     box-shadow: 0 -400px 300px -300px steelblue inset;
 
@@ -94,39 +74,9 @@ sea::before
     {
         background: darkslateblue;
     }
-}
-
-@keyframes skyy
-{
-    0%
+    100%
     {
-        background: linear-gradient(to top, #1d7fbb 10px, #2a94d6 10px,
-        #2a94d6 40px, skyblue 40px);
-        box-shadow: 0 -400px 300px -300px steelblue inset;
-    }
-    20%
-    {
-        background: linear-gradient(to top, #1d7fbb 10px, #2a94d6 10px,
-        #2a94d6 40px, darkslateblue 40px);
-        box-shadow: 0 -400px 300px -300px orangered inset;
-    }
-    40%
-    {
-        background: linear-gradient(to top, #1d7fbb 10px,
-        #2a94d6 10px, #2a94d6 40px, darkslateblue 40px);
-        box-shadow: 0 -400px 300px -300px transparent inset;
-    }
-    60%
-    {
-        background: linear-gradient(0deg, #1d7fbb 30px,
-        #2a94d6 10px, darkslateblue 40px);
-        box-shadow: 0 -400px 300px -300px transparent inset;
-    }
-    80%
-    {
-        background: linear-gradient(0deg, #1d7fbb 30px,
-        #2a94d6 10px, darkslateblue 40px);
-        box-shadow: 0 -400px 300px -300px orangered inset;
+        background: skyblue;
     }
 }
 
@@ -156,6 +106,11 @@ sea::before
     {
         background: darkslateblue;
         box-shadow: 0 -400px 300px -300px orangered inset;
+    }
+    100%
+    {
+        background: skyblue;
+        box-shadow: 0 -400px 300px -300px steelblue inset;
     }
 }
 
@@ -206,10 +161,10 @@ sea::before
 
 .ship
 {
-    animation: ship 40s linear infinite;
+    animation: move 40s linear infinite;
 }
 
-@keyframes ship
+@keyframes move
 {
     from 
     {
@@ -541,73 +496,41 @@ sea::before
 {
     top: 10px;
     left: -70px;
-    animation: cloud-1 40s linear infinite;
-}
-
-@keyframes cloud-1
-{
-    from 
-    {
-        transform: scale(.3) translateX(-1px);
-    }
-    to 
-    {
-        transform: scale(.3) translateX(700px);
-    }
+    animation: cloud 40s linear infinite;
+    transform: scale(.3);
 }
 
 .cloud-2
 {
     top: 50px;
-    animation: cloud-2 22s linear infinite;
+    transform: scale(-.5, .5);
+    animation: cloud 22s linear infinite;
 }
 
-@keyframes cloud-2
+@keyframes cloud
 {
-    from 
+    0%
     {
-        transform: scale(-.5, .5) translateX(-1px);
+        left: -200px;
     }
-    to 
+    100%
     {
-        transform: scale(-.5, .5) translateX(-1300px);
+        left: 500px;
     }
 }
 
 .cloud-3
 {
     top: 100px;
-    animation: cloud-3 30s linear infinite;
-}
-
-@keyframes cloud-3
-{
-    from 
-    {
-        transform: scale(.6) translateX(-10px);
-    }
-    to 
-    {
-        transform: scale(.6) translateX(1200px);
-    }
+    animation: cloud 30s linear infinite;
+    transform: scale(.6);
 }
 
 .cloud-4
 {
     top: 170px;
-    animation: cloud-4 14s linear infinite;
-}
-
-@keyframes cloud-4
-{
-    from 
-    {
-        transform: scale(-.7,.7) translateX(0);
-    }
-    to 
-    {
-        transform: scale(-.7,.7) translateX(-950px);
-    }
+    animation: cloud 14s linear infinite;
+    transform: scale(-.7,.7);
 }
 
 .sea
@@ -616,9 +539,7 @@ sea::before
     right: 0;
     bottom: 0;
     left: 0;
-
     height: 40px;
-
     opacity: .8;
     background: #2a94d6;
 }
@@ -629,10 +550,8 @@ sea::before
     right: 0;
     bottom: 0;
     left: 0;
-
     height: 10px;
-
     content: '';
-
     background: #1d7fbb;
 }
+
