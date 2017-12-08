@@ -363,14 +363,14 @@
 .cloud-1
 {
     top: 10px;
-    animation: cloudAnimation 70s linear infinite 5s;    
-    transform: scale(-0.2,0.2);
+    animation: cloudAnimation 70s linear infinite 5s;
+    transform: scale(-.2,.2);
 }
 
 .cloud-2
 {
     animation: cloudAnimation 60s linear infinite -10s;
-    transform: scale(.4);    
+    transform: scale(.4);
     top: 50px;
 }
 
