@@ -24,7 +24,7 @@
     width: 500px;
     height: 380px;
 
-    animation: skyAnimation 20s linear infinite;
+    animation: sky-animation 20s linear infinite;
 }
 
 .box_right
@@ -37,7 +37,7 @@
 
     transform-origin: left top;
     transform: rotateY(90deg);
-    animation: skyAnimation 20s linear infinite;
+    animation: sky-animation 20s linear infinite;
 }
 
 .box_top
@@ -50,10 +50,10 @@
 
     transform-origin: left top;
     transform: translateY(80px) rotateX(-90deg);
-    animation: topBoxSkyAnimation 20s linear infinite;
+    animation: top-box-sky-animation 20s linear infinite;
 }
 
-@keyframes skyAnimation
+@keyframes sky-animation
 {
     0%,
     15%
@@ -80,7 +80,7 @@
     }
 }
 
-@keyframes topBoxSkyAnimation
+@keyframes top-box-sky-animation
 {
     0%,
     15%
@@ -142,10 +142,10 @@
     width: 100px;
     height: 36px;
 
-    animation: shipAnimation 10s linear infinite;
+    animation: ship-animation 10s linear infinite;
 }
 
-@keyframes shipAnimation
+@keyframes ship-animation
 {
     from
     {
@@ -199,7 +199,7 @@
     top: -25px;
     right: 44px;
 
-    animation: smokeAnimation 1.5s linear infinite;
+    animation: smoke-animation 1.5s linear infinite;
 }
 
 .smoke-2
@@ -207,7 +207,7 @@
     top: -25px;
     right: 42px;
     
-    animation: smokeAnimation 2s linear infinite;
+    animation: smoke-animation 2s linear infinite;
 }
 
 .smoke-3
@@ -215,10 +215,10 @@
     top: -25px;
     right: 49px;
 
-    animation: smokeAnimation 1s linear infinite;
+    animation: smoke-animation 1s linear infinite;
 }
 
-@keyframes smokeAnimation
+@keyframes smoke-animation
 {
     0%
     {
@@ -250,15 +250,7 @@
     background: #ffcf11;
     box-shadow: 0 0 100px #ffdf05;
 
-    animation: sunRotationAnimation 3s linear infinite;
-}
-
-@keyframes sunRotationAnimation
-{
-    to
-    {
-        transform: rotate(1turn);
-    }
+    animation: rotate-animation 3s linear infinite;
 }
 
 .sun-wrapper
@@ -269,12 +261,12 @@
     height: 100%;
 
     transform-origin: bottom center;
-    animation: sunPositionAnimation 20s linear infinite;
+    animation: rotate-animation 20s linear infinite;
 }
 
-@keyframes sunPositionAnimation
+@keyframes rotate-animation
 {
-    100%
+    to
     {
         transform: rotate(1turn);
     }
@@ -383,15 +375,7 @@
     top: 10px;
 
     transform: scale(.2);
-    animation: cloud1Animation 6s linear infinite;
-}
-
-@keyframes cloud1Animation
-{
-    to
-    {
-        transform: translateX(700px) scale(.2);
-    }
+    animation: cloud-animation 12s linear infinite;
 }
 
 .cloud-2
@@ -399,15 +383,7 @@
     top: 50px;
 
     transform: scale(-.4, .4);
-    animation: cloud2Animation 8s linear infinite;
-}
-
-@keyframes cloud2Animation
-{
-    to
-    {
-        transform: translateX(700px) scale(-.4, .4);
-    }
+    animation: cloud-animation 10s linear infinite;
 }
 
 .cloud-3
@@ -415,15 +391,7 @@
     top: 100px;
 
     transform: scale(.5);
-    animation: cloud3Animation 10s linear infinite;
-}
-
-@keyframes cloud3Animation
-{
-    to
-    {
-        transform: translateX(700px) scale(.5);
-    }
+    animation: cloud-animation 8s linear infinite;
 }
 
 .cloud-4
@@ -431,14 +399,14 @@
     top: 170px;
 
     transform: scale(-.65, .65);
-    animation: cloud4Animation 12s linear infinite;
+    animation: cloud-animation 6s linear infinite;
 }
 
-@keyframes cloud4Animation
+@keyframes cloud-animation
 {
     to
     {
-        transform: translateX(700px) scale(-.65, .65);
+        left: 100%;
     }
 }
 
