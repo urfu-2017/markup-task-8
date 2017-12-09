@@ -22,6 +22,8 @@
 
     background: skyblue;
     box-shadow: 0 -400px 300px -300px steelblue inset;
+
+    animation: sky 40s linear infinite;
 }
 
 /*TODO
@@ -38,6 +40,35 @@
 
 Нужно реализовать плавный переход между ними и зациклить его.
 */
+
+@keyframes sky
+{
+    0%
+    {
+        background: skyblue;
+        box-shadow: 0 -400px 300px -300px steelblue inset;
+    }
+    20%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px orangered inset;
+    }
+    40%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px transparent inset;
+    }
+    60%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px transparent inset;
+    }
+    80%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px orangered inset;
+    }
+}
 
 .ship::after
 {
@@ -77,6 +108,24 @@
 
     width: 100px;
     height: 36px;
+
+    animation: sail 10s infinite linear;
+}
+
+@keyframes sail
+{
+    0%
+    {
+        right: -100px;
+    }
+    70%
+    {
+        right: 500px;
+    }
+    100%
+    {
+        right: 500px;
+    }
 }
 
 .ship_smokestack
@@ -116,22 +165,88 @@
     background: #fff;
 }
 
+@keyframes smoke-flight
+{
+    0%
+    {
+        top: -25px;
+        opacity: 1;
+    }
+    45%
+    {
+        top: -40px;
+        width: 15px;
+        height: 15px;
+        opacity: .7;
+    }
+    50%
+    {
+        top: -40px;
+    }
+    95%
+    {
+        top: -65px;
+        width: 20px;
+        height: 20px;
+        opacity: 0;
+    }
+    100%
+    {
+        top: -65px;
+        opacity: 0;
+    }
+}
+
 .smoke-1
 {
     top: -25px;
     right: 44px;
+
+    animation: smoke-flight ease 4.5s infinite;
 }
 
 .smoke-2
 {
     top: -25px;
     right: 42px;
+    opacity: 0;
+
+    animation: smoke-flight ease 4.5s infinite;
+    animation-delay: 1.5s;
 }
 
 .smoke-3
 {
     top: -25px;
     right: 49px;
+    opacity: 0;
+
+    animation: smoke-flight ease 4.5s infinite;
+    animation-delay: 3s;
+}
+
+@keyframes sun-rotation
+{
+    0%
+    {
+        transform: rotate(0turn);
+    }
+    100%
+    {
+        transform: rotate(8turn);
+    }
+}
+
+@keyframes sun-walk
+{
+    0%
+    {
+        transform: rotate(0turn);
+    }
+    100%
+    {
+        transform: rotate(1turn);
+    }
 }
 
 .sun
@@ -146,6 +261,8 @@
     border-radius: 50%;
     background: #ffcf11;
     box-shadow: 0 0 100px #ffdf05;
+
+    animation: sun-rotation linear 40s infinite;
 }
 
 .sun-wrapper
@@ -156,6 +273,7 @@
     height: 100%;
 
     transform-origin: bottom center;
+    animation: sun-walk linear 40s infinite;
 }
 
 .sun div
@@ -256,24 +374,51 @@
     height: 120px;
 }
 
+@keyframes nuvem
+{
+    0%
+    {
+        left: -180px;
+    }
+    100%
+    {
+        left: 540px;
+    }
+}
+
 .cloud-1
 {
     top: 10px;
+    transform: scale(.3);
+
+    animation: nuvem linear 18s infinite;
+    animation-delay: .4s;
 }
 
 .cloud-2
 {
     top: 50px;
+    transform: scale(-.5, .5);
+
+    animation: nuvem linear 14s infinite;
+    animation-delay: 1.8s;
 }
 
 .cloud-3
 {
     top: 100px;
+    transform: scale(-.7, .7);
+
+    animation: nuvem linear 10s infinite;
+    animation-delay: 4s;
 }
 
 .cloud-4
 {
     top: 170px;
+    transform: scale(.9);
+
+    animation: nuvem linear 7s infinite;
 }
 
 .sea
