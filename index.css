@@ -149,12 +149,12 @@
 {
     from
     {
-        right: -100px;
+        transform: translateX(100px);
     }
 
     to
     {
-        right: 500px;
+        transform: translateX(-500px);
     }
 }
 
