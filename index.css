@@ -201,15 +201,13 @@
 {
     from
     {
-        top: -25px;
         opacity: 1;
         transform: scale(1);
     }
     to
     {
-        top: -45px;
         opacity: 0;
-        transform: scale(1.5);
+        transform: scale(1.5) translateY(-15px);
     }
 }
 
