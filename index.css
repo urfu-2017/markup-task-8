@@ -4,40 +4,120 @@
 
     width: 500px;
     height: 380px;
-    margin: 80px 0 0;
+    margin: 200px auto 0;
 
+    transform-style: preserve-3d;
     transition: .3s ease;
 
     perspective: 800px;
+    perspective-origin: top right;
 }
 
-.box_front
+.canvas:hover
 {
-    position: relative;
+    -webkit-transform: rotateY(-20deg) rotateX(-10deg) rotateZ(20deg);
+    -moz-transform: rotateY(-20deg) rotateX(-10deg) rotateZ(20deg);
+    -ms-transform: rotateY(-20deg) rotateX(-10deg) rotateZ(20deg);
+    -o-transform: rotateY(-20deg) rotateX(-10deg) rotateZ(20deg);
+    transform: rotateY(-20deg) rotateX(-10deg) rotateZ(20deg);
+}
 
-    overflow: hidden;
+@keyframes daytime-water
+{
+    0%
+    {
+        background: skyblue;
+        box-shadow: 0 -400px 300px -300px steelblue inset;
+    }
 
-    width: 500px;
-    height: 380px;
+    40%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px orangered inset;
+    }
 
+    50%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px transparent inset;
+    }
+}
+
+@keyframes daytime-sky
+{
+    0%
+    {
+        background: skyblue;
+        box-shadow: 0 -400px 300px -300px steelblue inset;
+    }
+
+    40%
+    {
+        background: darkslateblue;
+    }
+
+    50%
+    {
+        background: darkslateblue;
+        box-shadow: 0 -400px 300px -300px transparent inset;
+    }
+}
+
+.box-facet
+{
+    position: absolute;
     background: skyblue;
     box-shadow: 0 -400px 300px -300px steelblue inset;
 }
 
-/*TODO
-Цвета неба задаются следующими свойствами:
-    День:
-        background: skyblue;
-        box-shadow: 0 -400px 300px -300px steelblue inset;
-    Вечер:
-        background: darkslateblue;
-        box-shadow: 0 -400px 300px -300px orangered inset;
-    Ночь:
-        background: darkslateblue;
-        box-shadow: 0 -400px 300px -300px transparent inset;
+.box-facet_front
+{
+    width: 500px;
+    height: 380px;
+    overflow: hidden;
+    animation: daytime-water 90s linear infinite -65s;
+}
 
-Нужно реализовать плавный переход между ними и зациклить его.
-*/
+.box-facet_back
+{
+    width: 500px;
+    height: 380px;
+    transform: translateZ(-100px);
+}
+
+.box-facet_top
+{
+    width: 500px;
+    height: 100px;
+    transform: rotateX(90deg) translateY(-100px);
+    transform-origin: top center;
+    animation: daytime-sky 90s linear infinite -65s;
+}
+
+.box-facet_bottom
+{
+    width: 500px;
+    height: 100px;
+    transform: rotateX(90deg) translateY(-100px) translateZ(-380px);
+    transform-origin: top center;
+}
+
+.box-facet_left
+{
+    width: 100px;
+    height: 380px;
+    transform: rotateY(-90deg) translateX(-100px);
+    transform-origin: left center;
+}
+
+.box-facet_right
+{
+    width: 100px;
+    height: 380px;
+    transform: rotateY(270deg) translateX(-100px) translateZ(-500px);
+    transform-origin: left center;
+    animation: daytime-water 90s linear infinite -65s;
+}
 
 .ship::after
 {
@@ -69,14 +149,38 @@
     background: #fff;
 }
 
+@keyframes sailing-ship
+{
+    from
+    {
+        -webkit-transform: translateX(100px);
+        -moz-transform: translateX(100px);
+        -ms-transform: translateX(100px);
+        -o-transform: translateX(100px);
+        transform: translateX(100px);
+    }
+
+    to
+    {
+        -webkit-transform: translateX(-500px);
+        -moz-transform: translateX(-500px);
+        -ms-transform: translateX(-500px);
+        -o-transform: translateX(-500px);
+        transform: translateX(-500px);
+    }
+}
+
 .ship
 {
+    z-index: 2;
     position: absolute;
     right: 0;
     bottom: 30px;
 
     width: 100px;
     height: 36px;
+
+    animation: sailing-ship 30s linear infinite;
 }
 
 .ship_smokestack
@@ -105,6 +209,28 @@
     box-shadow: 13px 0 0 0 #a18e6e, -13px 0 0 0 #a18e6e;
 }
 
+@keyframes rising-smoke
+{
+    from
+    {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+    }
+    to
+    {
+        opacity: 0;
+        -webkit-transform: scale(1.5) translateY(-15px);
+        -moz-transform: scale(1.5) translateY(-15px);
+        -ms-transform: scale(1.5) translateY(-15px);
+        -o-transform: scale(1.5) translateY(-15px);
+        transform: scale(1.5) translateY(-15px);
+    }
+}
+
 .smoke div
 {
     position: absolute;
@@ -120,25 +246,52 @@
 {
     top: -25px;
     right: 44px;
+    animation: rising-smoke 3s ease-out infinite -1s;
 }
 
 .smoke-2
 {
     top: -25px;
-    right: 42px;
+    right: 46px;
+    animation: rising-smoke 3s ease-out infinite;
 }
 
 .smoke-3
 {
     top: -25px;
-    right: 49px;
+    right: 48px;
+    animation: rising-smoke 3s ease-out infinite 1s;
+}
+
+@keyframes rising-sun
+{
+    from
+    {
+        -webkit-transform: rotate(0turn) translateY(-300px) rotate(1turn);
+        -moz-transform: rotate(0turn) translateY(-300px) rotate(1turn);
+        -ms-transform: rotate(0turn) translateY(-300px) rotate(1turn);
+        -o-transform: rotate(0turn) translateY(-300px) rotate(1turn);
+        transform: rotate(0turn) translateY(-300px) rotate(1turn);
+    }
+
+    to
+    {
+        -webkit-transform: rotate(1turn) translateY(-300px) rotate(6turn);
+        -moz-transform: rotate(1turn) translateY(-300px) rotate(6turn);
+        -ms-transform: rotate(1turn) translateY(-300px) rotate(6turn);
+        -o-transform: rotate(1turn) translateY(-300px) rotate(6turn);
+        transform: rotate(1turn) translateY(-300px) rotate(6turn);
+    }
 }
 
 .sun
 {
+    z-index: 1;
     position: absolute;
-    top: 30px;
-    right: 50%;
+    margin: 0 auto;
+    bottom: 0;
+    right: 0;
+    left: 0;
 
     width: 80px;
     height: 80px;
@@ -146,6 +299,7 @@
     border-radius: 50%;
     background: #ffcf11;
     box-shadow: 0 0 100px #ffdf05;
+    animation: rising-sun 90s linear infinite -65s;
 }
 
 .sun-wrapper
@@ -219,6 +373,7 @@
 
 .cloud
 {
+    z-index: 2;
     position: absolute;
     left: -180px;
 
@@ -228,6 +383,9 @@
     opacity: .8;
     border-radius: 200px;
     background: #fff;
+
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
 }
 
 .cloud:before,
@@ -256,28 +414,91 @@
     height: 120px;
 }
 
+@keyframes floating-cloud-1
+{
+    to
+    {
+        -webkit-transform: translateX(700px) scale(.4);
+        -moz-transform: translateX(700px) scale(.4);
+        -ms-transform: translateX(700px) scale(.4);
+        -o-transform: translateX(700px) scale(.4);
+        transform: translateX(700px) scale(.4);
+    }
+}
+
+@keyframes floating-cloud-2
+{
+    to
+    {
+        -webkit-transform: translateX(700px) scale(.5) scaleX(-1);
+        -moz-transform: translateX(700px) scale(.5) scaleX(-1);
+        -ms-transform: translateX(700px) scale(.5) scaleX(-1);
+        -o-transform: translateX(700px) scale(.5) scaleX(-1);
+        transform: translateX(700px) scale(.5) scaleX(-1);
+    }
+}
+
+@keyframes floating-cloud-3
+{
+    to
+    {
+        -webkit-transform: translateX(700px) scale(.6);
+        -moz-transform: translateX(700px) scale(.6);
+        -ms-transform: translateX(700px) scale(.6);
+        -o-transform: translateX(700px) scale(.6);
+        transform: translateX(700px) scale(.6);
+    }
+}
+
+@keyframes floating-cloud-4
+{
+    to
+    {
+        -webkit-transform: translateX(700px) scale(.7) scaleX(-1);
+        -moz-transform: translateX(700px) scale(.7) scaleX(-1);
+        -ms-transform: translateX(700px) scale(.7) scaleX(-1);
+        -o-transform: translateX(700px) scale(.7) scaleX(-1);
+        transform: translateX(700px) scale(.7) scaleX(-1);
+    }
+}
+
 .cloud-1
 {
     top: 10px;
+    transform: scale(.4);
+    animation-duration: 22s;
+    animation-name: floating-cloud-1;
 }
 
 .cloud-2
 {
     top: 50px;
+    animation-delay: 4s;
+    animation-duration: 20s;
+    transform: scale(.5) scaleX(-1);
+    animation-name: floating-cloud-2;
 }
 
 .cloud-3
 {
     top: 100px;
+    transform: scale(.6);
+    animation-duration: 18s;
+    animation-name: floating-cloud-3;
 }
 
 .cloud-4
 {
     top: 170px;
+    animation-delay: 3s;
+    animation-duration: 16s;
+    transform: scale(.7) scaleX(-1);
+    animation-name: floating-cloud-4;
 }
 
 .sea
 {
+    z-index: 2;
     position: absolute;
     right: 0;
     bottom: 0;
