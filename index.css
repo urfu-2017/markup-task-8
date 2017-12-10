@@ -81,6 +81,8 @@
 
     background: skyblue;
     box-shadow: 0 -400px 300px -300px steelblue inset;
+    perspective: 300px;
+    perspective-origin: 0 10%;
 }
 
 .box_right
@@ -324,7 +326,7 @@ div.smoke-3
 .cloud
 {
     position: absolute;
-    left: -200px;
+    left: -300px;
 
     width: 200px;
     height: 60px;
@@ -364,11 +366,11 @@ div.smoke-3
 {
     from
     {
-        transform: scale(.3);
+        transform: translateZ(-800px);
     }
     to
     {
-        transform: translateX(900px) scale(.3);
+        transform: translateX(2150px) translateZ(-800px);
     }
 }
 
@@ -376,11 +378,11 @@ div.smoke-3
 {
     from
     {
-        transform: scale(.4) scaleX(-1);
+        transform: translateZ(-500px) scaleX(-1);
     }
     to
     {
-        transform: translateX(900px) scale(.4) scaleX(-1);
+        transform: translateX(2150px) translateZ(-500px) scaleX(-1);
     }
 }
 
@@ -388,11 +390,11 @@ div.smoke-3
 {
     from
     {
-        transform: scale(.5);
+        transform: translateZ(-300px);
     }
     to
     {
-        transform: translateX(900px) scale(.5);
+        transform: translateX(2150px) translateZ(-300px);
     }
 }
 
@@ -400,24 +402,24 @@ div.smoke-3
 {
     from
     {
-        transform: scale(.6) scaleX(-1);
+        transform: translateZ(-150px) scaleX(-1);
     }
     to
     {
-        transform: translateX(900px) scale(.6) scaleX(-1);
+        transform: translateX(2150px) translateZ(-150px) scaleX(-1);
     }
 }
 
 .cloud-1
 {
     top: 10px;
-    animation: cloud1-move 50s linear infinite;
+    animation: cloud1-move 30s linear 5s infinite;
 }
 
 .cloud-2
 {
     top: 50px;
-    animation: cloud2-move 40s linear 15s infinite;
+    animation: cloud2-move 30s linear 15s infinite;
 }
 
 .cloud-3
@@ -429,7 +431,7 @@ div.smoke-3
 .cloud-4
 {
     top: 170px;
-    animation: cloud4-move 20s linear 10s infinite;
+    animation: cloud4-move 30s linear 10s infinite;
 }
 
 .sea
