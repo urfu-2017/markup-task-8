@@ -129,6 +129,7 @@
 {
     position: absolute;
     bottom: 50px;
+    left: 545px;
 
     width: 100px;
     height: 36px;
@@ -140,47 +141,83 @@
 {
     0%
     {
-        left: 600px;
+        transform: translate(-25px, -5px) rotate(0deg);
     }
-    5%,
-    15%,
-    25%,
-    35%,
-    45%,
-    55%,
-    65%,
+    5%
+    {
+        transform: translate(-50px, 5px) rotate(0deg);
+    }
+    10%
+    {
+        transform: translate(-75px, -5px) rotate(0deg);
+    }
+    15%
+    {
+        transform: translate(-100px, 5px) rotate(0deg);
+    }
+    20%
+    {
+        transform: translate(-125px, -5px) rotate(0deg);
+    }
+    25%
+    {
+        transform: translate(-150px, 5px) rotate(0deg);
+    }
+    30%
+    {
+        transform: translate(-175px, -5px) rotate(0deg);
+    }
+    35%
+    {
+        transform: translate(-200px, 5px) rotate(0deg);
+    }
+    40%
+    {
+        transform: translate(-225px, -5px) rotate(0deg);
+    }
+    45%
+    {
+        transform: translate(-260px, 5px) rotate(0deg);
+    }
+    50%
+    {
+        transform: translate(-285px, -5px) rotate(0deg);
+    }
+    55%
+    {
+        transform: translate(-310px, 5px) rotate(0deg);
+    }
+    60%
+    {
+        transform: translate(-335px, -5px) rotate(0deg);
+    }
+    65%
+    {
+        transform: translate(-360px, 5px) rotate(0deg);
+    }
+    70%
+    {
+        transform: translate(-385px, -5px) rotate(0deg);
+    }
     75%
     {
-        bottom: 45px;
+        transform: translate(-410px, 5px) rotate(0deg);
     }
-    10%,
-    20%,
-    30%,
-    40%,
-    50%,
-    60%,
-    70%,
     80%
     {
-        bottom: 50px;
-        transform: rotate(0deg);
+        transform: translate(-440px, -5px) rotate(0deg);
     }
     85%
     {
-        left: 48px;
-        bottom: 45px;
+        transform: translate(-470px, 0);
     }
     87%
     {
-        left: 48px;
-        bottom: 45px;
-        transform: rotate(90deg);
+        transform: translate(-475px, 0) rotate(90deg);
     }
     100%
     {
-        left: 35px;
-        bottom: -150px;
-        transform: rotate(135deg);
+        transform: translate(-475px, 150px)  rotate(135deg);
     }
 }
 
@@ -399,43 +436,79 @@
 .cloud-1
 {
     top: 10px;
-    transform: scale(.4, .4);
-    animation: cloudanimation 30s linear infinite;
+    left: -220px;
+    animation: firstcloudanimation 30s linear infinite;
     animation-delay: 5s;
+}
+
+@keyframes firstcloudanimation
+{
+    0%
+    {
+        transform: scale(.4, .4);
+    }
+    100%
+    {
+        transform: translateX(580px) scale(.4, .4);
+    }
 }
 
 .cloud-2
 {
     top: 50px;
-    transform: scale(.2, .2);
-    animation: cloudanimation 50s linear infinite;
+    left: -200px;
+    animation: secondcloudanimation 50s linear infinite;
     animation-delay: 10s;
+}
+
+@keyframes secondcloudanimation
+{
+    0%
+    {
+        transform: scale(.2, .2);
+    }
+    100%
+    {
+        transform: translateX(580px) scale(.4, .4);
+    }
 }
 
 .cloud-3
 {
     top: 100px;
-    transform: scale(.6, .6);
-    animation: cloudanimation 40s linear infinite;
+    left: -210px;
+    animation: thirdcloudanimation 40s linear infinite;
     animation-delay: 15s;
+}
+
+@keyframes thirdcloudanimation
+{
+    0%
+    {
+        transform: scale(.6, .6);
+    }
+    100%
+    {
+        transform: translateX(580px) scale(.6, .6);
+    }
 }
 
 .cloud-4
 {
     top: 170px;
-    transform: scale(.3, .3);
-    animation: cloudanimation 20s linear infinite;
+    left: -200px;
+    animation: fourthcloudanimation 20s linear infinite;
 }
 
-@keyframes cloudanimation
+@keyframes fourthcloudanimation
 {
     0%
     {
-        left: -140px;
+        transform: scale(.3, .3);
     }
     100%
     {
-        left: 580px;
+        transform: translateX(580px) scale(.3, .3);
     }
 }
 
@@ -497,18 +570,15 @@
     height: 30px;
     position: absolute;
     bottom: -10px;
+    left: -60px;
     animation: fishanimation 40s linear infinite;
 }
 
 @keyframes fishanimation
 {
-    0%
-    {
-        left: -60px;
-    }
     100%
     {
-        left: 550px;
+        transform: translateX(600px);
     }
 }
 
@@ -518,23 +588,16 @@
     width: 30px;
     height: 30px;
     position: absolute;
-    bottom: 30px;
+    left: -70px;
+    bottom: 15px;
     animation: fishesanimation 20s linear infinite;
 }
 
 @keyframes fishesanimation
 {
-    0%
-    {
-        left: -70px;
-    }
-    70%
-    {
-        bottom: 10px;
-    }
     100%
     {
-        left: 550px;
+        transform: translateX(600px);
     }
 }
 
@@ -545,7 +608,8 @@
     height: 15px;
     position: absolute;
     left: 10px;
-    animation: jellyanimation 7s infinite;
+    bottom: 15px;
+    animation: jellyanimation 3s infinite;
 }
 
 @keyframes jellyanimation
@@ -553,11 +617,11 @@
     0%,
     100%
     {
-        bottom: 10px;
+        transform: translateY(3px);
     }
     50%
     {
-        bottom: 15px;
+        transform: translateY(-3px);
     }
 }
 
